@@ -1,0 +1,72 @@
+# National Wellbeing Conclave: research brief (compiled 16 Nov 2026, restored same day)
+
+## The 3rd edition (ours)
+- Ministry of Education (@EduMinOfIndia on X, @eduminofindia on Instagram), ~13–14 Nov 2026: "From awareness to action, strengthening the foundations of mental health, resilience and wellbeing across higher education institutions. The 3rd National Wellbeing Conclave will be held on 6–7 December 2026 at IIT Ropar." #NationalWellbeingConclave
+- **Official theme (from the MoE save-the-date):** "Beyond Awareness: Institutionalising Mental Health, Resilience and Wellbeing in Higher Education"
+- Official name in use: **National Wellbeing Conclave** (not "Wellness"). Suggested slug: `national-wellbeing-conclave-2026`. Confirm with the Dean.
+- "From awareness to action" is the Ministry's framing (caption); works as the tagline.
+
+### MoE launch carousel (4 slides + 1 wide banner), copy verbatim
+1. **Save the date.** "Beyond Awareness: Institutionalising Mental Health, Resilience and Wellbeing in Higher Education". "3rd National Wellbeing Conclave is here!" "Mental wellbeing is a national priority. The Department of Higher Education is bringing together institutional leaders, faculty and students to drive collective action towards building resilient, inclusive and wellbeing-oriented higher education campuses." Save the Date: 6th–7th December 2026, IIT Ropar.
+2. **Why it matters.** "Together, let's create safe and inclusive campuses where every individual feels supported, belongs and thrives!" Questions: Why is this happening? Why this matters? What are the benefits? Line: "Student Wellbeing First: Empowering Minds, Transforming Lives." Benefits: equipping teachers with early-detection tools & psychological first-aid; building supportive campus spaces focused on life skills and resilience; ensuring access to professional counselling and safe pathways to seek help.
+3. **Look back: "From Conversation to Movement".** Integrated Approach to Promoting Positive Mental Health, launched under MMTTP, momentum since May 2024. **54+** online capacity-building sessions, **3,800+** faculty members, **160+** HEIs. 1st Conclave, Nov 2024: IIT Hyderabad, **350+ participants from 98 HEIs**. 2nd Conclave, Nov 2025: IIT Bombay, **77 HEIs and 300 participants**, student-led talk shows, nukkad nataks, Compendium of Emerging Practices. Regional Teacher Connect Workshops: **5** (IIT Madras, IIT Indore, IIT Guwahati, IIT Bhubaneswar, IIT Jammu), **450+ participants from 129 HEIs**.
+4. **Who benefits and what's next.** Students: safe, inclusive, stigma-free residential and academic environment with professional counselling and peer support networks. Faculty & staff: specialised training to act as compassionate first-line mentors. Institutions: standardised wellness frameworks aligned with Supreme Court guidelines and the **University/Institution Wellness Indicators Checklist (UWIC)**. "The next milestone: the movement expands at the 3rd National Wellbeing Conclave (6th–7th December 2026, IIT Ropar)."
+
+Use the MoE carousel numbers on the portal; they're the Ministry's own and differ slightly from the press figures below.
+
+### Campaign visual language
+- Warm cream/off-white backgrounds, thin gold corner-frame lines.
+- Headings in a coral-red → orange gradient, deep navy blue for body and bars, mustard-yellow highlight pills. Teal and green accents on cards.
+- Friendly illustrated brain/heart characters, flowers and leaves.
+- Logo row on every slide: Malaviya Mission Teacher Training Programme (left), GoI Emblem + "Ministry of Education, Department of Higher Education" (centre), a circular institute seal (right, likely IIT Ropar; confirm).
+
+## The series
+| | 1st, 2024 | 2nd, 2025 | 3rd, 2026 |
+|---|---|---|---|
+| Host | IIT Hyderabad | IIT Bombay | IIT Ropar |
+| Dates | 9–10 Nov 2024 | 22–23 Nov 2025 | 6–7 Dec 2026 |
+| Scale (MoE carousel) | 350+ participants, 98 HEIs | 77 HEIs, 300 participants | — |
+| Scale (other sources) | 350 stakeholders, ~100 centrally funded HEIs (IIIT-H reports 93 at the exhibition) | ~80 HEIs, 115 faculty, 139 students (PIB). Pre-event: 82 HEIs incl. 20 IITs, 6 IIITs, 8 IIMs, 141 faculty, 130 students | — |
+| Chief guest | Shri K. Sanjay Murthy, Secretary (HE), MoE | Dr. Vineet Joshi, Secretary (HE), MoE | — |
+| Output | Compendium of good practices (48 institutions), report with 7 recommendation areas | "Compendium of emerging best practices of well-being 2.0", Inter-University Action Plan 2025–26 | — |
+
+Recurring people: Smt. Rina Sonowal Kouli (Joint Secretary, HE; valedictory both years), Dr. Jitendra Nagpal (Expressions India, the resource partner; moderated many sessions), Shri Devendra Kumar Sharma (Director, DoHE), Prof. Manoj Singh Gaur (Director, IIT Jammu).
+
+### Previous editions' web pages (why the Dean rejected them)
+- **2024, IIT Hyderabad** (https://mmc.ugc.ac.in/Home/Conclave2024): a title and four paragraphs written after the event. No speakers, schedule, registration, contacts or photos; "Digital Initiatives" and "Follow Us" are empty; copyright 2023 (before the event).
+- **2025, IIT Bombay** (https://acr.iitbombay.org/2nd-national-wellbeing-conclave-2025/): one news post on the Dean ACR (alumni and donor) site. No event dates, only Day 1 speakers named, one image, compendium mentioned but not linked, action plan not described.
+
+### The reference the panel liked: IIT Jammu's Aarohan (content only)
+https://iitjammu.ac.in/aarohan2026/ (JS-rendered from `content.json`)
+- Aarohan (आरोहण), "Journey towards Wellbeing". MMTTP Teacher Connect Programme 2.0, North Region Workshop: a two-day regional capacity workshop on positive mental health, resilience and wellbeing, 25–26 Oct 2026, IIT Jammu. Motto: Learn • Share • Connect • Act. Logos: DoHE MoE, MMTTP, IIT Jammu, a "10 years" badge.
+- Day 1 (Sun 25 Oct), theme "Understanding Student Wellbeing and Institutional Responsibilities": registration; inaugural (welcome, Director's address, Chief Guest, vote of thanks); expert session on supportive learning environments; session on the psychosocial landscape from policy to practice (MoE initiatives + IIT Jammu's wellbeing model); group photo; panel on social belonging; panel on early identification, with faculty and students as wellbeing champions; lunch; panel on lifestyle conditions and NCDs; hands-on workshop on peer mentoring; hostel and mess visit with wardens and students; Director's Dinner.
+- Day 2 (Mon 26 Oct), theme "Building Sustainable Campus Wellbeing Ecosystems": thematic workshop (SLD flag signs, substance-use prevention); panel on human-resource capacity and life skills in curricula; panel on indigenous knowledge, research and technology for holistic wellbeing; group activity on an institutional wellbeing checklist and action plans; valedictory with takeaways from an MoE official; lunch.
+- Every session lists time, tag, title, moderator and speakers with affiliations (e.g. Dr. Jitendra Nagpal, Shri Devendra Kumar Sharma, IIT Delhi/Gandhinagar/Kanpur, AIIMS Jammu, TISS, YourDost).
+- Also: a hero with "View the schedule" and "Photographs" buttons; a summary strip; Google Drive photo albums ("will be linked after the sessions"); a feedback form + PDF poster with QR; a campus emergency/medical numbers footer; a passcode-protected content editor (edits save in the browser; export `content.json` and upload to publish).
+- Missing: registration, travel, accommodation, FAQs, full venue address, contacts.
+
+## Programme framework
+- Sits under MoE's "Integrated Approach for Promoting Positive Mental Health, Resilience & Wellbeing" (launched May 2024 under MMTTP). NIEPA coordinates; Expressions India is the resource partner.
+- Policy lineage: NEP 2020 → UGC guidelines (Apr 2023) → MoE framework guidelines for CFIs (Jul 2023) → Supreme Court 15-point guidelines (Jul 2025) → UWIC checklist (no public copy found).
+- Standard format: inaugural session with the Secretary, symposia, panels, a wellness exhibition of institutional stalls, a compendium release, student workshops (nukkad natak, role-play, talk shows), faculty workshops, valedictory with recommendations. 2025 added a campus walkathon.
+- Recurring themes: school-to-college transition, faculty and students as first responders/sentinels, early identification and intervention, stigma, lifestyle and nutrition, digital wellbeing, collaborative frameworks.
+- The 2024 report recommends "periodic National Wellness Conclaves".
+- IIT Jammu's Aarohan was the 5th regional Teacher Connect workshop, billed by Expressions India as the "Launch of Wellbeing Conclave for Northern India Institutes", i.e. a regional build-up to ours.
+
+## IIT Ropar context
+- Snehita Wellbeing Cell (under Student Affairs; DoSA, faculty advisors, counsellors, student buddies).
+- Dr Ishan Avdhoot Shivanand Center for Yogic Sciences and Holistic Development, groundbreaking 6 Jan 2026.
+
+## Sources
+- MoE on X: https://x.com/EduMinOfIndia (carousel images: https://pbs.twimg.com/media/HW_R6TdaoAA1lFa, HW_R6TkaoAAHQVQ, HW_R6TabgAAwIry, HW_R6ThawAEHQnB, HW_YILdaoAAzEo5)
+- MoE on Instagram: https://www.instagram.com/p/DftdQAqH83N/
+- 2024 report: https://education.gov.in/sites/upload_files/mhrd/files/NWC_Report_Final.pdf
+- 2024 compendium + concept note: https://cdnbbsr.s3waas.gov.in/s3bc88bb2c377261b0336312714b96fcfd/uploads/2025/04/20250425662678238.pdf
+- PIB 2025: https://www.education.gov.in/sites/upload_files/mhrd/files/PIB2193649.pdf
+- AIR 2025 preview: https://www.newsonair.gov.in/iit-bombay-to-host-national-wellbeing-conclave-2025-from-tomorrow
+- Careers360 2025: https://news.careers360.com/iit-bombay-hosts-2nd-national-well-being-conclave-focuses-on-student-mental-health-across-hei-inter-university-action-plan/amp
+- 2024 page: https://mmc.ugc.ac.in/Home/Conclave2024
+- 2025 page: https://acr.iitbombay.org/2nd-national-wellbeing-conclave-2025/
+- Aarohan: https://iitjammu.ac.in/aarohan2026/ (content: /aarohan2026/content.json)
+- IIT Ropar Snehita deck: https://home.iitd.ac.in/uploads/mental/VERTICAL-3/IIT%20ROPER,%20PPT%20(1).pdf
+- Yogic centre: https://news.careers360.com/iit-ropar-yogic-sciences-ishan-avdhoot-shivanand-centre-mental-health-wellness-scholarships-yoga-physical-fitness
