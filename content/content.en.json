@@ -1,0 +1,809 @@
+{
+  "event": {
+    "nameDevanagari": "समरस्यम् 2026",
+    "nameLatin": "Samarasyam 2026",
+    "nameFull": "3rd National Well-being Conclave",
+    "tagline": "स्वस्थ मन | समरस समाज | सशक्त राष्ट्र",
+    "theme": "Mental Wellness, Social Harmony and Collective Development",
+    "dates": "6–7 December 2026",
+    "startDate": "2026-12-06",
+    "venue": "Indian Institute of Technology Ropar, Rupnagar, Punjab",
+    "slug": "national-wellbeing-conclave-2026",
+    "hashtag": "#NationalWellbeingConclave",
+    "programmeNote": "Programme is tentative and subject to change.",
+    "organisers": "Hosted by the Indian Institute of Technology Ropar with the Department of Higher Education, Ministry of Education, Government of India, under the Malaviya Mission Teacher Training Programme."
+  },
+  "ui": {
+    "skipLink": "Skip to main content",
+    "navLabel": "Sections",
+    "heroEyebrow": "Welcome to IIT Ropar",
+    "viewProgramme": "View programme",
+    "nav": {
+      "about": "About",
+      "programme": "Programme",
+      "speakers": "Speakers",
+      "journey": "Journey",
+      "moments": "Moments",
+      "feedback": "Feedback",
+      "contact": "Contact"
+    },
+    "headings": {
+      "glance": "At a glance",
+      "benefits": "Who benefits",
+      "programme": "Programme",
+      "speakers": "Speakers",
+      "dignitaries": "Dignitaries",
+      "speakerGrid": "Speakers and moderators",
+      "moments": "Moments",
+      "feedback": "Feedback",
+      "contact": "Write to us",
+      "emergency": "On campus, if you need help"
+    },
+    "labels": {
+      "dates": "Dates",
+      "venue": "Venue",
+      "countdown": "Conclave opens",
+      "countdownDays": "days to go",
+      "countdownDay": "day to go",
+      "countdownLive": "The Conclave is under way",
+      "countdownOver": "The Conclave has concluded",
+      "programmeTabs": "Programme days",
+      "session": "Session",
+      "moderator": "Moderator",
+      "speakers": "Speakers",
+      "voteOfThanks": "Vote of Thanks",
+      "groups": "Stakeholder groups",
+      "onwards": "onwards",
+      "email": "Email:",
+      "onBehalf": "On behalf of the organising team,",
+      "photosComingSoon": "Photos coming soon",
+      "feedbackClosed": "Feedback opens after the event",
+      "feedbackOpen": "Share your feedback",
+      "copyright": "© 2026 Indian Institute of Technology Ropar"
+    },
+    "typeLabels": {
+      "inaugural": "Inaugural",
+      "exhibition": "Exhibition",
+      "presentation": "Presentation",
+      "panel": "Panel",
+      "symposium": "Symposium",
+      "workshop": "Workshop",
+      "icebreaker": "Ice-breaker",
+      "breakaway": "Breakaway",
+      "students": "Student presentations",
+      "valedictory": "Valedictory",
+      "break": "Break",
+      "cultural": "Cultural",
+      "social": "Activity"
+    },
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "notFound": {
+      "title": "Page not found",
+      "text": "The page you were looking for is not on the Samarasyam 2026 portal.",
+      "link": "Go to the Samarasyam 2026 home page"
+    }
+  },
+  "logos": [],
+  "about": {
+    "heading": "From awareness to action, strengthening the foundations of mental health, resilience and well-being across higher education institutions.",
+    "body": [
+      "Mental well-being is a national priority. The Department of Higher Education is bringing together institutional leaders, faculty and students to drive collective action towards building resilient, inclusive and well-being-oriented higher education campuses."
+    ],
+    "quote": {
+      "text": "Together, let's create safe and inclusive campuses where every individual feels supported, belongs and thrives!",
+      "credit": "Ministry of Education, Government of India"
+    }
+  },
+  "benefits": [
+    {
+      "audience": "Students",
+      "text": "Receive a safe, inclusive, stigma-free residential and academic environment with professional counselling and peer support networks."
+    },
+    {
+      "audience": "Faculty & staff",
+      "text": "Empowered through specialized training to act as compassionate first-line mentors."
+    },
+    {
+      "audience": "Institutions",
+      "text": "Build standardised wellness frameworks aligned with Supreme Court guidelines and the University/Institution Wellness Indicators Checklist (UWIC)."
+    }
+  ],
+  "days": [
+    {
+      "id": "day1",
+      "label": "Day 1",
+      "date": "2026-12-06",
+      "weekday": "Sunday",
+      "theme": null,
+      "sessions": [
+        {
+          "id": "d1-registration",
+          "start": "08:30",
+          "end": "09:30",
+          "type": "break",
+          "title": "Registration | Welcome of Guests | Tea"
+        },
+        {
+          "id": "s1",
+          "number": 1,
+          "start": "09:30",
+          "end": "10:15",
+          "type": "inaugural",
+          "title": "Inaugural Ceremony",
+          "brief": "The inaugural ceremony will formally open समरस्यम् 2026, the 3rd National Well-being Conclave, hosted by the Indian Institute of Technology, Ropar on the theme \"Mental Wellness, Social Harmony and Collective Development\". It will set out the purpose, scope and intended deliverables of the two-day programme and affirm the shared commitment of the Ministry of Education and higher education institutions to advancing student well-being as an integral part of the academic mission.",
+          "speakers": [
+            "prahlad-joshi",
+            "deepti-gaur-mukherjee",
+            "rajeev-ahuja"
+          ],
+          "voteOfThanks": "surya-kant-sahdeo"
+        },
+        {
+          "id": "s2",
+          "number": 2,
+          "start": "10:15",
+          "end": "11:20",
+          "type": "exhibition",
+          "title": "Wellness Exhibition Tour",
+          "subtitle": "Exploring institutional best practices, feedback on exhibits and submission of key learnings",
+          "brief": "The Wellness Exhibition will bring together exhibits from participating institutions presenting their well-being initiatives, support structures and campus practices, including posters on institution-specific surveys of student well-being and the associated anonymised statistics. Delegates will tour the exhibits, interact with institutional representatives, offer feedback on the exhibits and record the key learnings they wish to take back to their own campuses. The learnings so submitted will form part of the documented record of the Conclave."
+        },
+        {
+          "id": "s3",
+          "number": 3,
+          "start": "11:20",
+          "end": "11:30",
+          "type": "presentation",
+          "title": "Presentation on IIT Ropar's Wellness Ecosystem",
+          "brief": "This presentation will use IIT Ropar's institution-wide approach to student well-being as a practical model of an integrated campus ecosystem. It will outline the governance and organisational arrangements, counselling and support services, referral pathways, the roles of faculty and residential staff, and student-facing initiatives. It will also distinguish the model's transferable design principles from the context-specific choices shaped by IIT Ropar's implementation experience, constraints and subsequent adjustments.",
+          "speakers": [
+            "dean-student-affairs"
+          ]
+        },
+        {
+          "id": "s4",
+          "number": 4,
+          "start": "11:30",
+          "end": "11:45",
+          "type": "presentation",
+          "title": "Presentation on initiatives of the Department of Higher Education",
+          "brief": "This session will provide an overview of the evolving policy and institutional landscape concerning student mental well-being in higher education. It will highlight the key initiatives undertaken by the Ministry of Education to strengthen well-being and support systems in HEIs. It will also present the National Well-being Conclaves as a platform for sharing institutional practices, fostering dialogue and translating policy into sustainable campus-level action.",
+          "speakers": []
+        },
+        {
+          "id": "s5",
+          "number": 5,
+          "start": "11:45",
+          "end": "12:30",
+          "type": "panel",
+          "title": "Panel Discussion I",
+          "subtitle": "Transforming social connectedness and belongingness in the emerging well-being climate of 21st-century HEIs",
+          "brief": "Social belonging is a critical determinant of student well-being and a key element of a supportive campus environment. Changing patterns of peer relationships, growing social isolation among young people and the increasing diversity of the student body make deliberate effort towards inclusion more necessary than before. This panel will examine the barriers to building connected and inclusive campuses, including stigma, limited awareness and hesitation in seeking support, and will consider the role of faculty mentorship, peer groups and student engagement in strengthening social harmony and a sense of belonging. Panellists will discuss practical approaches to building peer connection, improving awareness of available support spaces and fostering a culture in which seeking help is normalised.",
+          "moderator": "ananya-syal",
+          "speakers": [
+            "asha-banu-soletti",
+            "ram-manohar-singh"
+          ]
+        },
+        {
+          "id": "s6",
+          "number": 6,
+          "start": "12:30",
+          "end": "13:15",
+          "type": "symposium",
+          "title": "Symposium",
+          "subtitle": "Decoding healthy living: the science of sleep, nutrition and lifestyle",
+          "brief": "Student well-being extends beyond mental health to physical health and the daily habits that sustain both. This symposium will bring together experts in mental health, neurology, sleep medicine and nutrition to examine the scientific evidence on how sleep, diet and lifestyle shape mood, cognition, academic performance and long-term health among young adults. It will address the irregular sleep patterns, poor dietary practices and sedentary routines that are common in residential campus life, and will identify practical, low-cost measures that HEIs can adopt to create healthier campus environments.",
+          "moderator": "jitendra-nagpal",
+          "moderatorRole": "Speaker and Moderator",
+          "speakers": [
+            "akshay-anand",
+            "j-c-suri",
+            "nancy-sahni"
+          ]
+        },
+        {
+          "id": "d1-lunch",
+          "start": "13:15",
+          "end": "14:00",
+          "type": "break",
+          "title": "Lunch"
+        },
+        {
+          "id": "s7",
+          "number": 7,
+          "start": "14:00",
+          "end": "14:15",
+          "type": "icebreaker",
+          "title": "Ice-breaking Session (followed by a briefing on the breakaway sessions)",
+          "brief": "This short, interactive session will re-energise delegates after the lunch break and encourage informal interaction among participants drawn from different institutions and stakeholder groups. It will be followed by a briefing on the objectives, composition, format and expected deliverables of the four parallel breakaway sessions scheduled later in the afternoon.",
+          "speakers": [
+            "geeta-mehrotra"
+          ]
+        },
+        {
+          "id": "s8",
+          "number": 8,
+          "start": "14:15",
+          "end": "15:00",
+          "type": "panel",
+          "title": "Panel Discussion II",
+          "subtitle": "The campus mental health ecosystem: challenges, opportunities and institutional responsibilities",
+          "brief": "Students in higher education today face a widening range of mental health concerns, from academic pressure, anxiety and difficulties of adjustment to conditions requiring clinical care. This panel will examine these emerging challenges and the corresponding roles and responsibilities of institutional leadership, faculty, counsellors, wardens and student bodies. It will consider how counselling and referral systems may be strengthened, how early identification and preventive interventions can be built into the routine functioning of the campus, and how faculty may be sensitised to recognise distress and support students appropriately. The panel brings together perspectives from student welfare administration and faculty development across a central university, an IIT and a university teacher-training centre.",
+          "moderator": "parwinder-singh",
+          "speakers": [
+            "renu-yadav",
+            "jayanti-dutta",
+            "barjeev-tyagi"
+          ]
+        },
+        {
+          "id": "s9",
+          "number": 9,
+          "start": "15:00",
+          "end": "15:45",
+          "type": "panel",
+          "title": "Panel Discussion III",
+          "subtitle": "The impact of social media, youth psychology and digital decluttering",
+          "brief": "Digital technology is now woven into almost every aspect of student life, from learning to friendship and leisure. While it offers access and connection, excessive and unreflective use is associated with screen dependence, fear of missing out, social comparison, disturbed sleep and reduced academic focus. This panel will examine the impact of social media on youth psychology and the effects of digital overload on sleep and academic performance, and will discuss responsible technology use, digital decluttering and the promotion of offline engagement and healthy digital habits. It brings together clinical, academic and technology-industry perspectives.",
+          "moderator": "dhiraj-mahajan",
+          "speakers": [
+            "jyoti-mishra",
+            "b-k-bala-kishore",
+            "sujata-sriram"
+          ]
+        },
+        {
+          "id": "d1-tea",
+          "start": "15:45",
+          "end": "16:00",
+          "type": "break",
+          "title": "Tea Break"
+        },
+        {
+          "id": "s10",
+          "number": 10,
+          "start": "16:00",
+          "end": "16:45",
+          "type": "breakaway",
+          "title": "Four Parallel Breakaway Sessions",
+          "subtitle": "Deliberation on strengthening campus well-being across HEIs",
+          "brief": "Delegates will deliberate in four parallel stakeholder groups (Student Affairs, Faculty, Counsellors and Students) on strengthening campus well-being across HEIs. Drawing on the exhibition, presentations and panel discussions earlier in the day, each group will examine, from its own vantage point, the gaps in present arrangements, the practices that have worked, the support it requires from institutions and the Ministry, and the actions it can itself take.",
+          "groups": [
+            "Student Affairs",
+            "Faculty",
+            "Counsellors",
+            "Students"
+          ]
+        },
+        {
+          "id": "s10-presentations",
+          "start": "16:45",
+          "end": "17:30",
+          "type": "presentation",
+          "title": "Presentation of Stakeholder Deliberations",
+          "subtitle": "Key outcomes and recommendations emerging from the deliberations",
+          "brief": "Each group will then present its key outcomes and recommendations in plenary through a short presentation of about ten minutes, followed by discussion."
+        },
+        {
+          "id": "d1-networking",
+          "start": "17:30",
+          "end": "18:00",
+          "type": "break",
+          "title": "Networking and Social Interaction"
+        },
+        {
+          "id": "d1-cultural",
+          "start": "18:00",
+          "end": "19:00",
+          "type": "cultural",
+          "title": "Cultural Programme"
+        },
+        {
+          "id": "d1-dinner",
+          "start": "19:00",
+          "end": null,
+          "type": "break",
+          "title": "Gala Dinner"
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "label": "Day 2",
+      "date": "2026-12-07",
+      "weekday": "Monday",
+      "theme": null,
+      "sessions": [
+        {
+          "id": "d2-yoga",
+          "start": "06:30",
+          "end": null,
+          "type": "social",
+          "title": "Yoga | Campus Walk",
+          "timeLabel": "06.30 / 07.00"
+        },
+        {
+          "id": "s11",
+          "number": 11,
+          "start": "09:30",
+          "end": "10:00",
+          "type": "workshop",
+          "title": "Focused Workshop I",
+          "subtitle": "Early identification and management of specific learning disabilities, substance-use prevention and related well-being concerns",
+          "brief": "This expert session will focus on identifying the early signs of specific learning disabilities and other concerns that may affect students' academic and psychosocial well-being. It will also address the prevention of substance use and related areas requiring early attention within HEIs. The session will equip participants with greater awareness of the mechanisms for identification, response and referral in supporting students.",
+          "moderator": "jitendra-nagpal",
+          "speakers": [
+            "sidharth-sood"
+          ]
+        },
+        {
+          "id": "s12",
+          "number": 12,
+          "start": "10:00",
+          "end": "10:30",
+          "type": "workshop",
+          "title": "Focused Workshop II",
+          "subtitle": "Predictive well-being: digital tools and biomarkers for early identification of mental health concerns",
+          "brief": "Advances in behavioural science, digital technology and biomedical research are opening new possibilities for recognising the risk of mental health concerns before they become acute. This workshop will introduce participants to emerging digital tools, behavioural data analytics and biological markers being explored for early identification, drawing on perspectives from industry research and clinical practice. It will also examine the limits of such approaches and the safeguards their use in educational settings requires, including informed consent, data privacy, the avoidance of labelling, and the principle that every signal should lead to human contact and professional support rather than to automated judgement.",
+          "speakers": [
+            "mayuri-duggirala",
+            "krishan-kumar-soni"
+          ]
+        },
+        {
+          "id": "d2-tea",
+          "start": "10:30",
+          "end": "10:45",
+          "type": "break",
+          "title": "Tea Break"
+        },
+        {
+          "id": "s13",
+          "number": 13,
+          "start": "10:45",
+          "end": "12:45",
+          "type": "students",
+          "title": "Student Presentations",
+          "subtitle": "Student presentations from the Life Skills Workshop",
+          "brief": "Student participants will engage in a Life Skills Workshop, through interactions scheduled on 5 and 6 December 2026, exploring how life skills and peer mentoring can strengthen their ability to navigate academic, social and emotional challenges. In this session, student teams will present what they have learnt and developed during the workshop, demonstrating practical tools and approaches for building supportive peer relationships and social-emotional partnership. The session places the student voice at the centre of the Conclave and illustrates how students can support one another effectively.",
+          "speakers": [
+            "geeta-mehrotra"
+          ]
+        },
+        {
+          "id": "s14",
+          "number": 14,
+          "start": "12:45",
+          "end": "13:15",
+          "type": "presentation",
+          "title": "Presentations by Three Identified CFIs",
+          "subtitle": "Student well-being surveys: key findings and statistical insights",
+          "brief": "Three Centrally Funded Institutions (CFIs) identified for the purpose will present the key findings of student well-being surveys undertaken on their campuses, together with the associated anonymised statistical insights. The presentations will cover survey design and methodology, the principal patterns observed, the issues the findings bring to light and the measures the institutions have taken or propose in response. The session will demonstrate how systematic and ethically conducted surveys can provide an evidence base for institutional planning and for policy."
+        },
+        {
+          "id": "s15",
+          "number": 15,
+          "start": "13:15",
+          "end": "14:00",
+          "type": "valedictory",
+          "title": "Valedictory Session",
+          "subtitle": "Key insights, recommendations and a roadmap for advancing institutional well-being in HEIs",
+          "brief": "The valedictory session will draw together the principal insights and recommendations emerging from the two days of deliberation: the exhibition, panel discussions, symposium, stakeholder breakaway sessions, focused workshops, student presentations and survey findings. It will set out a roadmap for advancing institutional well-being in HEIs, identifying priority actions for institutions and areas for further policy consideration, and will formally close the Conclave.",
+          "speakers": [
+            "devendra-kumar-sharma",
+            "rajeev-ahuja",
+            "jitendra-nagpal"
+          ],
+          "voteOfThanks": "suryasnata-tripathy"
+        },
+        {
+          "id": "d2-lunch",
+          "start": "14:00",
+          "end": null,
+          "type": "break",
+          "title": "Lunch and Networking"
+        }
+      ]
+    }
+  ],
+  "speakers": {
+    "rajeev-ahuja": {
+      "name": "Prof. Rajeev Ahuja",
+      "designation": "Director",
+      "institution": "IIT Ropar",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "dean-student-affairs": {
+      "name": "Dean, Student Affairs",
+      "designation": null,
+      "institution": "IIT Ropar",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "surya-kant-sahdeo": {
+      "name": "Dr. Surya Kant Sahdeo",
+      "designation": "Nodal Officer",
+      "institution": "NWC 2026",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "suryasnata-tripathy": {
+      "name": "Dr. Suryasnata Tripathy",
+      "designation": "Coordinator",
+      "institution": "NWC 2026",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "parwinder-singh": {
+      "name": "Dr. Parwinder Singh",
+      "designation": null,
+      "institution": "IIT Ropar",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "dhiraj-mahajan": {
+      "name": "Dr. Dhiraj Mahajan",
+      "designation": null,
+      "institution": "IIT Ropar",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "prahlad-joshi": {
+      "name": "Shri Prahlad Joshi",
+      "designation": "Minister of Education",
+      "institution": "Government of India",
+      "status": "tbc",
+      "photo": null,
+      "bio": null
+    },
+    "deepti-gaur-mukherjee": {
+      "name": "Ms. Deepti Gaur Mukherjee",
+      "designation": "Secretary",
+      "institution": "Department of Higher Education",
+      "status": "tbc",
+      "photo": null,
+      "bio": null
+    },
+    "syed-ekram-rizwi": {
+      "name": "Sh Syed Ekram Rizwi",
+      "designation": "Joint Secretary",
+      "institution": "Department of Higher Education",
+      "status": "tbc",
+      "photo": null,
+      "bio": null
+    },
+    "devendra-kumar-sharma": {
+      "name": "Shri Devendra Kumar Sharma",
+      "designation": "Director",
+      "institution": "Department of Higher Education",
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "ananya-syal": {
+      "name": "Dr. Ananya Syal",
+      "designation": "Chairperson, Student Affairs",
+      "institution": "IIM Amritsar",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "asha-banu-soletti": {
+      "name": "Dr. Asha Banu Soletti",
+      "designation": "Professor, Centre for Health and Mental Health",
+      "institution": "TISS Mumbai",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "ram-manohar-singh": {
+      "name": "Dr. Ram Manohar Singh",
+      "designation": "Associate Professor, Dept. of Humanities and Social Sciences",
+      "institution": "IIT Roorkee",
+      "status": "verbally-confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "jitendra-nagpal": {
+      "name": "Dr. Jitendra Nagpal",
+      "designation": "Director",
+      "institution": "Expressions India",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "akshay-anand": {
+      "name": "Dr. Akshay Anand",
+      "designation": "Professor, Dept. of Neurology",
+      "institution": "PGIMER Chandigarh",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "j-c-suri": {
+      "name": "Prof. (Dr.) J. C. Suri",
+      "designation": "Sleep Studies and Disorders Specialist; Former HoD",
+      "institution": "Safdarjung Hospital and VMMC, New Delhi",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "nancy-sahni": {
+      "name": "Dr. Nancy Sahni",
+      "designation": null,
+      "institution": "PGIMER Chandigarh, Speaker on Nutrition",
+      "status": "awaiting",
+      "photo": null,
+      "bio": null
+    },
+    "bani-tamber-aeri": {
+      "name": "Prof. Bani Tamber Aeri",
+      "designation": "Professor, Food & Nutrition",
+      "institution": "Institute of Home Economics, University of Delhi",
+      "status": "alternate",
+      "photo": null,
+      "bio": null
+    },
+    "sunita-malhotra": {
+      "name": "Dr. Sunita Malhotra",
+      "designation": "Former Chief Dietician and Head, Dept. of Dietetics",
+      "institution": "PGIMER",
+      "status": "alternate",
+      "photo": null,
+      "bio": null
+    },
+    "poonam-khanna": {
+      "name": "Dr. Poonam Khanna",
+      "designation": "Associate Professor of Nutrition, Dept. of Community Medicine and School of Public Health",
+      "institution": "PGIMER",
+      "status": "alternate",
+      "photo": null,
+      "bio": null
+    },
+    "geeta-mehrotra": {
+      "name": "Ms. Geeta Mehrotra and Team",
+      "designation": null,
+      "institution": null,
+      "status": "ex-officio",
+      "photo": null,
+      "bio": null
+    },
+    "renu-yadav": {
+      "name": "Prof. (Dr.) Renu Yadav",
+      "designation": "Dean, Student Welfare",
+      "institution": "Central University of Haryana",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "jayanti-dutta": {
+      "name": "Dr. Jayanti Dutta",
+      "designation": "Professor and Programme Director, Malaviya Mission Teachers' Training Centre",
+      "institution": "Panjab University, Chandigarh",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "barjeev-tyagi": {
+      "name": "Prof. Barjeev Tyagi",
+      "designation": "Dean of Students' Welfare",
+      "institution": "IIT Roorkee",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "jyoti-mishra": {
+      "name": "Dr. Jyoti Mishra",
+      "designation": "Clinical Psychology",
+      "institution": "GMCH-32, Chandigarh",
+      "status": "verbally-confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "b-k-bala-kishore": {
+      "name": "Shri B. K. Bala Kishore",
+      "designation": "Vice President, Better Living",
+      "institution": "Searce Technologies",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "sujata-sriram": {
+      "name": "Dr. Sujata Sriram",
+      "designation": null,
+      "institution": "TISS Mumbai",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "sidharth-sood": {
+      "name": "Dr. Sidharth Sood",
+      "designation": "Addiction Psychiatry",
+      "institution": "New Delhi",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "mayuri-duggirala": {
+      "name": "Dr. Mayuri Duggirala",
+      "designation": "Principal Scientist, Applied Behavioural Sciences Research",
+      "institution": "TCS Research",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    },
+    "krishan-kumar-soni": {
+      "name": "Dr. Krishan Kumar Soni",
+      "designation": null,
+      "institution": "PGIMER / GMCH, Chandigarh",
+      "status": "confirmed",
+      "photo": null,
+      "bio": null
+    }
+  },
+  "dignitaries": [
+    "prahlad-joshi",
+    "deepti-gaur-mukherjee",
+    "rajeev-ahuja"
+  ],
+  "journey": {
+    "heading": "From Conversation to Movement",
+    "intro": "The Integrated Approach to Promoting Positive Mental Health, launched under MMTTP, has built considerable momentum since May 2024.",
+    "milestones": [
+      {
+        "year": "Since May 2024",
+        "place": "Online capacity building",
+        "text": null,
+        "stats": [
+          {
+            "value": "54+",
+            "label": "online capacity-building sessions"
+          },
+          {
+            "value": "3,800+",
+            "label": "faculty members"
+          },
+          {
+            "value": "160+",
+            "label": "HEIs"
+          }
+        ]
+      },
+      {
+        "year": "November 2024",
+        "place": "1st Conclave, IIT Hyderabad",
+        "text": null,
+        "stats": [
+          {
+            "value": "350+",
+            "label": "participants"
+          },
+          {
+            "value": "98",
+            "label": "HEIs"
+          }
+        ]
+      },
+      {
+        "year": "November 2025",
+        "place": "2nd Conclave, IIT Bombay",
+        "text": "Student-led talk shows, nukkad nataks, Compendium of Emerging Practices",
+        "stats": [
+          {
+            "value": "77",
+            "label": "HEIs"
+          },
+          {
+            "value": "300",
+            "label": "participants"
+          }
+        ]
+      },
+      {
+        "year": null,
+        "place": "Regional Teacher Connect Workshops",
+        "text": "IIT Madras, IIT Indore, IIT Guwahati, IIT Bhubaneswar, IIT Jammu",
+        "stats": [
+          {
+            "value": "5",
+            "label": "workshops"
+          },
+          {
+            "value": "450+",
+            "label": "participants"
+          },
+          {
+            "value": "129",
+            "label": "HEIs"
+          }
+        ]
+      },
+      {
+        "year": "6–7 December 2026",
+        "place": "समरस्यम् 2026, IIT Ropar",
+        "text": "The next milestone: the movement expands at the 3rd National Well-being Conclave.",
+        "stats": []
+      }
+    ]
+  },
+  "photos": {
+    "status": "coming-soon",
+    "items": []
+  },
+  "feedback": {
+    "status": "closed",
+    "formUrl": null
+  },
+  "contact": {
+    "team": "Organising Team",
+    "lines": [
+      "3rd National Well-being Conclave",
+      "Indian Institute of Technology Ropar"
+    ],
+    "email": "nwc@iitrpr.ac.in",
+    "people": [
+      {
+        "name": "Dr. Surya Kant Sahdeo",
+        "role": "Nodal Officer, NWC 2026",
+        "phone": "+91-1881-231181"
+      },
+      {
+        "name": "Dr. Suryasnata Tripathy",
+        "role": "Coordinator, NWC 2026",
+        "phone": "+91-1881-232505"
+      }
+    ]
+  },
+  "emergency": [
+    {
+      "service": "Security, Main Gate",
+      "number": "+91-1881-235901",
+      "note": "24/7"
+    },
+    {
+      "service": "Security Supervisor (mobile)",
+      "number": "+91-90410-58562",
+      "note": "24/7"
+    },
+    {
+      "service": "Medical Centre (incl. ambulance)",
+      "number": "+91-1881-235193",
+      "note": "24/7"
+    },
+    {
+      "service": "Medical Centre (mobile)",
+      "number": "+91-90410-53926",
+      "note": "24/7"
+    },
+    {
+      "service": "Tele-MANAS (free counselling helpline)",
+      "number": "1800-89-14416",
+      "note": "24/7"
+    }
+  ],
+  "footer": {
+    "credit": null,
+    "socials": []
+  }
+}

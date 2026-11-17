@@ -1,0 +1,13 @@
+# Keep Unix line endings in the repository and on checkout, even on Windows
+# (core.autocrlf=true would otherwise give the Linux server CRLF files, and
+# deploy/update.sh would fail with "sh: 1: set: Illegal option -").
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary

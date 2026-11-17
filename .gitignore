@@ -1,0 +1,15 @@
+# Build output (the server serves site/ only; it is always rebuilt from content/)
+site/
+site.tmp/
+site.old/
+site-preview/
+site-preview.tmp/
+site-preview.old/
+
+# Python
+__pycache__/
+*.pyc
+
+# Never commit secrets or databases (this project has none)
+.env
+*.db

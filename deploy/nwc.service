@@ -1,0 +1,47 @@
+# systemd unit for the Samarasyam 2026 portal (3rd National Well-being Conclave).
+#
+# Install (as root), assuming the repo is cloned at /srv/nwc-26 and owned by the user "nwc":
+#   cp /srv/nwc-26/deploy/nwc.service /etc/systemd/system/nwc.service
+#   systemctl daemon-reload
+#   systemctl enable --now nwc
+# If the repo lives somewhere else, change every /srv/nwc-26 below.
+
+[Unit]
+Description=Samarasyam 2026 portal (static site server, python3 server.py)
+After=network.target
+# Keep retrying for ever (e.g. if site/ is briefly missing), never give up after 5 failures.
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=nwc
+Group=nwc
+WorkingDirectory=/srv/nwc-26
+Environment=NWC_HOST=127.0.0.1
+Environment=NWC_PORT=8100
+Environment=NWC_SITE_DIR=/srv/nwc-26/site
+Environment=NWC_PREFIXES=/national-wellbeing-conclave-2026
+# Log lines go straight to journald; no .pyc files (the repo is read-only for this service).
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /srv/nwc-26/server.py
+Restart=always
+RestartSec=2
+
+# Hardening: the server only ever reads files.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=yes
+ReadOnlyPaths=/srv/nwc-26
+
+[Install]
+WantedBy=multi-user.target
+
+# ---------------------------------------------------------------------------
+# Fallback if systemd access is not given: a crontab entry for the nwc user
+# (run `crontab -e` as nwc and add this one line). It starts the server after
+# every reboot, but it will NOT restart it if it crashes; systemd is better.
+#
+# @reboot cd /srv/nwc-26 && NWC_HOST=127.0.0.1 NWC_PORT=8100 NWC_PREFIXES=/national-wellbeing-conclave-2026 PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 server.py >> "$HOME/nwc-server.log" 2>&1
+# ---------------------------------------------------------------------------

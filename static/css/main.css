@@ -1,0 +1,25 @@
+/*
+ * Samarasyam 2026: design tokens only ("Khaddar & Phulkari", Figma v3.1).
+ * The full stylesheet is built later from the Figma file. Fonts will be
+ * self-hosted in assets/fonts/ (no Google Fonts links: the CSP allows only 'self').
+ */
+:root {
+  /* Colour */
+  --khaddar: #F6EFE2;
+  --khaddar-deep: #EDE2CC;
+  --card: #FFFBF3;
+  --indigo: #1E2A44;
+  --indigo-soft: #4A5672;
+  --madder: #B23A2B;
+  --saffron: #DC7A2C;   /* stitch / decoration only, not text */
+  --haldi: #E8B44A;     /* highlights on indigo */
+  --gold: #B88A3B;      /* frame lines */
+  --teal: #1F6B66;
+  --green: #5E7F55;
+
+  /* Type */
+  --font-heading: "Eczar", "Noto Serif Devanagari", Georgia, serif;
+  --font-body: "Mukta", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-tagline: "Tiro Devanagari Hindi", "Noto Serif Devanagari", serif;
+  --font-gurmukhi: "Mukta Mahee", "Noto Sans Gurmukhi", sans-serif;
+}
