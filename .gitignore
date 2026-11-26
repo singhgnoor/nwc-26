@@ -15,3 +15,5 @@ __pycache__/
 *.db
 
 /docs
+# Dev-only tool output (screenshots, contact sheets, link reports)
+tools/out/

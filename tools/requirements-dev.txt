@@ -1,0 +1,6 @@
+# Dev-only helpers in tools/ (photo crops, logo/OG rendering, screenshots, accessibility, link checks).
+# Nothing here is needed to build or serve the site: build_site.py and server.py are standard library only.
+Pillow==12.2.0
+opencv-python==4.13.0.92
+playwright==1.49.1
+axe-playwright-python==0.1.9
