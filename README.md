@@ -1,6 +1,6 @@
-# समरस्यम् 2026 · Samarasyam 2026 · 3rd National Well-being Conclave: web portal
+# समरस्यम् 2026 · Samarasyam 2026 · 3rd National Wellbeing Conclave: web portal
 
-The official portal of the 3rd National Well-being Conclave, 6–7 December 2026, hosted by IIT Ropar with the Department of Higher Education, Ministry of Education, Government of India.
+The official portal of the 3rd National Wellbeing Conclave, 6–7 December 2026, hosted by IIT Ropar with the Department of Higher Education, Ministry of Education, Government of India.
 
 **Live address:** https://iitrpr.ac.in/national-wellbeing-conclave-2026/
 
@@ -77,13 +77,14 @@ Agreed with Gurnoor on 26 Nov unless marked as a default. All are content edits 
 - **Designations:** the V6 wording for Dr. Ananya Syal, Dr. Asha Banu Soletti, Dr. Akshay Anand and Dr. Sujata Sriram (the Figma used short forms).
 - **Titles where V6 and the tracker differ** (Session 7 "(followed by a briefing…)", Session 4 "of the Department of Higher Education"): the tracker wording, which ranks above V6.
 - **No venues** on the cards: V6 has none, so the meta slot shows the session number.
-- **About:** as in the Figma: heading, the italic line "Student Well-being First: Empowering Minds, Transforming Lives.", and the MoE statement in the framed quote card.
+- **About:** as in the Figma: heading, the italic line "Student Wellbeing First: Empowering Minds, Transforming Lives.", and the MoE statement in the framed quote card.
 - **Emergency rows:** the Figma's five (Medical Centre, Ambulance (the Medical Centre mobile), Campus Security, Tele-MANAS, Conclave Helpdesk **+91 1881 232505**). The helpdesk shares Dr. Tripathy's number.
 - **Footer:** both hashtags (`#समरस्यम्2026` and `#NationalWellbeingConclave`), "Designed and developed by **SAC Team**", IIT Ropar's five official social accounts in the Figma order.
 - **Logos:** the official files, with sources in `static/img/logos/SOURCES.md`. The MMTTP logo is the official horizontal lockup from mmc.ugc.ac.in, shown whole (the Figma's 72 px circle slot is a placeholder; cropping the official artwork would alter it). The IIT Ropar "SVG" is a PNG inside an SVG, so the seals are raster (WebP). The emblem is rendered unaltered from Wikimedia Commons, with सत्यमेव जयते.
 - **Speakers section follows the selected day** (Day 1 frame vs Day 2 frame); without JS both days show. The intro reads "Dignitaries and resource persons for Day 1, Sunday 6 December." (the Figma's "Portraits and short profiles will be added…" sentence is dropped: portraits are in, and no bios exist).
 - **People without a photo** get the design's neutral avatar (silhouette), not initials. Since 26 Nov evening every published person has a photo.
 - **Session 3:** Dean, Student Affairs is **Dr. Puneet Pasricha** (confirmed by Gurnoor, 26 Nov), shown with his photo; ID `puneet-pasricha`.
+- **Spelling "Wellbeing" (27 Nov, Gurnoor):** every "Well-being"/"well-being" on the page is now "Wellbeing"/"wellbeing", without the hyphen, including the event name in `NAME_FULL` and the OG image. The build now rejects "well-being" anywhere in the output. The planning notes (`content-tracker.md`, `project-context.md` and others) still record the earlier 17 Nov hyphen decision.
 - **Countdown** counts whole IST calendar days to 6 Dec; on 6–7 Dec (IST) it reads "Happening now · Day N"; after 7 Dec it disappears. Without JS it shows the date. Day 2 is the default tab on 7 Dec IST.
 - **Hero art** is three external SVGs (wide and mobile crops via `<picture>`, plus the gate pillars) rather than inline SVG: about 90 KB of markup that the browser can now cache, and the server does not compress. They contain no `style=` attributes.
 - **Map links** carry the accessible name "Open in Google Maps: <place> (opens in a new tab)": it names the place and contains the visible text (WCAG label-in-name).
@@ -99,7 +100,7 @@ Kept unless superseded above.
 - **Unnamed people are not entered:** the Session 11 clinical psychologist and the Session 14 CFIs.
 - **Briefs only, no expected outcomes** (17 Nov decision). `outcomes` stays in the schema but is empty, and empty lists are hidden.
 - **Session 10** is split as in Figma v3.1: the 16.00 card carries paragraph 1 of the brief, and an unnumbered 16.45 card carries paragraph 2.
-- **Session 3** has no subtitle until the Dean's office answers whether to use "The Well-being Model of IIT Ropar: Where Excellence Meets Emotional Wellness".
+- **Session 3** has no subtitle until the Dean's office answers whether to use "The Wellbeing Model of IIT Ropar: Where Excellence Meets Emotional Wellness".
 - **Session summaries** show the title *and* the subtitle (the panel topic), as on the Figma cards. The body shows the brief and the people.
 - **Journey** uses the MoE carousel figures (13 Nov), which are the Ministry's own published numbers. The tracker still lists formal sign-off as pending: set `journey.heading` to `null` to hide the section if sign-off is refused.
 - **Preview builds** go to `site-preview/` and can never overwrite the live `site/`.

@@ -2,7 +2,7 @@
   "event": {
     "nameDevanagari": "समरस्यम् 2026",
     "nameLatin": "Samarasyam 2026",
-    "nameFull": "3rd National Well-being Conclave",
+    "nameFull": "3rd National Wellbeing Conclave",
     "tagline": "स्वस्थ मन | समरस समाज | सशक्त राष्ट्र",
     "theme": "Mental Wellness, Social Harmony and Collective Development",
     "dates": "6–7 December 2026",
@@ -215,10 +215,10 @@
     }
   ],
   "about": {
-    "heading": "From awareness to action, strengthening the foundations of mental health, resilience and well-being across higher education institutions.",
-    "accent": "Student Well-being First: Empowering Minds, Transforming Lives.",
+    "heading": "From awareness to action, strengthening the foundations of mental health, resilience and wellbeing across higher education institutions.",
+    "accent": "Student Wellbeing First: Empowering Minds, Transforming Lives.",
     "quote": {
-      "text": "Mental well-being is a national priority. The Department of Higher Education is bringing together institutional leaders, faculty and students to drive collective action towards building resilient, inclusive and well-being-oriented higher education campuses.",
+      "text": "Mental wellbeing is a national priority. The Department of Higher Education is bringing together institutional leaders, faculty and students to drive collective action towards building resilient, inclusive and wellbeing-oriented higher education campuses.",
       "credit": "Ministry of Education, Government of India"
     }
   },
@@ -264,7 +264,7 @@
           "end": "10:15",
           "type": "inaugural",
           "title": "Inaugural Ceremony",
-          "brief": "The inaugural ceremony will formally open समरस्यम् 2026, the 3rd National Well-being Conclave, hosted by the Indian Institute of Technology, Ropar on the theme \"Mental Wellness, Social Harmony and Collective Development\". It will set out the purpose, scope and intended deliverables of the two-day programme and affirm the shared commitment of the Ministry of Education and higher education institutions to advancing student well-being as an integral part of the academic mission.",
+          "brief": "The inaugural ceremony will formally open समरस्यम् 2026, the 3rd National Wellbeing Conclave, hosted by the Indian Institute of Technology, Ropar on the theme \"Mental Wellness, Social Harmony and Collective Development\". It will set out the purpose, scope and intended deliverables of the two-day programme and affirm the shared commitment of the Ministry of Education and higher education institutions to advancing student wellbeing as an integral part of the academic mission.",
           "speakers": [
             "pralhad-joshi",
             "deepti-gaur-mukerjee",
@@ -280,7 +280,7 @@
           "type": "exhibition",
           "title": "Wellness Exhibition Tour",
           "subtitle": "Exploring institutional best practices, feedback on exhibits and submission of key learnings",
-          "brief": "The Wellness Exhibition will bring together exhibits from participating institutions presenting their well-being initiatives, support structures and campus practices, including posters on institution-specific surveys of student well-being and the associated anonymised statistics. Delegates will tour the exhibits, interact with institutional representatives, offer feedback on the exhibits and record the key learnings they wish to take back to their own campuses. The learnings so submitted will form part of the documented record of the Conclave."
+          "brief": "The Wellness Exhibition will bring together exhibits from participating institutions presenting their wellbeing initiatives, support structures and campus practices, including posters on institution-specific surveys of student wellbeing and the associated anonymised statistics. Delegates will tour the exhibits, interact with institutional representatives, offer feedback on the exhibits and record the key learnings they wish to take back to their own campuses. The learnings so submitted will form part of the documented record of the Conclave."
         },
         {
           "id": "s3",
@@ -289,7 +289,7 @@
           "end": "11:30",
           "type": "presentation",
           "title": "Presentation on IIT Ropar's Wellness Ecosystem",
-          "brief": "This presentation will use IIT Ropar's institution-wide approach to student well-being as a practical model of an integrated campus ecosystem. It will outline the governance and organisational arrangements, counselling and support services, referral pathways, the roles of faculty and residential staff, and student-facing initiatives. It will also distinguish the model's transferable design principles from the context-specific choices shaped by IIT Ropar's implementation experience, constraints and subsequent adjustments.",
+          "brief": "This presentation will use IIT Ropar's institution-wide approach to student wellbeing as a practical model of an integrated campus ecosystem. It will outline the governance and organisational arrangements, counselling and support services, referral pathways, the roles of faculty and residential staff, and student-facing initiatives. It will also distinguish the model's transferable design principles from the context-specific choices shaped by IIT Ropar's implementation experience, constraints and subsequent adjustments.",
           "speakers": [
             "puneet-pasricha"
           ]
@@ -301,7 +301,7 @@
           "end": "11:45",
           "type": "presentation",
           "title": "Presentation on initiatives of the Department of Higher Education",
-          "brief": "This session will provide an overview of the evolving policy and institutional landscape concerning student mental well-being in higher education. It will highlight the key initiatives undertaken by the Ministry of Education to strengthen well-being and support systems in HEIs. It will also present the National Well-being Conclaves as a platform for sharing institutional practices, fostering dialogue and translating policy into sustainable campus-level action.",
+          "brief": "This session will provide an overview of the evolving policy and institutional landscape concerning student mental wellbeing in higher education. It will highlight the key initiatives undertaken by the Ministry of Education to strengthen wellbeing and support systems in HEIs. It will also present the National Wellbeing Conclaves as a platform for sharing institutional practices, fostering dialogue and translating policy into sustainable campus-level action.",
           "speakers": []
         },
         {
@@ -311,8 +311,8 @@
           "end": "12:30",
           "type": "panel",
           "title": "Panel Discussion I",
-          "subtitle": "Transforming social connectedness and belongingness in the emerging well-being climate of 21st-century HEIs",
-          "brief": "Social belonging is a critical determinant of student well-being and a key element of a supportive campus environment. Changing patterns of peer relationships, growing social isolation among young people and the increasing diversity of the student body make deliberate effort towards inclusion more necessary than before. This panel will examine the barriers to building connected and inclusive campuses, including stigma, limited awareness and hesitation in seeking support, and will consider the role of faculty mentorship, peer groups and student engagement in strengthening social harmony and a sense of belonging. Panellists will discuss practical approaches to building peer connection, improving awareness of available support spaces and fostering a culture in which seeking help is normalised.",
+          "subtitle": "Transforming social connectedness and belongingness in the emerging wellbeing climate of 21st-century HEIs",
+          "brief": "Social belonging is a critical determinant of student wellbeing and a key element of a supportive campus environment. Changing patterns of peer relationships, growing social isolation among young people and the increasing diversity of the student body make deliberate effort towards inclusion more necessary than before. This panel will examine the barriers to building connected and inclusive campuses, including stigma, limited awareness and hesitation in seeking support, and will consider the role of faculty mentorship, peer groups and student engagement in strengthening social harmony and a sense of belonging. Panellists will discuss practical approaches to building peer connection, improving awareness of available support spaces and fostering a culture in which seeking help is normalised.",
           "moderator": "ananya-syal",
           "speakers": [
             "asha-banu-soletti",
@@ -327,7 +327,7 @@
           "type": "symposium",
           "title": "Symposium",
           "subtitle": "Decoding healthy living: the science of sleep, nutrition and lifestyle",
-          "brief": "Student well-being extends beyond mental health to physical health and the daily habits that sustain both. This symposium will bring together experts in mental health, neurology, sleep medicine and nutrition to examine the scientific evidence on how sleep, diet and lifestyle shape mood, cognition, academic performance and long-term health among young adults. It will address the irregular sleep patterns, poor dietary practices and sedentary routines that are common in residential campus life, and will identify practical, low-cost measures that HEIs can adopt to create healthier campus environments.",
+          "brief": "Student wellbeing extends beyond mental health to physical health and the daily habits that sustain both. This symposium will bring together experts in mental health, neurology, sleep medicine and nutrition to examine the scientific evidence on how sleep, diet and lifestyle shape mood, cognition, academic performance and long-term health among young adults. It will address the irregular sleep patterns, poor dietary practices and sedentary routines that are common in residential campus life, and will identify practical, low-cost measures that HEIs can adopt to create healthier campus environments.",
           "moderator": "jitendra-nagpal",
           "moderatorRole": "Speaker and Moderator",
           "speakers": [
@@ -401,8 +401,8 @@
           "end": "16:45",
           "type": "breakaway",
           "title": "Four Parallel Breakaway Sessions",
-          "subtitle": "Deliberation on strengthening campus well-being across HEIs",
-          "brief": "Delegates will deliberate in four parallel stakeholder groups (Student Affairs, Faculty, Counsellors and Students) on strengthening campus well-being across HEIs. Drawing on the exhibition, presentations and panel discussions earlier in the day, each group will examine, from its own vantage point, the gaps in present arrangements, the practices that have worked, the support it requires from institutions and the Ministry, and the actions it can itself take."
+          "subtitle": "Deliberation on strengthening campus wellbeing across HEIs",
+          "brief": "Delegates will deliberate in four parallel stakeholder groups (Student Affairs, Faculty, Counsellors and Students) on strengthening campus wellbeing across HEIs. Drawing on the exhibition, presentations and panel discussions earlier in the day, each group will examine, from its own vantage point, the gaps in present arrangements, the practices that have worked, the support it requires from institutions and the Ministry, and the actions it can itself take."
         },
         {
           "id": "s10-presentations",
@@ -464,8 +464,8 @@
           "end": "10:00",
           "type": "workshop",
           "title": "Focused Workshop I",
-          "subtitle": "Early identification and management of specific learning disabilities, substance-use prevention and related well-being concerns",
-          "brief": "This expert session will focus on identifying the early signs of specific learning disabilities and other concerns that may affect students' academic and psychosocial well-being. It will also address the prevention of substance use and related areas requiring early attention within HEIs. The session will equip participants with greater awareness of the mechanisms for identification, response and referral in supporting students.",
+          "subtitle": "Early identification and management of specific learning disabilities, substance-use prevention and related wellbeing concerns",
+          "brief": "This expert session will focus on identifying the early signs of specific learning disabilities and other concerns that may affect students' academic and psychosocial wellbeing. It will also address the prevention of substance use and related areas requiring early attention within HEIs. The session will equip participants with greater awareness of the mechanisms for identification, response and referral in supporting students.",
           "moderator": "jitendra-nagpal",
           "speakers": [
             "sidharth-sood"
@@ -478,7 +478,7 @@
           "end": "10:30",
           "type": "workshop",
           "title": "Focused Workshop II",
-          "subtitle": "Predictive well-being: digital tools and biomarkers for early identification of mental health concerns",
+          "subtitle": "Predictive wellbeing: digital tools and biomarkers for early identification of mental health concerns",
           "brief": "Advances in behavioural science, digital technology and biomedical research are opening new possibilities for recognising the risk of mental health concerns before they become acute. This workshop will introduce participants to emerging digital tools, behavioural data analytics and biological markers being explored for early identification, drawing on perspectives from industry research and clinical practice. It will also examine the limits of such approaches and the safeguards their use in educational settings requires, including informed consent, data privacy, the avoidance of labelling, and the principle that every signal should lead to human contact and professional support rather than to automated judgement.",
           "speakers": [
             "mayuri-duggirala",
@@ -512,8 +512,8 @@
           "end": "13:15",
           "type": "presentation",
           "title": "Presentations by Three Identified CFIs",
-          "subtitle": "Student well-being surveys: key findings and statistical insights",
-          "brief": "Three Centrally Funded Institutions (CFIs) identified for the purpose will present the key findings of student well-being surveys undertaken on their campuses, together with the associated anonymised statistical insights. The presentations will cover survey design and methodology, the principal patterns observed, the issues the findings bring to light and the measures the institutions have taken or propose in response. The session will demonstrate how systematic and ethically conducted surveys can provide an evidence base for institutional planning and for policy."
+          "subtitle": "Student wellbeing surveys: key findings and statistical insights",
+          "brief": "Three Centrally Funded Institutions (CFIs) identified for the purpose will present the key findings of student wellbeing surveys undertaken on their campuses, together with the associated anonymised statistical insights. The presentations will cover survey design and methodology, the principal patterns observed, the issues the findings bring to light and the measures the institutions have taken or propose in response. The session will demonstrate how systematic and ethically conducted surveys can provide an evidence base for institutional planning and for policy."
         },
         {
           "id": "s15",
@@ -522,8 +522,8 @@
           "end": "14:00",
           "type": "valedictory",
           "title": "Valedictory Session",
-          "subtitle": "Key insights, recommendations and a roadmap for advancing institutional well-being in HEIs",
-          "brief": "The valedictory session will draw together the principal insights and recommendations emerging from the two days of deliberation: the exhibition, panel discussions, symposium, stakeholder breakaway sessions, focused workshops, student presentations and survey findings. It will set out a roadmap for advancing institutional well-being in HEIs, identifying priority actions for institutions and areas for further policy consideration, and will formally close the Conclave.",
+          "subtitle": "Key insights, recommendations and a roadmap for advancing institutional wellbeing in HEIs",
+          "brief": "The valedictory session will draw together the principal insights and recommendations emerging from the two days of deliberation: the exhibition, panel discussions, symposium, stakeholder breakaway sessions, focused workshops, student presentations and survey findings. It will set out a roadmap for advancing institutional wellbeing in HEIs, identifying priority actions for institutions and areas for further policy consideration, and will formally close the Conclave.",
           "speakers": [
             "devendra-kumar-sharma",
             "rajeev-ahuja",
@@ -824,7 +824,7 @@
   "contact": {
     "team": "Organising Team",
     "lines": [
-      "3rd National Well-being Conclave",
+      "3rd National Wellbeing Conclave",
       "Indian Institute of Technology Ropar"
     ],
     "note": "Write to us about the programme, invitations, travel or your stay.",

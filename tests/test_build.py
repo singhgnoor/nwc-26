@@ -113,7 +113,7 @@ class TestRealContent(BuildTestCase):
         self.run_build()
         html = self.page()
         self.assertIn('<html lang="en">', html)
-        self.assertIn("<title>Samarasyam 2026 · 3rd National Well-being Conclave · IIT Ropar</title>", html)
+        self.assertIn("<title>Samarasyam 2026 · 3rd National Wellbeing Conclave · IIT Ropar</title>", html)
         self.assertIn('<span lang="hi">समरस्यम्</span>', html)
         self.assertIn('<span lang="hi">स्वस्थ मन | समरस समाज | सशक्त राष्ट्र</span>', html)
         self.assertIn('<meta property="og:url" content="https://iitrpr.ac.in/national-wellbeing-conclave-2026/">', html)
@@ -288,16 +288,16 @@ class TestValidators(BuildTestCase):
         for sid in ("pralhad-joshi", "deepti-gaur-mukerjee", "tony-thomas"):
             self.assertEqual(REAL_CONTENT["speakers"][sid]["status"], "confirmed")
 
-    def test_unhyphenated_wellbeing_fails(self):
-        for text in ("student wellbeing matters", "Student Wellbeing First", "WELLBEING"):
+    def test_hyphenated_well_being_fails(self):
+        for text in ("student well-being matters", "Student Well-being First", "WELL-BEING"):
             with self.subTest(text=text):
                 self.content = copy.deepcopy(REAL_CONTENT)
                 sessions(self.content)["s3"]["brief"] = text
-                self.assertFails('spell it "well-being"')
+                self.assertFails('spell it "wellbeing"')
 
-    def test_wellbeing_allow_list_passes(self):
-        sessions(self.content)["s3"]["brief"] = ("Snehita Wellbeing Cell, #NationalWellbeingConclave and "
-                                                 "national-wellbeing-conclave-2026 are allowed.")
+    def test_unhyphenated_wellbeing_passes(self):
+        sessions(self.content)["s3"]["brief"] = ("Student wellbeing, Snehita Wellbeing Cell, #NationalWellbeingConclave and "
+                                                 "national-wellbeing-conclave-2026 are all fine.")
         self.assertEqual(self.run_build(), 0, self.log)
 
     def test_changed_tagline_fails(self):
@@ -316,7 +316,7 @@ class TestValidators(BuildTestCase):
         self.assertFails("no apostrophe after")
 
     def test_other_identity_fields_locked(self):
-        for key, value in (("theme", "Mental Wellness"), ("nameFull", "3rd National Wellbeing Conclave"),
+        for key, value in (("theme", "Mental Wellness"), ("nameFull", "3rd National Well-being Conclave"),
                            ("hashtag", "#NWC2026"), ("hashtagDevanagari", "#समरस्यम्"),
                            ("dates", "6-7 December 2026")):
             with self.subTest(key=key):

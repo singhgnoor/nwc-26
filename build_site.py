@@ -7,7 +7,7 @@ Build the Samarasyam 2026 portal from content/content.en.json into site/.
     python3 build_site.py --include-unconfirmed  PREVIEW build into site-preview/ (never site/)
 
 The build stops, with a list of every problem, if the content breaks a rule:
-the schema, the identity lock, the "Well-being" spelling, official name
+the schema, the identity lock, the "Wellbeing" spelling, official name
 spellings, leftover placeholder text, unknown speaker IDs, bad or overlapping
 times, broken anchors, missing asset files or malformed phone/mail links. A
 failed build never touches the live site/ folder. Only speakers with status
@@ -40,7 +40,7 @@ TIMEZONE = "+05:30"  # IST
 # ---------------------------------------------------------------------------
 NAME_DEVANAGARI = "समरस्यम् 2026"            # no apostrophe
 NAME_LATIN = "Samarasyam 2026"
-NAME_FULL = "3rd National Well-being Conclave"
+NAME_FULL = "3rd National Wellbeing Conclave"
 TAGLINE = "स्वस्थ मन | समरस समाज | सशक्त राष्ट्र"   # Devanagari only, never translated
 THEME = "Mental Wellness, Social Harmony and Collective Development"
 DATES = "6–7 December 2026"
@@ -96,8 +96,7 @@ PLACEHOLDER_PATTERNS = (
 COMING_SOON = re.compile(r"coming soon", re.I)  # allowed only as the designed Moments state
 # Official spellings (Ministry notices): Pralhad Joshi, Deepti Gaur Mukerjee.
 MISSPELLINGS = ((re.compile(r"Prahlad", re.I), "Pralhad"), (re.compile(r"Mukherjee", re.I), "Mukerjee"))
-WELLBEING_ALLOWED = ("#NationalWellbeingConclave", "national-wellbeing-conclave-2026", "Snehita Wellbeing Cell")
-WELLBEING = re.compile(r"wellbeing", re.I)
+WELL_BEING = re.compile(r"well-being", re.I)  # spelled "Wellbeing" (no hyphen) everywhere, decided 27 Nov
 # समरस्यम् followed by any kind of apostrophe: ' ` and the curly/accent forms U+2018, U+2019, U+00B4, U+02BC
 APOSTROPHES = "'`" + chr(0x2018) + chr(0x2019) + chr(0x00B4) + chr(0x02BC)
 NAME_APOSTROPHE = re.compile(re.escape(NAME_DEVANAGARI.split()[0]) + r"\s*[" + re.escape(APOSTROPHES) + "]")
@@ -1209,11 +1208,8 @@ def scan_outputs(outputs, held_back_names, static_dir=None, allowed=()):
                           % (name, context(reader, m.start())))
         text = html.unescape(TAG.sub("", body))  # what a reader sees
         for source in (body, text):
-            visible = source
-            for allowed_word in WELLBEING_ALLOWED:
-                visible = visible.replace(allowed_word, "")
-            for m in WELLBEING.finditer(visible):
-                errors.append("site/%s: spell it \"well-being\" (with the hyphen): ...%s..." % (name, context(visible, m.start())))
+            for m in WELL_BEING.finditer(source):
+                errors.append("site/%s: spell it \"wellbeing\" (no hyphen): ...%s..." % (name, context(source, m.start())))
             for m in NAME_APOSTROPHE.finditer(source):
                 errors.append("site/%s: no apostrophe after समरस्यम्: ...%s..." % (name, context(source, m.start())))
         for pattern, right in MISSPELLINGS:

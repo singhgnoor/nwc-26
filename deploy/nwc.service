@@ -1,4 +1,4 @@
-# systemd unit for the Samarasyam 2026 portal (3rd National Well-being Conclave).
+# systemd unit for the Samarasyam 2026 portal (3rd National Wellbeing Conclave).
 #
 # Install (as root), assuming the repo is cloned at /srv/nwc-26 and owned by the user "nwc":
 #   cp /srv/nwc-26/deploy/nwc.service /etc/systemd/system/nwc.service

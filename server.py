@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Web server for the Samarasyam 2026 portal (3rd National Well-being Conclave).
+Web server for the Samarasyam 2026 portal (3rd National Wellbeing Conclave).
 
     browser -> nginx (iitrpr.ac.in) -> this process on 127.0.0.1:8100
 
