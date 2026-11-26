@@ -1,10 +1,47 @@
 <footer class="site-footer">
-  <p class="site-footer__identity">$identity</p>
-  $organisers
-$emergency
-  <address class="site-footer__address">$venue</address>
-  $socials
-  <p class="site-footer__hashtag">$hashtag</p>
-  <p class="site-footer__copyright">$copyright</p>
-  $credit
+  <div class="site-footer__orgs">
+    <div class="wrap site-footer__orgs-inner">
+      <p class="label site-footer__by">$organised_by</p>
+      $logos_org
+      <p class="label site-footer__by site-footer__by--host">$hosted_by</p>
+    </div>
+  </div>
+  <div class="band" aria-hidden="true"></div>
+  <div class="site-footer__main">
+    <div class="wrap site-footer__cols">
+      <div class="site-footer__conclave">
+        <p class="site-footer__name">$star$name</p>
+        <p class="site-footer__nameline">$name_line</p>
+        <p class="site-footer__tagline">$tagline</p>
+        <p class="site-footer__theme">$theme</p>
+        <p class="site-footer__when">$when</p>
+        $organisers
+        <p class="site-footer__hashtags">$hashtags</p>
+      </div>
+      <nav class="site-footer__links" aria-labelledby="footer-links-title">
+        <h2 class="label site-footer__heading" id="footer-links-title">$on_this_page</h2>
+        <ul role="list">$links</ul>
+      </nav>
+      <div class="site-footer__help">
+        <h2 class="label site-footer__heading">$emergency_title</h2>
+        <ul role="list">$emergency</ul>
+      </div>
+    </div>
+    <div class="wrap"><div class="site-footer__divider" aria-hidden="true"></div></div>
+    <div class="site-footer__iit">
+      $seal
+      $punjabi
+      $hindi
+      <p class="site-footer__en">$english</p>
+      $address
+      <ul class="site-footer__socials" role="list">$socials</ul>
+      $site
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <div class="wrap site-footer__bottom-inner">
+      <p>$copyright</p>
+      $credit
+    </div>
+  </div>
 </footer>

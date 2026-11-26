@@ -1,16 +1,37 @@
 <header class="site-header">
+  <div class="band" aria-hidden="true"></div>
   <div class="site-header__logos">
-    <!-- Organiser logos (MMTTP; Government of India emblem with the MoE / DoHE lockup; IIT Ropar seal) render here from the "logos" list in content/content.en.json. -->
-$logos
-  </div>
-  <p class="site-header__brand"><a href="#hero">$brand</a></p>
-  <nav class="site-nav" aria-label="$nav_label">
-    <ul>
-$nav_items
-    </ul>
-  </nav>
-  <div class="site-header__lang">
-    <!-- Language toggle (EN | हिन्दी): appears here automatically once content/content.hi.json exists. -->
-$lang_toggle
+    <div class="wrap">$logos</div>
   </div>
 </header>
+<div class="navbar" id="navbar">
+  <div class="wrap navbar__inner">
+    <a class="wordmark" href="#hero">$wordmark</a>
+    <nav class="nav" aria-label="$nav_label">
+      <ul class="nav__list" role="list">
+$nav_links
+      </ul>
+    </nav>
+    <div class="navbar__right">
+      $lang_toggle
+      $feedback
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="$menu_open" data-menu-open hidden>$icon_menu</button>
+    </div>
+  </div>
+</div>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="$menu_label" hidden>
+  <div class="band" aria-hidden="true"></div>
+  <div class="menu__top">
+    <a class="wordmark" href="#hero" data-menu-link>$menu_wordmark</a>
+    <button class="menu-btn" type="button" aria-label="$menu_close" data-menu-close>$icon_close</button>
+  </div>
+  <nav aria-label="$menu_label">
+    <ul class="menu__list" role="list">
+$menu_links
+    </ul>
+  </nav>
+  <div class="menu__bottom">
+    $lang_toggle
+    $menu_cta
+  </div>
+</div>

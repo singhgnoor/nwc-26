@@ -1,18 +1,17 @@
-<li class="programme__item">
-  <details class="session" id="session-$id" data-type="$type">
-    <summary class="session__summary">
-      $time
-      $tag
-      $number
+<details class="session" id="details-$id" data-type="$type">
+  <summary class="session__summary">
+    <span class="session__heading">
+      $meta
       <span class="session__title">$title</span>
-      $subtitle
-    </summary>
-    <div class="session__body">
-      $brief
-      $outcomes
-      $venue
-      $groups
-      $people
-    </div>
-  </details>
+    </span>
+    <span class="session__actions">
+      $hint
+      $stack
+      <span class="session__toggle" aria-hidden="true">$toggle</span>
+    </span>
+  </summary>
+  <div class="session__body">
+    $body
+  </div>
+</details>
 </li>

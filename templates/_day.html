@@ -1,7 +1,7 @@
-<div class="programme__day" role="tabpanel" id="$id" aria-labelledby="tab-$id" data-date="$date">
-  <h3 class="programme__day-title">$label <span class="programme__day-date"><time datetime="$date">$date_text</time></span></h3>
+<div class="day" role="tabpanel" id="$id" aria-labelledby="tab-$id" data-date="$date" tabindex="-1">
+  <h3 class="day__title visually-hidden">$title</h3>
   $theme
-  <ol class="programme__sessions">
+  <ol class="timeline" role="list">
 $sessions
   </ol>
 </div>

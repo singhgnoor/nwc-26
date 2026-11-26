@@ -1,0 +1,11 @@
+/* Dev-only: layout of the 1200 x 630 Open Graph card. */
+html, body.og { width: 1200px; height: 630px; margin: 0; overflow: hidden; background: var(--khaddar); }
+.og { position: relative; }
+.og__text { position: absolute; left: 72px; top: 70px; z-index: 2; }
+.og__name { font-family: var(--font-heading); font-weight: 600; font-size: 92px; line-height: 1.15; letter-spacing: -0.02em; color: var(--indigo); }
+.og__word { color: var(--madder); }
+.og__latin { font-family: var(--font-heading); font-weight: 600; font-size: 40px; line-height: 1.2; color: var(--indigo); }
+.og__full { font-family: var(--font-heading); font-weight: 500; font-size: 30px; line-height: 1.3; color: var(--madder); }
+.og__when { margin-top: 22px; font-weight: 600; font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--soft); }
+.og__land { position: absolute; left: 0; bottom: 0; width: 1200px; height: 467px; object-fit: cover; object-position: right bottom; z-index: 1; }
+.og__pillars { position: absolute; left: 40px; bottom: 22px; width: 300px; height: auto; z-index: 1; }

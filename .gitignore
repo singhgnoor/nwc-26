@@ -13,3 +13,7 @@ __pycache__/
 # Never commit secrets or databases (this project has none)
 .env
 *.db
+
+/docs
+# Dev-only tool output (screenshots, contact sheets, link reports)
+tools/out/
