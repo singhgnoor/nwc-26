@@ -536,7 +536,8 @@
           "start": "14:00",
           "end": null,
           "type": "break",
-          "title": "Lunch and Networking"
+          "title": "Lunch and Networking",
+          "timeLabel": "14.00"
         }
       ]
     }

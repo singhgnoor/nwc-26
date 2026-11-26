@@ -125,6 +125,34 @@ class TestRouting(ServerTestCase):
                           (".webmanifest", "application/manifest+json"), (".ico", "image/x-icon")):
             self.assertEqual(server.Handler.extensions_map[ext], mime)
 
+    def test_precompressed_gzip(self):
+        import gzip
+        css = os.path.join(self.site, "assets", "css", "main.css")
+        with open(css, "rb") as f:
+            plain = f.read()
+        with open(css + ".gz", "wb") as f:
+            f.write(gzip.compress(plain))
+        try:
+            r = self.get("/assets/css/main.css", extra_headers=b"Accept-Encoding: br, gzip;q=0.8\r\n")
+            self.assertEqual(r.header("Content-Encoding"), "gzip")
+            self.assertEqual(r.header("Content-Type"), "text/css; charset=utf-8")
+            self.assertEqual(r.header("Vary"), "Accept-Encoding")
+            self.assertEqual(gzip.decompress(r.body), plain)
+            self.assertEqual(int(r.header("Content-Length")), len(r.body))
+            for headers in (b"", b"Accept-Encoding: br\r\n", b"Accept-Encoding: gzip;q=0\r\n"):
+                r = self.get("/assets/css/main.css", extra_headers=headers)
+                self.assertIsNone(r.header("Content-Encoding"), headers)
+                self.assertEqual(r.body, plain)
+                self.assertEqual(r.header("Vary"), "Accept-Encoding")
+            r = self.get("/assets/fonts/f.woff2", extra_headers=b"Accept-Encoding: gzip\r\n")
+            self.assertIsNone(r.header("Content-Encoding"))  # binary formats are never re-encoded
+            self.assertIsNone(r.header("Vary"))
+            r = self.get("/assets/css/main.css", "HEAD", extra_headers=b"Accept-Encoding: gzip\r\n")
+            self.assertEqual(r.header("Content-Encoding"), "gzip")
+            self.assertEqual(r.body, b"")
+        finally:
+            os.remove(css + ".gz")
+
     def test_caching(self):
         self.assertEqual(self.get("/").header("Cache-Control"), "no-cache")
         self.assertEqual(self.get("/assets/css/main.css").header("Cache-Control"), "public, max-age=86400")

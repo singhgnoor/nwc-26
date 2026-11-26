@@ -28,7 +28,7 @@ On Windows, use `python` instead of `python3`.
 
 | Path | What it is |
 |---|---|
-| `server.py` | The web server. Serves `site/` only; strips the URL prefix; GET/HEAD only; security headers; no directory listings; blocks traversal and dotfiles. |
+| `server.py` | The web server. Serves `site/` only; strips the URL prefix; GET/HEAD only; security headers; no directory listings; blocks traversal and dotfiles. Sends the build's pre-compressed `<file>.gz` (HTML, CSS, JS, SVG, XML, text) to browsers that accept gzip, so it does not depend on nginx compressing proxied responses. |
 | `build_site.py` | Validates the content, renders `templates/` into `site/` atomically, copies `static/` to `site/assets/`. Holds the identity constants. |
 | `content/content.en.json` | **All page text.** Content changes never need code changes. |
 | `templates/` | `base.html` plus one partial per section, with `$variables` the build fills. `_sprite.html` is the inline icon set (from Figma). |
@@ -93,7 +93,7 @@ Agreed with Gurnoor on 26 Nov unless marked as a default. All are content edits 
 
 Kept unless superseded above.
 
-- **Publish rule.** Following V5's legend ("no status = institutional or ex officio role"), these people are `ex-officio` and shown: Prof. Rajeev Ahuja, "Dean, Student Affairs, IIT Ropar", Dr. Surya Kant Sahdeo, Dr. Suryasnata Tripathy, Dr. Parwinder Singh, Dr. Dhiraj Mahajan, Shri Devendra Kumar Sharma, and Ms. Geeta Mehrotra and Team (shown without a designation until one arrives). Held back: the Minister and the Secretary (`tbc`), Dr. Ram Manohar Singh and Dr. Jyoti Mishra (`verbally-confirmed`), Dr. Nancy Sahni (`awaiting`), and the three Session 6 alternates.
+- **Publish rule** *(superseded 26 Nov: the Minister, the Secretary, Dr. Tony Thomas and Dr. Nancy Sahni are now published; only Sh Syed Ekram Rizwi is held back)*. Following V5's legend ("no status = institutional or ex officio role"), these people are `ex-officio` and shown: Prof. Rajeev Ahuja, "Dean, Student Affairs, IIT Ropar", Dr. Surya Kant Sahdeo, Dr. Suryasnata Tripathy, Dr. Parwinder Singh, Dr. Dhiraj Mahajan, Shri Devendra Kumar Sharma, and Ms. Geeta Mehrotra and Team (shown without a designation until one arrives). Held back: the Minister and the Secretary (`tbc`), Dr. Ram Manohar Singh and Dr. Jyoti Mishra (`verbally-confirmed`), Dr. Nancy Sahni (`awaiting`), and the three Session 6 alternates.
 - **Session 4 shows no presenter.** V5 lists either the Joint Secretary or the Director. Sh Syed Ekram Rizwi is kept as `tbc` (the spelling "Rizwi"/"Rizvi" is unconfirmed) and isn't linked to the session. When the Dean's office names the presenter, add their ID to `s4.speakers`.
 - **Unnamed people are not entered:** the Session 11 clinical psychologist and the Session 14 CFIs.
 - **Briefs only, no expected outcomes** (17 Nov decision). `outcomes` stays in the schema but is empty, and empty lists are hidden.

@@ -557,6 +557,16 @@ class TestAtomicBuild(BuildTestCase):
         for leftover in ("site.tmp", "site.old"):
             self.assertFalse(os.path.exists(os.path.join(self.root, leftover)))
 
+    def test_text_files_are_precompressed(self):
+        import gzip
+        self.assertEqual(self.run_build(), 0, self.log)
+        for rel in ("index.html", "assets/css/main.css", "assets/js/main.js", "assets/img/art/ascent-wide.svg"):
+            path = os.path.join(self.root, "site", *rel.split("/"))
+            with open(path, "rb") as f, open(path + ".gz", "rb") as g:
+                self.assertEqual(gzip.decompress(g.read()), f.read(), rel)
+        for rel in ("assets/fonts/eczar-latin.woff2", "assets/img/og-image.png"):
+            self.assertFalse(os.path.exists(os.path.join(self.root, "site", *rel.split("/")) + ".gz"), rel)
+
     def test_asset_version_changes_with_static_files(self):
         self.run_build()
         first = self.page()

@@ -29,6 +29,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CSP = ("default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; "
        "font-src 'self'; frame-src https://docs.google.com; form-action https://docs.google.com; "
        "base-uri 'self'; frame-ancestors 'self'")
+# Text files the build pre-compresses (<file>.gz); served gzipped when the client accepts it.
+COMPRESSIBLE = (".html", ".css", ".js", ".svg", ".xml", ".txt", ".json", ".webmanifest")
 SECURITY_HEADERS = (
     ("X-Content-Type-Options", "nosniff"),
     ("Referrer-Policy", "strict-origin-when-cross-origin"),
@@ -191,9 +193,21 @@ class Handler(BaseHTTPRequestHandler):
             return None
         return real
 
+    def _accepts_gzip(self):
+        for part in (self.headers.get("Accept-Encoding") or "").split(","):
+            name, _, params = part.strip().partition(";")
+            if name.strip().lower() == "gzip":
+                return params.replace(" ", "").lower() not in ("q=0", "q=0.0", "q=0.00", "q=0.000")
+        return False
+
     def _send_file(self, path):
+        # build_site.py writes <file>.gz next to text files; send it to clients that accept gzip.
+        ext = os.path.splitext(path)[1].lower()
+        compressible = ext in COMPRESSIBLE
+        encoded = compressible and self._accepts_gzip() and os.path.isfile(path + ".gz") \
+            and self._inside_site(path + ".gz") is not None
         try:
-            f = open(path, "rb")
+            f = open(path + ".gz" if encoded else path, "rb")
         except OSError:
             return self._not_found("")
         with f:
@@ -208,13 +222,18 @@ class Handler(BaseHTTPRequestHandler):
                         self.send_response(304)
                         self.send_header("Last-Modified", last_modified)
                         self.send_header("Cache-Control", cache)
+                        if compressible:
+                            self.send_header("Vary", "Accept-Encoding")
                         return self.end_headers()
                 except (TypeError, ValueError, IndexError, OverflowError):
                     pass  # unreadable date: just send the file
-            ext = os.path.splitext(path)[1].lower()
             self.send_response(200)
             self.send_header("Content-Type", self.extensions_map.get(ext, "application/octet-stream"))
             self.send_header("Content-Length", str(size))
+            if encoded:
+                self.send_header("Content-Encoding", "gzip")
+            if compressible:
+                self.send_header("Vary", "Accept-Encoding")
             self.send_header("Last-Modified", last_modified)
             self.send_header("Cache-Control", cache)
             self.end_headers()

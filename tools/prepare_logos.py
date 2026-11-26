@@ -27,7 +27,8 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "static", "img", "logos")
 SEAL_SVG = os.path.join(ROOT, "imgaes", "iitrpr-logo.svg")
-HEIGHT = 288  # 4x the 72 px header slot
+HEIGHT = 144  # 2x the 72 px header/footer logo slot
+WHITE_HEIGHT = 288  # the white seal shows at up to 132 px in the footer
 
 
 def seal_png():
@@ -91,7 +92,7 @@ def main():
 
     seal = seal_png()
     resize_h(seal, HEIGHT).save(os.path.join(OUT, "iit-ropar-seal.webp"), "WEBP", quality=90, method=6)
-    resize_h(white_version(seal), HEIGHT).save(os.path.join(OUT, "iit-ropar-seal-white.webp"), "WEBP", quality=90, method=6)
+    resize_h(white_version(seal), WHITE_HEIGHT).save(os.path.join(OUT, "iit-ropar-seal-white.webp"), "WEBP", quality=90, method=6)
 
     for name in sorted(os.listdir(OUT)):
         if name.endswith((".png", ".webp")):

@@ -18,6 +18,7 @@ Standard library only; Python 3.8+.
 import argparse
 import copy
 import datetime
+import gzip
 import hashlib
 import html
 import json
@@ -687,7 +688,8 @@ class Renderer:
         pick = next((p for p, s in variants if s and s >= size * 2), variants[-1][0])
         srcset = ", ".join("%s %dw" % (self.asset(p), s) for p, s in variants if s)
         attrs = ' srcset="%s" sizes="%dpx"' % (srcset, size) if srcset else ""
-        loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
+        # every portrait is below the first screen (section 03 starts far down), so all are lazy-loaded
+        loading = ' loading="lazy"' if lazy else ""
         return ('<span class="%s"><img src="%s"%s alt="%s" width="%d" height="%d"%s decoding="async"></span>'
                 % (cls, self.asset(pick), attrs, esc(sp["name"]), size, size, loading))
 
@@ -707,11 +709,12 @@ class Renderer:
                    self.text(sp["name"]), self.status_note(sp), self.el("span", self.role_line(sp), "chip__meta")))
 
     # -- sections --
-    def logo_row(self, cls, white=False):
+    def logo_row(self, cls, lazy=False):
         items = []
         for logo in self.c["logos"]:
             src = logo["src"]
-            img = '<img class="logo__img" src="%s" alt="%s"%s>' % (self.asset(src), esc(logo["alt"]), self.size_attrs(src))
+            img = '<img class="logo__img" src="%s" alt="%s"%s%s>' % (
+                self.asset(src), esc(logo["alt"]), self.size_attrs(src), ' loading="lazy" decoding="async"' if lazy else "")
             lines = "".join('<span class="logo__line logo__line--%d">%s</span>' % (i + 1, self.text(line))
                             for i, line in enumerate(logo["lines"]))
             text = '<span class="logo__text">%s</span>' % lines if lines else ""
@@ -752,7 +755,7 @@ class Renderer:
         ev, h = self.c["event"], self.ui["hero"]
         word, _, year = ev["nameDevanagari"].partition(" ")
         art = ('<picture><source media="(min-width: 768px)" srcset="%s">'
-               '<img class="hero-art__land" src="%s" alt=""%s></picture>'
+               '<img class="hero-art__land" src="%s" alt=""%s fetchpriority="high"></picture>'
                '<img class="hero-art__pillars" src="%s" alt=""%s>') % (
             self.asset("img/art/ascent-wide.svg"), self.asset("img/art/ascent-mobile.svg"),
             self.size_attrs("img/art/ascent-mobile.svg"), self.asset("img/art/gate-pillars.svg"),
@@ -943,14 +946,14 @@ class Renderer:
                 lead = self.c["speakers"][dig[0]]
                 cards = [('<div class="dignitary dignitary--lead framed"><span class="corners" aria-hidden="true"></span>'
                           '<span class="dignitary__ring">%s</span><div class="dignitary__text">%s<p class="dignitary__name">%s%s</p>%s</div></div>') % (
-                    self.avatar(dig[0], 176, "avatar avatar--176", lazy=False), label, self.text(lead["name"]),
+                    self.avatar(dig[0], 176, "avatar avatar--176"), label, self.text(lead["name"]),
                     self.status_note(lead), self.el("p", self.role_line(lead), "dignitary__role"))]
                 side = []
                 for sid in dig[1:]:
                     sp = self.c["speakers"][sid]
                     side.append(('<div class="dignitary dignitary--side">%s<div class="dignitary__text">%s'
                                  '<p class="dignitary__name">%s%s</p>%s</div></div>') % (
-                        self.avatar(sid, 88, "avatar avatar--88", lazy=False), label, self.text(sp["name"]),
+                        self.avatar(sid, 88, "avatar avatar--88"), label, self.text(sp["name"]),
                         self.status_note(sp), self.el("p", self.role_line(sp), "dignitary__role")))
                 if side:
                     cards.append('<div class="dignitaries__side">%s</div>' % "".join(side))
@@ -985,7 +988,7 @@ class Renderer:
                 " milestone--current" if m["current"] else "",
                 self.icon("star" if m["current"] else "diamond", "milestone__marker"),
                 self.text(m["when"]), here, self.text(m["title"]), self.el("p", self.text(m["text"]), "milestone__text")))
-        profile = ('<div class="ascent__profile" aria-hidden="true"><img src="%s" alt=""%s>'
+        profile = ('<div class="ascent__profile" aria-hidden="true"><img src="%s" alt=""%s loading="lazy" decoding="async">'
                    '<span class="pill ascent__here">%s</span></div>') % (
             self.asset("img/art/journey-profile.svg"), self.size_attrs("img/art/journey-profile.svg"),
             self.text(j["hereLabel"]))
@@ -1017,7 +1020,7 @@ class Renderer:
                              icon_arrow=self.icon("arrow-right"))
             intro = sec["introLive"]
         else:
-            prints = "".join('<span class="print print--%d"><img src="%s" alt=""%s></span>' % (
+            prints = "".join('<span class="print print--%d"><img src="%s" alt=""%s loading="lazy" decoding="async"></span>' % (
                 i, self.asset("img/art/photo-print.svg"), self.size_attrs("img/art/photo-print.svg"))
                 for i in (1, 2, 3))
             body = ('<div class="soon framed"><span class="corners" aria-hidden="true"></span>'
@@ -1113,7 +1116,7 @@ class Renderer:
         inst = f["institute"]
         seal = ""
         if inst["sealWhite"]:
-            seal = '<img class="site-footer__seal" src="%s" alt="%s"%s>' % (
+            seal = '<img class="site-footer__seal" src="%s" alt="%s"%s loading="lazy" decoding="async">' % (
                 self.asset(inst["sealWhite"]), esc(inst["nameEnglish"]), self.size_attrs(inst["sealWhite"]))
         punjabi = self.el("p", esc(inst["namePunjabi"]), "site-footer__pa", ' lang="pa"')
         socials = "".join('<li>%s</li>' % self.external(s["url"], self.icon("social-" + s["platform"]), "social",
@@ -1126,7 +1129,7 @@ class Renderer:
         hashtags = " ".join(self.el("span", self.text(h)) for h in (ev["hashtagDevanagari"], ev["hashtag"]) if h)
         return self.fill(
             "_footer.html", organised_by=self.text(ui["organisedBy"]), hosted_by=self.text(ui["hostedBy"]),
-            logos_org=self.logo_row("logo-row logo-row--footer", white=False), star=self.icon("star"),
+            logos_org=self.logo_row("logo-row logo-row--footer", lazy=True), star=self.icon("star"),
             name=self.text(ev["nameLatin"]), name_line="%s &nbsp;·&nbsp; %s" % (self.devanagari(ev["nameDevanagari"]), self.text(ev["nameFull"])),
             tagline=self.devanagari(ev["tagline"]), theme=self.text(ev["theme"]),
             when="%s &nbsp;·&nbsp; %s" % (self.text(ev["dates"]), self.text(ev["venueShort"])),
@@ -1340,6 +1343,25 @@ def held_back(content):
             if sp["status"] not in PUBLISHED_STATUSES]
 
 
+COMPRESSIBLE = (".html", ".css", ".js", ".svg", ".xml", ".txt", ".json", ".webmanifest")  # same list as server.py
+
+
+def precompress(folder):
+    """Write <file>.gz next to every text file over 1 KB; server.py sends it to clients that accept gzip.
+    Deterministic (mtime=0) so rebuilding the same content gives the same bytes."""
+    for here, _, files in os.walk(folder):
+        for name in files:
+            path = os.path.join(here, name)
+            if not name.endswith(COMPRESSIBLE) or os.path.getsize(path) < 1024:
+                continue
+            with open(path, "rb") as f:
+                data = f.read()
+            packed = gzip.compress(data, compresslevel=9, mtime=0)
+            if len(packed) < len(data):
+                with open(path + ".gz", "wb") as f:
+                    f.write(packed)
+
+
 def write_site(outputs, static_dir, target):
     """Render into <target>.tmp, then swap it in. A failure leaves <target> untouched."""
     tmp, old = target + ".tmp", target + ".old"
@@ -1353,6 +1375,7 @@ def write_site(outputs, static_dir, target):
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8", newline="\n") as f:
                 f.write(text)
+        precompress(tmp)
     except Exception:
         shutil.rmtree(tmp, ignore_errors=True)
         raise
