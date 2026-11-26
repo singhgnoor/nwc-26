@@ -107,14 +107,21 @@
     var end = Date.parse(box.getAttribute("data-end"));
     if (isNaN(start) || isNaN(end) || !num || !text) return;
 
+    // Whole calendar days in IST between today and the opening day (so 5 Dec reads "1 day",
+    // and the opening day itself, from midnight, already reads "Happening now · Day 1").
+    function istDayNumber(ms) {
+      return Math.floor((ms + IST_OFFSET_MS) / 86400000);
+    }
+
     function update() {
       var now = Date.now();
-      if (now < start) {
-        var days = Math.ceil((start - now) / 86400000);
+      var days = istDayNumber(start) - istDayNumber(now);
+      if (days > 0) {
         num.textContent = String(days);
         text.textContent = box.getAttribute(days === 1 ? "data-label-day" : "data-label-days");
         line.classList.remove("is-live");
       } else if (now <= end) {
+        num.textContent = "";
         var today = todayInIST();
         var label = box.getAttribute("data-label-live");
         for (var i = 1; box.hasAttribute("data-day-" + i); i++) {

@@ -7,11 +7,11 @@ Dev-only: build the logo files in static/img/logos/ from the official sources.
 
 Sources are listed in static/img/logos/SOURCES.md. Nothing here redraws or
 recolours the Government of India emblem or the MMTTP logo:
-  * emblem: the Wikimedia Commons SVG rendered, unaltered, to a transparent PNG
+  * emblem: the Wikimedia Commons SVG rendered, unaltered, to a transparent lossless WebP
     (the SVG is 437 KB, far too heavy for a 72 px slot);
   * MMTTP: the official PNG copied byte for byte;
   * IIT Ropar seal: imgaes/iitrpr-logo.svg is a 946x1039 PNG wrapped in SVG, so
-    the colour seal is that PNG resized; the white line version for the indigo
+    the colour seal is that PNG resized (WebP); the white line version for the indigo
     footer maps the artwork to white and its white paper to transparent
     (allowed for the institute's own seal).
 """
@@ -83,16 +83,18 @@ def main():
 
     shutil.copyfile(args.mmttp, os.path.join(OUT, "mmttp.png"))
 
-    emblem = os.path.join(OUT, "emblem-of-india.png")
-    render_svg(args.emblem, emblem, HEIGHT)
-    Image.open(emblem).save(emblem, optimize=True)
+    tmp = os.path.join(OUT, "_emblem.png")
+    render_svg(args.emblem, tmp, HEIGHT)
+    # lossless WebP: pixel-identical to the rendering, the emblem stays unaltered
+    Image.open(tmp).save(os.path.join(OUT, "emblem-of-india.webp"), "WEBP", lossless=True, method=6)
+    os.remove(tmp)
 
     seal = seal_png()
-    resize_h(seal, HEIGHT).save(os.path.join(OUT, "iit-ropar-seal.png"), optimize=True)
-    resize_h(white_version(seal), HEIGHT).save(os.path.join(OUT, "iit-ropar-seal-white.png"), optimize=True)
+    resize_h(seal, HEIGHT).save(os.path.join(OUT, "iit-ropar-seal.webp"), "WEBP", quality=90, method=6)
+    resize_h(white_version(seal), HEIGHT).save(os.path.join(OUT, "iit-ropar-seal-white.webp"), "WEBP", quality=90, method=6)
 
     for name in sorted(os.listdir(OUT)):
-        if name.endswith(".png"):
+        if name.endswith((".png", ".webp")):
             im = Image.open(os.path.join(OUT, name))
             print("%-28s %4dx%-4d %6d bytes" % (name, im.width, im.height, os.path.getsize(os.path.join(OUT, name))))
 

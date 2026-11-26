@@ -68,7 +68,17 @@ def main():
             errors = []
             page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
             page.on("pageerror", lambda e: errors.append(str(e)))
-            page.goto(url)
+            page.goto(url, wait_until="load")
+            name = "%s%dx%d%s" % (args.tag, w, h, "-nojs" if args.nojs else "")
+            if args.nojs:  # page scripts are off, so Playwright cannot evaluate; scroll with the wheel instead
+                for _ in range(60):
+                    page.mouse.wheel(0, 900)
+                    page.wait_for_timeout(30)
+                page.wait_for_timeout(500)
+                page.screenshot(path=os.path.join(OUT, name + ".png"), full_page=True)
+                print("%-12s screenshot written (no overflow check without JS)" % name)
+                ctx.close()
+                continue
             page.evaluate("document.fonts.ready")
             # scroll through the page so lazy-loaded photos load, then back to the top
             page.evaluate("""async () => {
@@ -76,7 +86,6 @@ def main():
               window.scrollTo(0, 0);
             }""")
             page.wait_for_timeout(500)
-            name = "%s%dx%d%s" % (args.tag, w, h, "-nojs" if args.nojs else "")
             page.screenshot(path=os.path.join(OUT, name + ".png"), full_page=True)
             ov = page.evaluate(OVERFLOW_JS)
             status = "ok" if ov["scroll"] <= ov["width"] and not ov["bad"] else "OVERFLOW"

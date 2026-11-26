@@ -199,7 +199,7 @@
     },
     {
       "id": "moe",
-      "src": "img/logos/emblem-of-india.png",
+      "src": "img/logos/emblem-of-india.webp",
       "alt": "Government of India, Ministry of Education",
       "lines": [
         "Ministry of Education",
@@ -209,7 +209,7 @@
     },
     {
       "id": "iit-ropar",
-      "src": "img/logos/iit-ropar-seal.png",
+      "src": "img/logos/iit-ropar-seal.webp",
       "alt": "Indian Institute of Technology Ropar",
       "lines": []
     }
@@ -962,7 +962,7 @@
       "address": "Rupnagar, Punjab – 140001, India",
       "siteLabel": "iitrpr.ac.in",
       "siteUrl": "https://www.iitrpr.ac.in/",
-      "sealWhite": "img/logos/iit-ropar-seal-white.png"
+      "sealWhite": "img/logos/iit-ropar-seal-white.webp"
     },
     "socials": [
       {

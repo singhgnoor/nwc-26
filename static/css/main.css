@@ -3,6 +3,8 @@
  * Mobile-first: the base styles are the 390 px frame; min-width queries at 380, 600, 768 and 1024 px
  * build up to the 1440 px desktop frame. Self-hosted fonts only (the CSP allows font-src 'self').
  * Fonts: Eczar, Mukta, Tiro Devanagari Hindi, Mukta Mahee, SIL Open Font License (see ../fonts/OFL-*.txt).
+ * Devanagari in Mukta 600/700 (a few words, e.g. the footer hashtag) uses the 500 file to save ~200 KB;
+ * give those weights their own Devanagari files again if a full Hindi page is added.
  */
 
 @font-face {
@@ -74,7 +76,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("../fonts/mukta-600-devanagari.woff2") format("woff2");
+  src: url("../fonts/mukta-500-devanagari.woff2") format("woff2");
   unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
 }
 @font-face {
@@ -90,7 +92,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/mukta-700-devanagari.woff2") format("woff2");
+  src: url("../fonts/mukta-500-devanagari.woff2") format("woff2");
   unicode-range: U+0900-097F, U+1CD0-1CF4, U+1CF7-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B0A;
 }
 @font-face {
@@ -464,11 +466,12 @@ main:focus { outline: none; }
   .hero-art { margin-top: calc(var(--art-h) * -0.357); }
   .hero-art__pillars { left: calc(var(--art-h) * 75 / 560); bottom: calc(var(--art-h) * 32 / 560); width: calc(var(--art-h) * 380 / 560); }
   .hero__caption {
-    display: block; position: absolute; z-index: 3; right: 40px; bottom: calc(var(--art-h) * 15 / 560);
+    display: none; position: absolute; z-index: 3; right: 40px; bottom: calc(var(--art-h) * 15 / 560);
     font-family: var(--font-accent); font-style: italic; font-size: 16px; line-height: 25px; color: var(--on-dark);
   }
 }
 @media (min-width: 1024px) { .hero__inner { padding-bottom: 0; } }
+@media (min-width: 1280px) { .hero__caption { display: block; } }
 
 /* ==========================================================================
    At a glance
@@ -525,15 +528,14 @@ main:focus { outline: none; }
 .benefit__text { font-size: 16px; line-height: 25px; }
 @media (min-width: 768px) {
   .benefits__list { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .benefit__body { display: flex; flex-direction: column; gap: 10px; padding: 24px 24px 28px; }
+  .benefit__body { display: flex; flex-direction: column; align-items: stretch; gap: 10px; padding: 24px 24px 28px; }
   .benefit__hem, .benefit__num { display: block; }
   .benefit__audience { margin-top: 4px; }
 }
 @media (min-width: 1024px) {
-  .about__statement { flex-direction: row; align-items: center; gap: 96px; }
-  .about__left { flex: 0 0 520px; gap: 20px; }
+  .about__left { gap: 20px; }
   .about__accent { font-size: 22px; line-height: 32px; }
-  .about__quote { flex: 1 1 0; padding: 44px 48px; }
+  .about__quote { padding: 44px 48px; }
   .about__quote blockquote p { font-size: 23px; line-height: 38px; }
   .about__quote figcaption { margin-top: 24px; }
   .benefits { margin-top: 88px; }
@@ -728,12 +730,12 @@ main:focus { outline: none; }
   .dignitary--lead { flex-direction: row; text-align: left; gap: 32px; padding: 40px; }
 }
 @media (min-width: 1024px) {
-  .dignitaries { flex-direction: row; gap: 24px; margin-bottom: 72px; align-items: stretch; }
+  .dignitaries { gap: 24px; margin-bottom: 72px; }
   .dignitary--lead { flex: 1 1 0; gap: 40px; padding: 48px; }
   .dignitary--lead .dignitary__text { gap: 10px; }
   .dignitary--lead .dignitary__name { font-size: 34px; line-height: 42px; letter-spacing: -0.005em; }
   .dignitary--lead .dignitary__role { font-size: 21px; line-height: 34px; }
-  .dignitaries__side { flex: 0 0 470px; gap: 24px; }
+  .dignitaries__side { flex-direction: row; gap: 24px; }
   .dignitary--side { padding: 28px; gap: 24px; flex: 1 1 0; }
   .dignitary--side .dignitary__name { font-size: 26px; line-height: 34px; }
   .dignitary--side .dignitary__role { font-size: 18px; line-height: 30px; }
@@ -742,6 +744,14 @@ main:focus { outline: none; }
   .speaker__name { font-size: 18px; line-height: 28px; }
   .speaker__designation { font-size: 16px; line-height: 25px; }
   .speaker__institution { font-size: 16px; line-height: 24px; }
+}
+
+@media (min-width: 1200px) {
+  .about__statement { flex-direction: row; align-items: center; gap: 96px; }
+  .about__left { flex: 0 0 520px; }
+  .about__quote { flex: 1 1 0; }
+  .dignitaries { flex-direction: row; align-items: stretch; }
+  .dignitaries__side { flex: 0 0 470px; flex-direction: column; }
 }
 
 /* ==========================================================================
