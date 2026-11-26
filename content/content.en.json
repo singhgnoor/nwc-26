@@ -52,8 +52,13 @@
       "countdownLabel": "Countdown"
     },
     "sections": {
-      "about": {"number": "01", "label": "Why this conclave"},
-      "benefits": {"title": "Who benefits"},
+      "about": {
+        "number": "01",
+        "label": "Why this conclave"
+      },
+      "benefits": {
+        "title": "Who benefits"
+      },
       "programme": {
         "number": "02",
         "label": "Programme",
@@ -68,7 +73,10 @@
         "intro": "Dignitaries and resource persons for {day}, {weekday} {date}.",
         "gridTitle": "Speakers"
       },
-      "journey": {"number": "04", "label": "The journey"},
+      "journey": {
+        "number": "04",
+        "label": "The journey"
+      },
       "moments": {
         "number": "05",
         "label": "Moments",
@@ -107,7 +115,7 @@
         "here": "IIT Ropar",
         "hereNote": "You are here",
         "mapLink": "Open in Google Maps",
-        "mapAria": "Open {place} in Google Maps"
+        "mapAria": "Open in Google Maps: {place}"
       }
     },
     "programme": {
@@ -539,7 +547,7 @@
       "designation": "Director",
       "institution": "IIT Ropar",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/rajeev-ahuja-352.webp",
       "bio": null
     },
     "dean-student-affairs": {
@@ -588,7 +596,7 @@
       "designation": "Minister of Education",
       "institution": "Government of India",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/pralhad-joshi-352.webp",
       "bio": null
     },
     "deepti-gaur-mukerjee": {
@@ -596,7 +604,7 @@
       "designation": "Secretary",
       "institution": "Department of Higher Education",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/deepti-gaur-mukerjee-352.webp",
       "bio": null
     },
     "syed-ekram-rizwi": {
@@ -612,7 +620,7 @@
       "designation": "Director",
       "institution": "Department of Higher Education",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/devendra-kumar-sharma-352.webp",
       "bio": null
     },
     "ananya-syal": {
@@ -620,7 +628,7 @@
       "designation": "Chairperson, Student Affairs",
       "institution": "Indian Institute of Management Amritsar",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/ananya-syal-250.webp",
       "bio": null
     },
     "asha-banu-soletti": {
@@ -628,7 +636,7 @@
       "designation": "Professor, Centre for Health and Mental Health",
       "institution": "Tata Institute of Social Sciences, Mumbai",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/asha-banu-soletti-352.webp",
       "bio": null
     },
     "tony-thomas": {
@@ -636,7 +644,7 @@
       "designation": "Assistant Professor, Department of Humanities and Social Sciences",
       "institution": "IIT Roorkee",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/tony-thomas-352.webp",
       "bio": null
     },
     "jitendra-nagpal": {
@@ -644,7 +652,7 @@
       "designation": "Director",
       "institution": "Expressions India",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/jitendra-nagpal-349.webp",
       "bio": null
     },
     "akshay-anand": {
@@ -652,7 +660,7 @@
       "designation": "Professor, Department of Neurology",
       "institution": "PGIMER, Chandigarh",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/akshay-anand-214.webp",
       "bio": null
     },
     "j-c-suri": {
@@ -660,7 +668,7 @@
       "designation": "Sleep Studies and Disorders Specialist; Former HoD",
       "institution": "Safdarjung Hospital and VMMC, New Delhi",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/j-c-suri-352.webp",
       "bio": null
     },
     "nancy-sahni": {
@@ -668,7 +676,7 @@
       "designation": null,
       "institution": "PGIMER, Chandigarh (Speaker on Nutrition)",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/nancy-sahni-352.webp",
       "bio": null
     },
     "geeta-mehrotra": {
@@ -676,7 +684,7 @@
       "designation": null,
       "institution": null,
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/geeta-mehrotra-200.webp",
       "bio": null
     },
     "renu-yadav": {
@@ -684,7 +692,7 @@
       "designation": "Dean, Student Welfare",
       "institution": "Central University of Haryana",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/renu-yadav-352.webp",
       "bio": null
     },
     "jayanti-dutta": {
@@ -692,7 +700,7 @@
       "designation": "Professor and Programme Director, Malaviya Mission Teachers' Training Centre",
       "institution": "Panjab University, Chandigarh",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/jayanti-dutta-352.webp",
       "bio": null
     },
     "barjeev-tyagi": {
@@ -700,7 +708,7 @@
       "designation": "Dean of Students' Welfare",
       "institution": "IIT Roorkee",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/barjeev-tyagi-352.webp",
       "bio": null
     },
     "palak-upadhyay": {
@@ -708,7 +716,7 @@
       "designation": "Department of Clinical Psychology",
       "institution": "Dayanand Medical College & Hospital (DMC&H), Ludhiana",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/palak-upadhyay-352.webp",
       "bio": null
     },
     "b-k-bala-kishore": {
@@ -716,7 +724,7 @@
       "designation": "Vice President, Better Living",
       "institution": "Searce Technologies",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/b-k-bala-kishore-352.webp",
       "bio": null
     },
     "sujata-sriram": {
@@ -724,7 +732,7 @@
       "designation": null,
       "institution": "TISS, Mumbai",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/sujata-sriram-352.webp",
       "bio": null
     },
     "sidharth-sood": {
@@ -740,7 +748,7 @@
       "designation": "Principal Scientist, Applied Behavioural Sciences Research",
       "institution": "TCS Research",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/mayuri-duggirala-322.webp",
       "bio": null
     },
     "krishan-kumar-soni": {
@@ -748,7 +756,7 @@
       "designation": null,
       "institution": "PGIMER / GMCH, Chandigarh",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/krishan-kumar-soni-352.webp",
       "bio": null
     }
   },

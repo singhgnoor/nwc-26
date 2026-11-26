@@ -1,0 +1,26 @@
+{
+  "_about": "Source photo in imgaes/ -> speaker ID. Optional \"crop\": {\"cx\": .., \"cy\": .., \"size\": ..} in source pixels overrides face detection. Run: python tools/prepare_photos.py",
+  "photos": [
+    {"file": "Akshay Anand.jpeg", "id": "akshay-anand"},
+    {"file": "Ananya Syal.jpeg", "id": "ananya-syal"},
+    {"file": "Asha Banu.jpeg", "id": "asha-banu-soletti"},
+    {"file": "Bala-Nagpur.jpg", "id": "b-k-bala-kishore"},
+    {"file": "Barjeev Tyagi.jpeg", "id": "barjeev-tyagi"},
+    {"file": "deepti gaur.png", "id": "deepti-gaur-mukerjee"},
+    {"file": "Devendra Sharma.jpeg", "id": "devendra-kumar-sharma"},
+    {"file": "Dr Jayanti Dutta.jpeg", "id": "jayanti-dutta"},
+    {"file": "Dr Nancy Sahni.jpeg", "id": "nancy-sahni"},
+    {"file": "Dr. Mayuri Day 2.jpeg", "id": "mayuri-duggirala"},
+    {"file": "Dr. Suri Day 1, Symposium.jpeg", "id": "j-c-suri"},
+    {"file": "Dr. Tony Thomas.jpeg", "id": "tony-thomas"},
+    {"file": "Geeta Mehrotra.jpeg", "id": "geeta-mehrotra", "crop": {"cx": 545, "cy": 431, "size": 200},
+     "note": "Full-length photo: the detector's largest box is foliage; the face is the 83 px box at (503, 384). Manual crop, low resolution."},
+    {"file": "Jitendra Nagpal.jpeg", "id": "jitendra-nagpal"},
+    {"file": "Krishan Soni.jpeg", "id": "krishan-kumar-soni"},
+    {"file": "Palak Upadhyay.jpeg", "id": "palak-upadhyay"},
+    {"file": "Pralhad Joshi.png", "id": "pralhad-joshi"},
+    {"file": "Rajeev Ahuja.png", "id": "rajeev-ahuja"},
+    {"file": "Renu yadav.jpeg", "id": "renu-yadav"},
+    {"file": "Sujata Sriram.jpeg", "id": "sujata-sriram"}
+  ]
+}
