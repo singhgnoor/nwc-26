@@ -7,17 +7,22 @@
     "theme": "Mental Wellness, Social Harmony and Collective Development",
     "dates": "6–7 December 2026",
     "startDate": "2026-12-06",
+    "opensAt": "09:30",
     "venue": "Indian Institute of Technology Ropar, Rupnagar, Punjab",
+    "venueShort": "IIT Ropar, Rupnagar, Punjab",
     "slug": "national-wellbeing-conclave-2026",
     "hashtag": "#NationalWellbeingConclave",
+    "hashtagDevanagari": "#समरस्यम्2026",
     "programmeNote": "Programme is tentative and subject to change.",
-    "organisers": "Hosted by the Indian Institute of Technology Ropar with the Department of Higher Education, Ministry of Education, Government of India, under the Malaviya Mission Teacher Training Programme."
+    "organisers": "Organised by the Department of Higher Education, Ministry of Education, Government of India, under the Malaviya Mission Teacher Training Programme (MMTTP). Hosted by the Indian Institute of Technology Ropar."
   },
   "ui": {
     "skipLink": "Skip to main content",
     "navLabel": "Sections",
-    "heroEyebrow": "Welcome to IIT Ropar",
-    "viewProgramme": "View programme",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuLabel": "Menu",
+    "newTab": "(opens in a new tab)",
     "nav": {
       "about": "About",
       "programme": "Programme",
@@ -27,39 +32,120 @@
       "feedback": "Feedback",
       "contact": "Contact"
     },
-    "headings": {
-      "glance": "At a glance",
-      "benefits": "Who benefits",
-      "programme": "Programme",
-      "speakers": "Speakers",
-      "dignitaries": "Dignitaries",
-      "speakerGrid": "Speakers and moderators",
-      "moments": "Moments",
-      "feedback": "Feedback",
-      "contact": "Write to us",
-      "emergency": "On campus, if you need help"
+    "hero": {
+      "eyebrow": "Welcome to IIT Ropar · 6–7 December 2026",
+      "themeLabel": "Theme",
+      "cta": "View programme",
+      "artCaption": "The Shivalik foothills and the Sutlej, as seen from campus"
     },
-    "labels": {
-      "dates": "Dates",
-      "venue": "Venue",
-      "countdown": "Conclave opens",
-      "countdownDays": "days to go",
-      "countdownDay": "day to go",
-      "countdownLive": "The Conclave is under way",
-      "countdownOver": "The Conclave has concluded",
-      "programmeTabs": "Programme days",
+    "glance": {
+      "heading": "At a glance",
+      "datesLabel": "Dates",
+      "dates": "Sun 6 – Mon 7 December 2026",
+      "datesNote": "Two days, full programme below",
+      "venueLabel": "Venue",
+      "venue": "IIT Ropar main campus",
+      "venueNote": "Rupnagar, Punjab",
+      "countdownDays": "days to the conclave",
+      "countdownDay": "day to the conclave",
+      "countdownLive": "Happening now",
+      "countdownLabel": "Countdown"
+    },
+    "sections": {
+      "about": {"number": "01", "label": "Why this conclave"},
+      "benefits": {"title": "Who benefits"},
+      "programme": {
+        "number": "02",
+        "label": "Programme",
+        "title": "Two days, hour by hour",
+        "intro": "Panel discussions, a symposium, focused workshops and student-led sessions. Open any session to see its moderator and speakers.",
+        "note": "All times IST · Updated live on 6 and 7 December"
+      },
+      "speakers": {
+        "number": "03",
+        "label": "Dignitaries & speakers",
+        "title": "Who you will hear from",
+        "intro": "Dignitaries and resource persons for {day}, {weekday} {date}.",
+        "gridTitle": "Speakers"
+      },
+      "journey": {"number": "04", "label": "The journey"},
+      "moments": {
+        "number": "05",
+        "label": "Moments",
+        "title": "Photographs from the conclave",
+        "intro": "A hand-picked selection of photographs, published after the event.",
+        "introLive": "Hand-picked by the organising team. Use the arrows or swipe to browse.",
+        "soonTag": "Opens after the event",
+        "soonTitle": "Coming soon",
+        "soonText": "Photographs from both days will be published here after 7 December 2026, chosen by the organising team."
+      },
+      "feedback": {
+        "number": "06",
+        "label": "Feedback",
+        "title": "Tell us how it went",
+        "intro": "Your feedback helps the Department of Higher Education and future host institutions shape the conclaves to come. It takes about five minutes.",
+        "closedTitle": "Opens on 7 December, after the valedictory session",
+        "closedText": "The feedback form (Google Form) will be linked here, and shown on screens at the venue.",
+        "closedButton": "Feedback form opens 7 December",
+        "openTag": "Now open",
+        "openTitle": "Thank you for being part of the conclave",
+        "openButton": "Share your feedback",
+        "openNote": "Google Form · about 5 minutes",
+        "qrCaption": "Scan at the venue",
+        "qrAlt": "QR code for the feedback form"
+      },
+      "contact": {
+        "number": "07",
+        "label": "Contact & organisers",
+        "title": "Who to write to",
+        "intro": "For the programme, invitations, travel or your stay, the organising team at IIT Ropar is your first point of contact.",
+        "onBehalf": "On behalf of the organising team"
+      },
+      "nearby": {
+        "label": "Beyond the conclave",
+        "swipeHint": "Swipe each row for more",
+        "here": "IIT Ropar",
+        "hereNote": "You are here",
+        "mapLink": "Open in Google Maps",
+        "mapAria": "Open {place} in Google Maps"
+      }
+    },
+    "programme": {
+      "tabsLabel": "Programme days",
       "session": "Session",
       "moderator": "Moderator",
       "speakers": "Speakers",
       "voteOfThanks": "Vote of Thanks",
-      "groups": "Stakeholder groups",
-      "onwards": "onwards",
-      "email": "Email:",
-      "onBehalf": "On behalf of the organising team,",
-      "photosComingSoon": "Photos coming soon",
-      "feedbackClosed": "Feedback opens after the event",
-      "feedbackOpen": "Share your feedback",
-      "copyright": "© 2026 Indian Institute of Technology Ropar"
+      "viewSpeakers": "View speakers",
+      "hideSpeakers": "Hide speakers",
+      "details": "Details",
+      "to": "to",
+      "onwards": "onwards"
+    },
+    "carousel": {
+      "label": "Photographs",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "position": "Photo {n} of {total}",
+      "show": "Show photo {n}"
+    },
+    "footer": {
+      "organisedBy": "Organised by",
+      "hostedBy": "Hosted by",
+      "onThisPage": "On this page",
+      "emergency": "On campus, if you need help",
+      "links": {
+        "about": "About the conclave",
+        "programme": "Programme",
+        "speakers": "Dignitaries & speakers",
+        "journey": "The journey",
+        "moments": "Moments",
+        "feedback": "Feedback",
+        "contact": "Contact",
+        "nearby": "Around IIT Ropar"
+      },
+      "socialAria": "IIT Ropar on {platform}",
+      "copyright": "© 2026 Indian Institute of Technology Ropar. All rights reserved."
     },
     "typeLabels": {
       "inaugural": "Inaugural",
@@ -70,7 +156,7 @@
       "workshop": "Workshop",
       "icebreaker": "Ice-breaker",
       "breakaway": "Breakaway",
-      "students": "Student presentations",
+      "students": "Students",
       "valedictory": "Valedictory",
       "break": "Break",
       "cultural": "Cultural",
@@ -96,14 +182,35 @@
       "link": "Go to the Samarasyam 2026 home page"
     }
   },
-  "logos": [],
+  "logos": [
+    {
+      "id": "mmttp",
+      "src": "img/logos/mmttp.png",
+      "alt": "Malaviya Mission Teacher Training Programme",
+      "lines": []
+    },
+    {
+      "id": "moe",
+      "src": "img/logos/emblem-of-india.png",
+      "alt": "Government of India, Ministry of Education",
+      "lines": [
+        "Ministry of Education",
+        "Department of Higher Education",
+        "Government of India"
+      ]
+    },
+    {
+      "id": "iit-ropar",
+      "src": "img/logos/iit-ropar-seal.png",
+      "alt": "Indian Institute of Technology Ropar",
+      "lines": []
+    }
+  ],
   "about": {
     "heading": "From awareness to action, strengthening the foundations of mental health, resilience and well-being across higher education institutions.",
-    "body": [
-      "Mental well-being is a national priority. The Department of Higher Education is bringing together institutional leaders, faculty and students to drive collective action towards building resilient, inclusive and well-being-oriented higher education campuses."
-    ],
+    "accent": "Student Well-being First: Empowering Minds, Transforming Lives.",
     "quote": {
-      "text": "Together, let's create safe and inclusive campuses where every individual feels supported, belongs and thrives!",
+      "text": "Mental well-being is a national priority. The Department of Higher Education is bringing together institutional leaders, faculty and students to drive collective action towards building resilient, inclusive and well-being-oriented higher education campuses.",
       "credit": "Ministry of Education, Government of India"
     }
   },
@@ -128,6 +235,12 @@
       "date": "2026-12-06",
       "weekday": "Sunday",
       "theme": null,
+      "dignitariesLabel": "Inaugural Ceremony",
+      "dignitaries": [
+        "pralhad-joshi",
+        "deepti-gaur-mukerjee",
+        "rajeev-ahuja"
+      ],
       "sessions": [
         {
           "id": "d1-registration",
@@ -145,8 +258,8 @@
           "title": "Inaugural Ceremony",
           "brief": "The inaugural ceremony will formally open समरस्यम् 2026, the 3rd National Well-being Conclave, hosted by the Indian Institute of Technology, Ropar on the theme \"Mental Wellness, Social Harmony and Collective Development\". It will set out the purpose, scope and intended deliverables of the two-day programme and affirm the shared commitment of the Ministry of Education and higher education institutions to advancing student well-being as an integral part of the academic mission.",
           "speakers": [
-            "prahlad-joshi",
-            "deepti-gaur-mukherjee",
+            "pralhad-joshi",
+            "deepti-gaur-mukerjee",
             "rajeev-ahuja"
           ],
           "voteOfThanks": "surya-kant-sahdeo"
@@ -281,13 +394,7 @@
           "type": "breakaway",
           "title": "Four Parallel Breakaway Sessions",
           "subtitle": "Deliberation on strengthening campus well-being across HEIs",
-          "brief": "Delegates will deliberate in four parallel stakeholder groups (Student Affairs, Faculty, Counsellors and Students) on strengthening campus well-being across HEIs. Drawing on the exhibition, presentations and panel discussions earlier in the day, each group will examine, from its own vantage point, the gaps in present arrangements, the practices that have worked, the support it requires from institutions and the Ministry, and the actions it can itself take.",
-          "groups": [
-            "Student Affairs",
-            "Faculty",
-            "Counsellors",
-            "Students"
-          ]
+          "brief": "Delegates will deliberate in four parallel stakeholder groups (Student Affairs, Faculty, Counsellors and Students) on strengthening campus well-being across HEIs. Drawing on the exhibition, presentations and panel discussions earlier in the day, each group will examine, from its own vantage point, the gaps in present arrangements, the practices that have worked, the support it requires from institutions and the Ministry, and the actions it can itself take."
         },
         {
           "id": "s10-presentations",
@@ -327,12 +434,18 @@
       "date": "2026-12-07",
       "weekday": "Monday",
       "theme": null,
+      "dignitariesLabel": "Valedictory Session",
+      "dignitaries": [
+        "devendra-kumar-sharma",
+        "rajeev-ahuja",
+        "jitendra-nagpal"
+      ],
       "sessions": [
         {
           "id": "d2-yoga",
           "start": "06:30",
           "end": null,
-          "type": "social",
+          "type": "break",
           "title": "Yoga | Campus Walk",
           "timeLabel": "06.30 / 07.00"
         },
@@ -435,7 +548,8 @@
       "institution": "IIT Ropar",
       "status": "ex-officio",
       "photo": null,
-      "bio": null
+      "bio": null,
+      "grid": false
     },
     "surya-kant-sahdeo": {
       "name": "Dr. Surya Kant Sahdeo",
@@ -469,19 +583,19 @@
       "photo": null,
       "bio": null
     },
-    "prahlad-joshi": {
-      "name": "Shri Prahlad Joshi",
+    "pralhad-joshi": {
+      "name": "Shri Pralhad Joshi",
       "designation": "Minister of Education",
       "institution": "Government of India",
-      "status": "tbc",
+      "status": "confirmed",
       "photo": null,
       "bio": null
     },
-    "deepti-gaur-mukherjee": {
-      "name": "Ms. Deepti Gaur Mukherjee",
+    "deepti-gaur-mukerjee": {
+      "name": "Ms. Deepti Gaur Mukerjee",
       "designation": "Secretary",
       "institution": "Department of Higher Education",
-      "status": "tbc",
+      "status": "confirmed",
       "photo": null,
       "bio": null
     },
@@ -504,7 +618,7 @@
     "ananya-syal": {
       "name": "Dr. Ananya Syal",
       "designation": "Chairperson, Student Affairs",
-      "institution": "IIM Amritsar",
+      "institution": "Indian Institute of Management Amritsar",
       "status": "confirmed",
       "photo": null,
       "bio": null
@@ -512,7 +626,7 @@
     "asha-banu-soletti": {
       "name": "Dr. Asha Banu Soletti",
       "designation": "Professor, Centre for Health and Mental Health",
-      "institution": "TISS Mumbai",
+      "institution": "Tata Institute of Social Sciences, Mumbai",
       "status": "confirmed",
       "photo": null,
       "bio": null
@@ -521,7 +635,7 @@
       "name": "Dr. Tony Thomas",
       "designation": "Assistant Professor, Department of Humanities and Social Sciences",
       "institution": "IIT Roorkee",
-      "status": "verbally-confirmed",
+      "status": "confirmed",
       "photo": null,
       "bio": null
     },
@@ -535,8 +649,8 @@
     },
     "akshay-anand": {
       "name": "Dr. Akshay Anand",
-      "designation": "Professor, Dept. of Neurology",
-      "institution": "PGIMER Chandigarh",
+      "designation": "Professor, Department of Neurology",
+      "institution": "PGIMER, Chandigarh",
       "status": "confirmed",
       "photo": null,
       "bio": null
@@ -608,7 +722,7 @@
     "sujata-sriram": {
       "name": "Dr. Sujata Sriram",
       "designation": null,
-      "institution": "TISS Mumbai",
+      "institution": "TISS, Mumbai",
       "status": "confirmed",
       "photo": null,
       "bio": null
@@ -638,88 +752,54 @@
       "bio": null
     }
   },
-  "dignitaries": [
-    "prahlad-joshi",
-    "deepti-gaur-mukherjee",
-    "rajeev-ahuja"
-  ],
   "journey": {
     "heading": "From Conversation to Movement",
-    "intro": "The Integrated Approach to Promoting Positive Mental Health, launched under MMTTP, has built considerable momentum since May 2024.",
+    "intro": "Integrated Approach to Promoting Positive Mental Health: launched under the Malaviya Mission Teacher Training Programme, the initiative has built considerable momentum since May 2024. Ropar is the next step on that climb.",
+    "stats": [
+      {
+        "value": "54+",
+        "label": "online capacity-building sessions"
+      },
+      {
+        "value": "3,800+",
+        "label": "faculty members"
+      },
+      {
+        "value": "160+",
+        "label": "higher education institutions"
+      }
+    ],
+    "hereLabel": "You are here",
     "milestones": [
       {
-        "year": "Since May 2024",
-        "place": "Online capacity building",
-        "text": null,
-        "stats": [
-          {
-            "value": "54+",
-            "label": "online capacity-building sessions"
-          },
-          {
-            "value": "3,800+",
-            "label": "faculty members"
-          },
-          {
-            "value": "160+",
-            "label": "HEIs"
-          }
-        ]
+        "when": "May 2024",
+        "title": "Launched under MMTTP",
+        "text": "Integrated Approach to Promoting Positive Mental Health",
+        "current": false
       },
       {
-        "year": "November 2024",
-        "place": "1st Conclave, IIT Hyderabad",
-        "text": null,
-        "stats": [
-          {
-            "value": "350+",
-            "label": "participants"
-          },
-          {
-            "value": "98",
-            "label": "HEIs"
-          }
-        ]
+        "when": "Nov 2024",
+        "title": "1st Conclave, IIT Hyderabad",
+        "text": "350+ participants from 98 HEIs",
+        "current": false
       },
       {
-        "year": "November 2025",
-        "place": "2nd Conclave, IIT Bombay",
-        "text": "Student-led talk shows, nukkad nataks, Compendium of Emerging Practices",
-        "stats": [
-          {
-            "value": "77",
-            "label": "HEIs"
-          },
-          {
-            "value": "300",
-            "label": "participants"
-          }
-        ]
+        "when": "Nov 2025",
+        "title": "2nd Conclave, IIT Bombay",
+        "text": "300 participants from 77 HEIs. Student-led talk shows, nukkad nataks and the Compendium of Emerging Practices",
+        "current": false
       },
       {
-        "year": null,
-        "place": "Regional Teacher Connect Workshops",
-        "text": "IIT Madras, IIT Indore, IIT Guwahati, IIT Bhubaneswar, IIT Jammu",
-        "stats": [
-          {
-            "value": "5",
-            "label": "workshops"
-          },
-          {
-            "value": "450+",
-            "label": "participants"
-          },
-          {
-            "value": "129",
-            "label": "HEIs"
-          }
-        ]
+        "when": "Regional",
+        "title": "5 Teacher Connect workshops",
+        "text": "IIT Madras, Indore, Guwahati, Bhubaneswar and Jammu. 450+ participants from 129 HEIs",
+        "current": false
       },
       {
-        "year": "6–7 December 2026",
-        "place": "समरस्यम् 2026, IIT Ropar",
-        "text": "The next milestone: the movement expands at the 3rd National Well-being Conclave.",
-        "stats": []
+        "when": "6–7 Dec 2026",
+        "title": "3rd Conclave, IIT Ropar",
+        "text": "The next milestone: the movement expands.",
+        "current": true
       }
     ]
   },
@@ -729,7 +809,8 @@
   },
   "feedback": {
     "status": "closed",
-    "formUrl": null
+    "formUrl": null,
+    "qr": null
   },
   "contact": {
     "team": "Organising Team",
@@ -737,49 +818,170 @@
       "3rd National Well-being Conclave",
       "Indian Institute of Technology Ropar"
     ],
+    "note": "Write to us about the programme, invitations, travel or your stay.",
     "email": "nwc@iitrpr.ac.in",
     "people": [
       {
         "name": "Dr. Surya Kant Sahdeo",
         "role": "Nodal Officer, NWC 2026",
-        "phone": "+91-1881-231181"
+        "phone": "+91 1881 231181"
       },
       {
         "name": "Dr. Suryasnata Tripathy",
         "role": "Coordinator, NWC 2026",
-        "phone": "+91-1881-232505"
+        "phone": "+91 1881 232505"
+      }
+    ]
+  },
+  "nearby": {
+    "heading": "Around IIT Ropar",
+    "subline": "For a free hour, an afternoon, or a day after the conclave.",
+    "footnote": "Drive times are approximate, from the IIT Ropar main gate. Opening hours can change, so please check before you set out.",
+    "groups": [
+      {
+        "id": "close",
+        "label": "Close by",
+        "range": "under 30 min",
+        "places": [
+          {
+            "name": "Harappan Site & Archaeological Museum, Rupnagar",
+            "blurb": "Ropar was the first Harappan site excavated in independent India. Its Indus heritage is echoed in the carvings on IIT Ropar's gate pillars.",
+            "drive": "≈ 15 min",
+            "note": "Closed Fridays",
+            "mapsQuery": "Archaeological Museum Rupnagar"
+          },
+          {
+            "name": "Ropar Wetland",
+            "blurb": "A Ramsar wetland on the Sutlej, where migratory birds winter from November to March.",
+            "drive": "≈ 15 min",
+            "note": "Best early morning or at sunset",
+            "mapsQuery": "Ropar Wetland"
+          }
+        ]
+      },
+      {
+        "id": "half",
+        "label": "Half day",
+        "range": "45 min – 1¼ hr",
+        "places": [
+          {
+            "name": "Anandpur Sahib & Virasat-e-Khalsa",
+            "blurb": "The holy town where the Khalsa was born, and the museum of Sikh history and Punjab's heritage beside it.",
+            "drive": "≈ 45 min",
+            "note": "Museum 10:00–4:30, closed Mondays; free entry",
+            "mapsQuery": "Virasat-e-Khalsa Anandpur Sahib"
+          },
+          {
+            "name": "Capitol Complex, Chandigarh",
+            "blurb": "Le Corbusier's UNESCO World Heritage complex. Free guided tours at 10:00, 12:00 and 3:00; bring photo ID.",
+            "drive": "≈ 1¼ hr",
+            "note": "Weekdays: tours go inside the buildings. Weekends: exterior only",
+            "mapsQuery": "Capitol Complex Chandigarh"
+          },
+          {
+            "name": "Rock Garden, Chandigarh",
+            "blurb": "Nek Chand's garden of sculptures made from scrap and broken ceramics, begun in secret in 1957.",
+            "drive": "≈ 1¼ hr",
+            "note": "Open daily, 9:00–6:00 in winter",
+            "mapsQuery": "Rock Garden Chandigarh"
+          },
+          {
+            "name": "Sector 17 & 22 Markets, Chandigarh",
+            "blurb": "The city's open-air plaza and its busiest shopping streets.",
+            "drive": "≈ 1¼ hr",
+            "note": "Evenings are liveliest",
+            "mapsQuery": "Sector 17 Plaza Chandigarh"
+          }
+        ]
+      },
+      {
+        "id": "day",
+        "label": "Day trip",
+        "range": "1½ – 2 hr",
+        "places": [
+          {
+            "name": "Khatkar Kalan: Bhagat Singh's ancestral home & museum",
+            "blurb": "The 1858 family home of Shaheed-e-Azam Bhagat Singh, with the museum dedicated to him nearby in the village.",
+            "drive": "≈ 1½ hr",
+            "note": "9:00–4:45, closed Mondays; free; no photography in the museum",
+            "mapsQuery": "Shaheed-e-Azam Bhagat Singh Museum Khatkar Kalan"
+          },
+          {
+            "name": "Morni Hills & Tikkar Taal",
+            "blurb": "Haryana's only hill station, in the Shivaliks, with the twin lakes of Tikkar Taal.",
+            "drive": "≈ 2 hr",
+            "note": "Carry a jacket in December",
+            "mapsQuery": "Tikkar Taal Morni Hills"
+          }
+        ]
       }
     ]
   },
   "emergency": [
     {
-      "service": "Security, Main Gate",
-      "number": "+91-1881-235901",
-      "note": "24/7"
+      "service": "Medical Centre (24×7)",
+      "number": "+91 1881 235193",
+      "icon": "medical"
     },
     {
-      "service": "Security Supervisor (mobile)",
-      "number": "+91-90410-58562",
-      "note": "24/7"
+      "service": "Ambulance (24×7)",
+      "number": "+91 90410 53926",
+      "icon": "phone"
     },
     {
-      "service": "Medical Centre (incl. ambulance)",
-      "number": "+91-1881-235193",
-      "note": "24/7"
+      "service": "Campus Security (24×7)",
+      "number": "+91 1881 235901",
+      "icon": "phone"
     },
     {
-      "service": "Medical Centre (mobile)",
-      "number": "+91-90410-53926",
-      "note": "24/7"
+      "service": "Tele-MANAS counselling (24×7)",
+      "number": "1800 89 14416",
+      "icon": "phone"
     },
     {
-      "service": "Tele-MANAS (free counselling helpline)",
-      "number": "1800-89-14416",
-      "note": "24/7"
+      "service": "Conclave Helpdesk",
+      "number": "+91 1881 232505",
+      "icon": "helpdesk"
     }
   ],
   "footer": {
-    "credit": null,
-    "socials": []
+    "credit": "Designed and developed by",
+    "creditName": "SAC Team",
+    "institute": {
+      "namePunjabi": "ਭਾਰਤੀ ਤਕਨਾਲੋਜੀ ਸੰਸਥਾ ਰੋਪੜ",
+      "nameHindi": "भारतीय प्रौद्योगिकी संस्थान रोपड़",
+      "nameEnglish": "Indian Institute of Technology Ropar",
+      "address": "Rupnagar, Punjab – 140001, India",
+      "siteLabel": "iitrpr.ac.in",
+      "siteUrl": "https://www.iitrpr.ac.in/",
+      "sealWhite": "img/logos/iit-ropar-seal-white.png"
+    },
+    "socials": [
+      {
+        "platform": "facebook",
+        "label": "Facebook",
+        "url": "https://www.facebook.com/iitrpr/"
+      },
+      {
+        "platform": "linkedin",
+        "label": "LinkedIn",
+        "url": "https://in.linkedin.com/school/iitropar/"
+      },
+      {
+        "platform": "x",
+        "label": "X",
+        "url": "https://x.com/iitrpr"
+      },
+      {
+        "platform": "instagram",
+        "label": "Instagram",
+        "url": "https://www.instagram.com/iit_ropar_official/"
+      },
+      {
+        "platform": "youtube",
+        "label": "YouTube",
+        "url": "https://www.youtube.com/@IITRoparOfficialChannel"
+      }
+    ]
   }
 }

@@ -1,8 +1,23 @@
-<section id="contact" class="contact" aria-labelledby="contact-title">
-  <h2 id="contact-title">$heading</h2>
-  <address class="contact__card">
-    <p class="contact__team"><strong>$team</strong>$lines</p>
-    <p class="contact__email">$email_label <a href="$email_href">$email</a></p>
-$people
-  </address>
+<section id="contact" class="section section--deep contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__title">
+        $folio
+        <h2 id="contact-title" class="h1">$title</h2>
+      </div>
+      <div class="section-head__aside">
+        $intro
+      </div>
+    </div>
+    <div class="contact__panel">
+      <address class="contact__team">
+        <span class="contact__accent" aria-hidden="true"></span>
+        <p class="contact__team-name">$team</p>
+        $lines
+        $note
+        <a class="contact__email" href="$email_href">$icon_mail$email</a>
+      </address>
+      $people
+    </div>
+  </div>
 </section>

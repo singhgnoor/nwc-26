@@ -1,8 +1,19 @@
-<section id="programme" class="programme" aria-labelledby="programme-title">
-  <h2 id="programme-title">$heading</h2>
-  $note
-  <div class="programme__tabs" role="tablist" aria-label="$tabs_label">
+<section id="programme" class="section programme" aria-labelledby="programme-title">
+  <div class="wrap">
+    <div class="section-head section-head--end">
+      <div class="section-head__title">
+        $folio
+        <h2 id="programme-title" class="h1">$title</h2>
+      </div>
+      <div class="section-head__aside">
+        $intro
+        $note
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="$tabs_label">
 $tabs
-  </div>
+    </div>
 $panels
+    $footnote
+  </div>
 </section>

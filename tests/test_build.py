@@ -4,8 +4,10 @@ import json
 import os
 import re
 import shutil
+import struct
 import tempfile
 import unittest
+import zlib
 from html.parser import HTMLParser
 
 from tests.helpers import REPO
@@ -18,6 +20,16 @@ with open(os.path.join(REPO, "content", "content.en.json"), encoding="utf-8") as
 
 def sessions(content):
     return {s["id"]: s for day in content["days"] for s in day["sessions"]}
+
+
+def tiny_png(width=4, height=3):
+    """A valid PNG of the given size (standard library only)."""
+    raw = b"".join(b"\x00" + b"\xcc\xbb\xaa" * width for _ in range(height))
+
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF)
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
 
 
 class BuildTestCase(unittest.TestCase):
@@ -43,6 +55,12 @@ class BuildTestCase(unittest.TestCase):
         self.output = []
         return build_site.build(root=self.root, out=self.output.append, **kw)
 
+    def add_static(self, rel, data):
+        path = os.path.join(self.root, "static", *rel.split("/"))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as f:
+            f.write(data)
+
     @property
     def log(self):
         return "\n".join(self.output)
@@ -60,46 +78,114 @@ class BuildTestCase(unittest.TestCase):
 
 
 class TestRealContent(BuildTestCase):
-    def test_builds_and_holds_back_unconfirmed(self):
+    def test_builds_and_holds_back_only_rizwi(self):
         self.assertEqual(self.run_build(), 0, self.log)
         html = self.page()
-        for held in ("Prahlad Joshi", "Deepti Gaur Mukherjee", "Ram Manohar Singh", "Nancy Sahni",
-                     "Jyoti Mishra", "Rizwi", "Bani Tamber Aeri", "Sunita Malhotra", "Poonam Khanna"):
-            self.assertNotIn(held, html)
-            self.assertIn(held, self.log)  # listed in the held-back summary
-        for shown in ("Dr. Ananya Syal", "Prof. Rajeev Ahuja", "Dr. Jitendra Nagpal", "Speaker and Moderator",
-                      "Ms. Geeta Mehrotra and Team", "Shri Devendra Kumar Sharma"):
+        self.assertNotIn("Rizwi", html)
+        self.assertIn("Sh Syed Ekram Rizwi [tbc] (not referenced)", self.log)
+        held = [line for line in self.output if line.startswith("  - ")]
+        self.assertEqual(len(held), 1, self.log)  # nobody else is held back
+        for shown in ("Shri Pralhad Joshi", "Ms. Deepti Gaur Mukerjee", "Dr. Tony Thomas", "Dr. Ananya Syal",
+                      "Prof. Rajeev Ahuja", "Dr. Jitendra Nagpal", "Speaker and Moderator",
+                      "Ms. Geeta Mehrotra and Team", "Shri Devendra Kumar Sharma", "Dr. Palak Upadhyay",
+                      "Dr. Nancy Sahni"):
             self.assertIn(shown, html)
         self.assertNotIn("noindex", html)
         self.assertNotIn("PREVIEW", html)
-        for rel in ("404.html", "robots.txt", "sitemap.xml", "assets/css/main.css", "assets/js/main.js"):
+        for rel in ("404.html", "robots.txt", "sitemap.xml", "assets/css/main.css", "assets/js/main.js",
+                    "assets/img/og-image.png", "assets/img/favicon.svg", "assets/fonts/OFL-eczar.txt"):
             self.assertTrue(os.path.isfile(os.path.join(self.root, "site", *rel.split("/"))), rel)
-        self.assertFalse(os.path.exists(os.path.join(self.root, "site", "assets", "img", ".gitkeep")))
+        self.assertFalse(os.path.exists(os.path.join(self.root, "site", "assets", "img", "logos", "SOURCES.md")))
+
+    def test_v6_designations_word_for_word(self):
+        self.run_build()
+        html = self.page()
+        for text in ("Chairperson, Student Affairs, Indian Institute of Management Amritsar",
+                     "Professor, Centre for Health and Mental Health, Tata Institute of Social Sciences, Mumbai",
+                     "Professor, Department of Neurology, PGIMER, Chandigarh", "TISS, Mumbai",
+                     "PGIMER, Chandigarh (Speaker on Nutrition)",
+                     "Assistant Professor, Department of Humanities and Social Sciences, IIT Roorkee"):
+            self.assertIn(text, html)
+        for short in ("IIM Amritsar", "TISS Mumbai", "Dept. of Neurology", "PGIMER Chandigarh<"):
+            self.assertNotIn(short, html)
 
     def test_identity_and_markup(self):
         self.run_build()
         html = self.page()
         self.assertIn('<html lang="en">', html)
         self.assertIn("<title>Samarasyam 2026 · 3rd National Well-being Conclave · IIT Ropar</title>", html)
-        self.assertIn('<span lang="hi">समरस्यम् 2026</span>', html)
+        self.assertIn('<span lang="hi">समरस्यम्</span>', html)
         self.assertIn('<span lang="hi">स्वस्थ मन | समरस समाज | सशक्त राष्ट्र</span>', html)
         self.assertIn('<meta property="og:url" content="https://iitrpr.ac.in/national-wellbeing-conclave-2026/">', html)
+        self.assertIn('<meta property="og:image" content="https://iitrpr.ac.in/national-wellbeing-conclave-2026/assets/img/og-image.png">', html)
+        self.assertIn('<meta name="twitter:card" content="summary_large_image">', html)
         self.assertIn('role="tablist"', html)
-        self.assertIn('<details class="session" id="session-s5" data-type="panel">', html)
-        self.assertIn('<div class="session session--break" id="session-d1-lunch"', html)
-        self.assertIn("19.00</time> onwards", html)
+        self.assertIn('<details class="session" id="details-s5" data-type="panel">', html)
+        self.assertIn('class="tl tl--break" id="session-d1-lunch"', html)
+        self.assertIn("19.00</time> <span class=\"rail__onwards\">onwards", html)
         self.assertIn(">06.30 / 07.00</time>", html)
-        self.assertIn("Photos coming soon", html)
-        self.assertIn("Feedback opens after the event", html)
+        self.assertIn(">Coming soon<", html)
+        self.assertIn("Opens on 7 December, after the valedictory session", html)
         self.assertIn('href="tel:18008914416"', html)
+        self.assertIn('href="tel:+911881232505"', html)  # Conclave Helpdesk
         self.assertIn('href="mailto:nwc@iitrpr.ac.in"', html)
-        # relative paths only, and no third-party requests
+        self.assertIn('#<span lang="hi">समरस्यम्</span>2026', html)
+        self.assertIn("#NationalWellbeingConclave", html)
+        self.assertIn("Designed and developed by <strong>SAC Team</strong>", html)
+        # relative paths only; external links are the socials, maps and iitrpr.ac.in, all in new tabs
         self.assertNotIn('href="/', html)
         self.assertNotIn('src="/', html)
-        self.assertNotRegex(html, r'(?:src|href)="https?://(?!iitrpr\.ac\.in/)')
+        self.assertNotRegex(html, r'src="https?://')
+        for m in re.finditer(r'<a[^>]+href="https?://[^"]+"[^>]*>', html):
+            self.assertIn('target="_blank"', m.group(0))
+            self.assertIn('rel="noopener noreferrer"', m.group(0))
         # the brief's Devanagari word is marked as Hindi; no apostrophe after the name
         self.assertIn('formally open <span lang="hi">समरस्यम्</span> 2026', html)
         self.assertNotIn("समरस्यम्'", html)
+
+    def test_session_cards_follow_the_design(self):
+        self.run_build()
+        html = self.page()
+        self.assertIn("Panel Discussion I: Transforming social connectedness", html)  # title: subtitle
+        self.assertIn('class="session__number">Session 1<', html)
+        self.assertNotIn("session__venue", html)  # V6 has no venues
+        self.assertNotIn("Stakeholder groups", html)  # Session 10 card shows the brief only, as in Figma
+        s4 = html[html.index('id="details-s4"'):html.index("</details>", html.index('id="details-s4"'))]
+        self.assertNotIn("chip", s4)  # Session 4: no presenter until the Dean's office names one
+        self.assertIn('class="session session--plain" data-type="cultural"', html)
+
+    def test_speakers_follow_the_selected_day(self):
+        self.run_build()
+        html = self.page()
+        day1 = html[html.index('id="speakers-day1"'):html.index('id="speakers-day2"')]
+        day2 = html[html.index('id="speakers-day2"'):html.index("</section>", html.index('id="speakers-day2"'))]
+        self.assertEqual(day1.count('class="speaker"'), 16)
+        self.assertEqual(day2.count('class="speaker"'), 4)
+        self.assertIn("Inaugural Ceremony", day1)
+        self.assertIn("Valedictory Session", day2)
+        self.assertNotIn("Dean, Student Affairs", day1)  # role-only entry is not a grid card
+        self.assertNotIn("Dr. Jitendra Nagpal</p><p class=\"speaker", day2)  # Day 2 dignitary, not repeated
+        self.assertIn('data-day="day1"', html)
+
+    def test_nearby_band_and_map_links(self):
+        self.run_build()
+        html = self.page()
+        self.assertIn('id="nearby"', html)
+        links = re.findall(r'<a class="place__map" href="([^"]+)"[^>]*aria-label="([^"]+)"', html)
+        self.assertEqual(len(links), 8)
+        self.assertIn(("https://www.google.com/maps/search/?api=1&amp;query=Ropar%20Wetland",
+                       "Open Ropar Wetland in Google Maps (opens in a new tab)"), links)
+        self.assertIn("ancestral home", html)
+        self.assertNotIn("birthplace", html.lower())
+        self.assertIn('<a href="#nearby">Around IIT Ropar</a>', html)
+
+    def test_socials_in_figma_order(self):
+        self.run_build()
+        html = self.page()
+        urls = re.findall(r'<a class="social" href="([^"]+)"[^>]*aria-label="IIT Ropar on (\w+)', html)
+        self.assertEqual([u for _, u in urls], ["Facebook", "LinkedIn", "X", "Instagram", "YouTube"])
+        self.assertEqual(urls[0][0], "https://www.facebook.com/iitrpr/")
+        self.assertEqual(urls[4][0], "https://www.youtube.com/@IITRoparOfficialChannel")
 
     def test_briefs_only_no_outcomes(self):
         self.run_build()
@@ -122,18 +208,23 @@ class TestRealContent(BuildTestCase):
         ids = set(re.findall(r'\bid="([^"]+)"', html))
         refs = re.findall(r'(?:aria-labelledby|aria-controls)="([^"]+)"', html)
         refs += [h[1:] for h in re.findall(r'href="(#[^"]+)"', html)]
+        refs += re.findall(r'<use href="#([^"]+)"', html)
         self.assertEqual(sorted(set(r for r in refs if r not in ids)), [])
         self.assertEqual(html.count("<h1"), 1)
         # every section from the spec is present, in order
-        order = [html.index('id="%s"' % s) for s in ("hero", "glance", "about", "benefits", "programme",
-                                                      "speakers", "journey", "moments", "feedback", "contact")]
+        order = [html.index('id="%s"' % s) for s in ("hero", "glance", "about", "programme", "speakers",
+                                                      "journey", "moments", "feedback", "contact", "nearby")]
         self.assertEqual(order, sorted(order))
         self.assertLess(html.index("<header"), order[0])
         self.assertGreater(html.index("<footer"), order[-1])
+        # every image has an alt attribute and width/height
+        for img in re.findall(r"<img [^>]+>", html):
+            self.assertIn(" alt=", img)
+            self.assertIn(" width=", img)
 
 
 class TagChecker(HTMLParser):
-    VOID = {"meta", "link", "img", "br", "hr", "input", "source", "area", "base", "col", "embed", "wbr"}
+    VOID = {"meta", "link", "img", "br", "hr", "input", "source", "area", "base", "col", "embed", "wbr", "use"}
 
     def __init__(self):
         super().__init__()
@@ -147,6 +238,8 @@ class TagChecker(HTMLParser):
             self.stack.append(tag)
 
     def handle_endtag(self, tag):
+        if tag in self.VOID:
+            return
         if not self.stack or self.stack[-1] != tag:
             self.errors.append("unexpected </%s> at %s" % (tag, self.getpos()))
         else:
@@ -155,12 +248,45 @@ class TagChecker(HTMLParser):
 
 class TestValidators(BuildTestCase):
     def test_placeholder_text_fails(self):
-        for token in ("TODO", "TBC", "lorem ipsum", "+91 00000 00000", "XXX", "placeholder"):
+        for token in ("TODO", "TBC", "lorem ipsum", "+91 00000 00000", "XXX", "placeholder", "Speaker Name",
+                      "Designation, Institution", "Name of the Chief Guest", "sample programme"):
             with self.subTest(token=token):
                 content = copy.deepcopy(REAL_CONTENT)
                 sessions(content)["s2"]["brief"] = "Brief with %s inside." % token
                 self.content = content
-                self.assertFails("BUILD FAILED", token.split()[0] if token != "+91 00000 00000" else "00000")
+                self.assertFails("BUILD FAILED")
+
+    def test_coming_soon_only_in_the_designed_state(self):
+        sessions(self.content)["s2"]["brief"] = "Details coming soon."
+        self.assertFails("coming soon")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.assertEqual(self.run_build(), 0, self.log)  # the Moments card itself passes
+
+    def test_institution_words_in_real_text_pass(self):
+        # "Institutions" and "University/Institution Wellness Indicators" are real content, not placeholders
+        self.assertEqual(self.run_build(), 0, self.log)
+        self.assertIn("University/Institution Wellness Indicators Checklist", self.page())
+
+    def test_misspellings_fail(self):
+        for wrong, where in (("Shri Prahlad Joshi", "name"), ("Ms. Deepti Gaur Mukherjee", "name")):
+            with self.subTest(wrong=wrong):
+                self.content = copy.deepcopy(REAL_CONTENT)
+                key = "pralhad-joshi" if "Prahlad" in wrong else "deepti-gaur-mukerjee"
+                self.content["speakers"][key]["name"] = wrong
+                self.assertFails("official spelling")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        sessions(self.content)["s2"]["brief"] = "Opened by the minister, Shri prahlad Joshi."
+        self.assertFails("official spelling is 'Pralhad'")
+
+    def test_renamed_ids(self):
+        self.assertIn("pralhad-joshi", REAL_CONTENT["speakers"])
+        self.assertIn("deepti-gaur-mukerjee", REAL_CONTENT["speakers"])
+        self.assertNotIn("prahlad-joshi", REAL_CONTENT["speakers"])
+        self.assertNotIn("deepti-gaur-mukherjee", REAL_CONTENT["speakers"])
+        self.assertEqual(sessions(REAL_CONTENT)["s1"]["speakers"][:2], ["pralhad-joshi", "deepti-gaur-mukerjee"])
+        self.assertEqual(REAL_CONTENT["days"][0]["dignitaries"][:2], ["pralhad-joshi", "deepti-gaur-mukerjee"])
+        for sid in ("pralhad-joshi", "deepti-gaur-mukerjee", "tony-thomas"):
+            self.assertEqual(REAL_CONTENT["speakers"][sid]["status"], "confirmed")
 
     def test_unhyphenated_wellbeing_fails(self):
         for text in ("student wellbeing matters", "Student Wellbeing First", "WELLBEING"):
@@ -191,7 +317,8 @@ class TestValidators(BuildTestCase):
 
     def test_other_identity_fields_locked(self):
         for key, value in (("theme", "Mental Wellness"), ("nameFull", "3rd National Wellbeing Conclave"),
-                           ("hashtag", "#NWC2026"), ("dates", "6-7 December 2026")):
+                           ("hashtag", "#NWC2026"), ("hashtagDevanagari", "#समरस्यम्"),
+                           ("dates", "6-7 December 2026")):
             with self.subTest(key=key):
                 self.content = copy.deepcopy(REAL_CONTENT)
                 self.content["event"][key] = value
@@ -199,7 +326,7 @@ class TestValidators(BuildTestCase):
 
     def test_unknown_speaker_id_fails(self):
         sessions(self.content)["s5"]["speakers"].append("no-such-person")
-        self.content["dignitaries"].append("also-missing")
+        self.content["days"][0]["dignitaries"].append("also-missing")
         sessions(self.content)["s8"]["moderator"] = "ghost"
         self.assertFails("'no-such-person'", "'also-missing'", "'ghost'")
 
@@ -222,7 +349,7 @@ class TestValidators(BuildTestCase):
         self.assertFails("speakers.akshay-anand.status")
 
     def test_held_back_name_leaking_through_other_text_fails(self):
-        sessions(self.content)["s2"]["brief"] = "Opened by Shri Prahlad Joshi."
+        sessions(self.content)["s2"]["brief"] = "Introduced by Sh Syed Ekram Rizwi."
         self.assertFails("held back")
 
     def test_preview_build(self):
@@ -233,7 +360,7 @@ class TestValidators(BuildTestCase):
         html = self.page(folder="site-preview")
         self.assertIn('<meta name="robots" content="noindex, nofollow">', html)
         self.assertIn("PREVIEW", html)
-        self.assertIn("Prahlad Joshi", html)
+        self.assertIn("Ananya Syal", html)
         self.assertIn("(to be confirmed)", html)
         self.assertIn("Disallow: /", self.page("robots.txt", folder="site-preview"))
 
@@ -282,44 +409,122 @@ class TestValidators(BuildTestCase):
         sessions(self.content)["d1-lunch"]["speakers"] = ["ananya-syal"]
         self.assertFails("a break has no speakers")
 
-    def test_feedback_open_requires_google_form(self):
-        self.content["feedback"] = {"status": "open", "formUrl": "https://example.com/form"}
-        self.assertFails("feedback.formUrl")
-        self.content["feedback"] = {"status": "open", "formUrl": "https://docs.google.com/forms/d/e/abc/viewform"}
+    def test_contact_email_and_phones_are_checked(self):
+        self.content["contact"]["email"] = "nwc@iitb.ac.in"
+        self.assertFails("contact.email: must be nwc@iitrpr.ac.in")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["emergency"][4]["number"] = "+91 00000"
+        self.assertFails("emergency[4].number")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["contact"]["people"][0]["phone"] = "231181"
+        self.assertFails("contact.people[0].phone")
+
+    def test_nearby_schema(self):
+        self.content["nearby"]["groups"][0]["id"] = "far"
+        self.assertFails("nearby.groups[0].id")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        del self.content["nearby"]["groups"][1]["places"][0]["mapsQuery"]
+        self.assertFails("nearby.groups[1].places[0].mapsQuery: missing")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["nearby"]["groups"][2]["places"][0]["blurb"] = "Bhagat Singh's birthplace."
+        self.assertFails("ancestral home")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["nearby"]["groups"][0]["places"] = []
+        self.assertFails("a group needs at least one place")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["nearby"]["groups"][1]["id"] = "close"
+        self.assertFails("is used twice")
+
+    def test_broken_anchor_fails(self):
+        self.content["ui"]["nav"]["about"] = "About"
         self.assertEqual(self.run_build(), 0, self.log)
-        self.assertIn('href="https://docs.google.com/forms/d/e/abc/viewform"', self.page())
-        self.assertNotIn("<iframe", self.page())
+        errors = build_site.check_links("x.html", '<a href="#missing">x</a><a href="#">y</a><p id="ok"></p>', None)
+        self.assertTrue(any("#missing" in e for e in errors), errors)
+        self.assertTrue(any('empty href="#"' in e for e in errors), errors)
+        errors = build_site.check_links("x.html", '<a href="tel:+91123">x</a><a href="mailto:a@b.c">y</a>', None)
+        self.assertEqual(len(errors), 2, errors)
+
+    def test_missing_asset_fails(self):
+        self.content["logos"][0]["src"] = "img/logos/nope.png"
+        self.assertFails("static/img/logos/nope.png does not exist")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        os.remove(os.path.join(self.root, "static", "img", "art", "band.svg"))  # referenced from main.css
+        self.assertFails("url(../img/art/band.svg) does not exist")
+
+    def test_feedback_open_requires_google_form(self):
+        self.content["feedback"] = {"status": "open", "formUrl": "https://example.com/form", "qr": None}
+        self.assertFails("feedback.formUrl")
+
+    def test_feedback_open_state_renders_without_placeholder_qr(self):
+        self.content["feedback"] = {"status": "open", "formUrl": "https://docs.google.com/forms/d/e/abc/viewform", "qr": None}
+        self.assertEqual(self.run_build(), 0, self.log)
+        html = self.page()
+        self.assertIn('href="https://docs.google.com/forms/d/e/abc/viewform" target="_blank" rel="noopener noreferrer"', html)
+        self.assertIn("Thank you for being part of the conclave", html)
+        self.assertNotIn("fb-open__qr", html)
+        self.assertNotIn("<iframe", html)
+
+    def test_feedback_open_state_with_qr(self):
+        self.add_static("img/feedback-qr.png", tiny_png(112, 112))
+        self.content["feedback"] = {"status": "open", "formUrl": "https://forms.gle/abc", "qr": "img/feedback-qr.png"}
+        self.assertEqual(self.run_build(), 0, self.log)
+        html = self.page()
+        self.assertIn('alt="QR code for the feedback form" width="112" height="112"', html)
+        self.assertIn("Scan at the venue", html)
+
+    def test_moments_carousel_renders_from_fixture(self):
+        for i in (1, 2, 3):
+            self.add_static("img/moments/%d.png" % i, tiny_png(1200, 620))
+        self.content["photos"] = {"status": "live", "items": [
+            {"src": "img/moments/%d.png" % i, "alt": "Photo %d alt" % i, "caption": "Caption %d" % i,
+             "label": "Day 1 · Inaugural Ceremony"} for i in (1, 2, 3)]}
+        self.assertEqual(self.run_build(), 0, self.log)
+        html = self.page()
+        self.assertIn('aria-roledescription="carousel"', html)
+        self.assertEqual(html.count('class="carousel__slide"'), 3)
+        self.assertIn('alt="Photo 2 alt" width="1200" height="620"', html)
+        self.assertIn("02 / 03", html)
+        self.assertIn('aria-label="Show photo 3"', html)
+        self.assertNotIn(">Coming soon<", html)
+        self.assertIn("Hand-picked by the organising team", html)
+
+    def test_live_photos_need_items(self):
+        self.content["photos"] = {"status": "live", "items": []}
+        self.assertFails("there are no items")
 
     def test_missing_photo_file_fails_and_existing_one_renders(self):
-        self.content["speakers"]["ananya-syal"]["photo"] = "img/speakers/ananya-syal.webp"
-        self.assertFails("static/img/speakers/ananya-syal.webp does not exist")
-        os.makedirs(os.path.join(self.root, "static", "img", "speakers"))
-        with open(os.path.join(self.root, "static", "img", "speakers", "ananya-syal.webp"), "wb") as f:
-            f.write(b"RIFF")
+        self.content["speakers"]["ananya-syal"]["photo"] = "img/speakers/ananya-syal-352.webp"
+        self.assertFails("static/img/speakers/ananya-syal-352.webp does not exist")
+        for size in (128, 352):
+            self.add_static("img/speakers/ananya-syal-%d.webp" % size, b"RIFF\x00\x00\x00\x00WEBP")
         self.assertEqual(self.run_build(), 0, self.log)
-        self.assertIn('src="assets/img/speakers/ananya-syal.webp"', self.page())
+        html = self.page()
+        self.assertIn("assets/img/speakers/ananya-syal-128.webp?v=", html)
+        self.assertIn('alt="Dr. Ananya Syal" width="64" height="64"', html)
+        self.assertRegex(html, r'srcset="assets/img/speakers/ananya-syal-128\.webp\?v=\w+ 128w, assets/img/speakers/ananya-syal-352\.webp\?v=\w+ 352w"')
 
     def test_empty_values_are_hidden_not_blank(self):
         s = sessions(self.content)
         s["s5"]["subtitle"] = ""
         s["s5"]["brief"] = None
         self.content["event"]["programmeNote"] = ""
-        self.content["ui"]["heroEyebrow"] = None
+        self.content["ui"]["hero"]["eyebrow"] = None
         self.assertEqual(self.run_build(), 0, self.log)
         html = self.page()
-        start = html.index('id="session-s5"')
+        start = html.index('id="details-s5"')
         block = html[start:html.index("</details>", start)]
-        self.assertNotIn("session__subtitle", block)
         self.assertNotIn("session__brief", block)
+        self.assertNotIn("Transforming social", block)
         self.assertNotIn("programme__note", html)
         self.assertNotIn("hero__eyebrow", html)
-        self.assertNotRegex(html, r"<(p|span|h[1-6]|li)( [^>]*)?></\1>")
+        visible = re.sub(r'<span [^>]*aria-hidden="true"[^>]*></span>', "", html)  # decorative rules/accents
+        self.assertNotRegex(visible, r"<(p|span|h[1-6]|li)( [^>]*)?></\1>")
 
     def test_session_with_nothing_to_expand_is_plain(self):
         s = sessions(self.content)["s2"]
         s["brief"] = None
         self.assertEqual(self.run_build(), 0, self.log)
-        self.assertIn('<div class="session session--plain" id="session-s2"', self.page())
+        self.assertIn('<div class="session session--plain" data-type="exhibition">', self.page())
 
     def test_html_is_escaped(self):
         sessions(self.content)["s2"]["brief"] = 'Tags <script>alert(1)</script> & "quotes"'
@@ -380,6 +585,10 @@ class TestHindi(BuildTestCase):
         self.assertIn('href="hi/"', self.page())  # language toggle on the English page
         self.assertIn("https://iitrpr.ac.in/national-wellbeing-conclave-2026/hi/", self.page("sitemap.xml"))
 
+    def test_no_language_toggle_without_hindi(self):
+        self.assertEqual(self.run_build(), 0, self.log)
+        self.assertNotIn('class="lang"', self.page())
+
     def test_hindi_with_missing_key_fails(self):
         hi = self.hindi()
         del hi["about"]["quote"]
@@ -388,11 +597,11 @@ class TestHindi(BuildTestCase):
 
     def test_hindi_with_changed_invariants_fails(self):
         hi = self.hindi()
-        hi["speakers"]["prahlad-joshi"]["status"] = "confirmed"
+        hi["speakers"]["pralhad-joshi"]["status"] = "tbc"
         hi["days"][0]["sessions"][1]["start"] = "09:00"
         hi["event"]["tagline"] = "something else"
         self.save(hi, "content.hi.json")
-        self.assertFails("speakers.prahlad-joshi.status", "sessions[1].start", "event.tagline")
+        self.assertFails("speakers.pralhad-joshi.status", "sessions[1].start", "event.tagline")
 
     def test_hindi_with_extra_list_item_fails(self):
         hi = self.hindi()
@@ -410,7 +619,28 @@ class TestHelpers(unittest.TestCase):
 
     def test_tel_href(self):
         self.assertEqual(build_site.tel_href("+91-1881-231181"), "tel:+911881231181")
+        self.assertEqual(build_site.tel_href("+91 1881 232505"), "tel:+911881232505")
         self.assertEqual(build_site.tel_href("1800-89-14416"), "tel:18008914416")
+        self.assertTrue(build_site.TEL_RE.match("tel:+911881232505"))
+        self.assertTrue(build_site.TEL_RE.match("tel:18008914416"))
+        self.assertFalse(build_site.TEL_RE.match("tel:+91188123250"))
+
+    def test_phone_display(self):
+        self.assertEqual(build_site.phone_display("+91-1881-231181"), "+91 1881 231181")
+
+    def test_image_size(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            path = os.path.join(tmp, "x.png")
+            with open(path, "wb") as f:
+                f.write(tiny_png(7, 5))
+            self.assertEqual(build_site.image_size(path), (7, 5))
+            svg = os.path.join(tmp, "x.svg")
+            with open(svg, "w") as f:
+                f.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 560"></svg>')
+            self.assertEqual(build_site.image_size(svg), (1440, 560))
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":
