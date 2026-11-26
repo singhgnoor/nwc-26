@@ -42,7 +42,7 @@ On Windows, use `python` instead of `python3`.
 
 - **Hiding something:** set any optional text to `""` or `null` and that element disappears. The build never renders an empty box.
 - **Speakers** are defined once under `speakers` and referenced by ID from sessions (`moderator`, `speakers`, `voteOfThanks`) and from each day's `dignitaries`.
-- **Dignitaries & speakers (section 03)** follows the selected day, as in the two Figma frames: each day lists its `dignitaries` (shown with the `dignitariesLabel` eyebrow, e.g. "Inaugural Ceremony"), and the grid is built automatically from that day's moderators and speakers, minus the day's dignitaries, vote-of-thanks people and anyone with `"grid": false` (role-only entries such as "Dean, Student Affairs").
+- **Dignitaries & speakers (section 03)** follows the selected day, as in the two Figma frames: each day lists its `dignitaries` (shown with the `dignitariesLabel` eyebrow, e.g. "Inaugural Ceremony"), and the grid is built automatically from that day's moderators and speakers, minus the day's dignitaries, vote-of-thanks people and anyone with `"grid": false` (Dr. Puneet Pasricha, Session 3 presenter, is left out of the grid, as in the Figma Day 1 frame).
 - **`status` decides who appears.** It must be one of `confirmed`, `verbally-confirmed`, `awaiting`, `tbc`, `ex-officio` or `alternate`. Only `confirmed` and `ex-officio` are published. Everyone else is left out of the page and listed by the build. To publish someone, change their status; nothing else.
 - **Photos:** add the source to `imgaes/`, map it in `tools/photo_map.json` and run `python tools/prepare_photos.py --write-content`. It writes `static/img/speakers/<id>-128.webp`, `-208` and `-352` (never upscaled) and sets `"photo"` to the largest. Without a photo, the neutral avatar from the design is shown.
 - **Times** are 24-hour `HH:MM` and are displayed V5-style ("09.30 – 10.15"). `"end": null` shows "onwards". `"timeLabel"` overrides the displayed time (used for "06.30 / 07.00"). Sessions must be in time order and must not overlap unless both are marked `"parallel": true`.
@@ -73,7 +73,7 @@ Agreed with Gurnoor on 26 Nov unless marked as a default. All are content edits 
 
 - **Design:** Figma v3.3 (`84ACfsxiRu5u9j5rUMHtZa`) is the source of truth: desktop frames `10:2` (Day 1) and `100:2173` (Day 2), mobile patterns from `33:2` and `36:761`, filled with the real desktop content. The mobile frame's sample text (day theme, venues, "Main Auditorium foyer", "Chief Guest" labels, +91 00000 00000) is not used.
 - **Published (verified 26 Nov):** Shri **Pralhad** Joshi and Ms. Deepti Gaur **Mukerjee** (official spellings; IDs `pralhad-joshi`, `deepti-gaur-mukerjee`) and Dr. Tony Thomas are `confirmed`. Only Sh Syed Ekram Rizwi is held back.
-- **Not shown although the Figma has them:** "Dr. Puneet Pasricha" on Session 3 (in no source; the card shows the role "Dean, Student Affairs, IIT Ropar"), Rizwi/Sharma on Session 4 (no presenter, as decided 17 Nov), the Session 11 "Clinical Psychologist" entry, every status label ("TBC", "Verbally Confirmed"), Geeta Mehrotra's invented grid sub-labels, and Session 10's stakeholder-group list (the card shows the brief only, as in Figma).
+- **Not shown although the Figma has them:** Rizwi/Sharma on Session 4 (no presenter, as decided 17 Nov), the Session 11 "Clinical Psychologist" entry, every status label ("TBC", "Verbally Confirmed"), Geeta Mehrotra's invented grid sub-labels, and Session 10's stakeholder-group list (the card shows the brief only, as in Figma).
 - **Designations:** the V6 wording for Dr. Ananya Syal, Dr. Asha Banu Soletti, Dr. Akshay Anand and Dr. Sujata Sriram (the Figma used short forms).
 - **Titles where V6 and the tracker differ** (Session 7 "(followed by a briefing…)", Session 4 "of the Department of Higher Education"): the tracker wording, which ranks above V6.
 - **No venues** on the cards: V6 has none, so the meta slot shows the session number.
@@ -82,7 +82,8 @@ Agreed with Gurnoor on 26 Nov unless marked as a default. All are content edits 
 - **Footer:** both hashtags (`#समरस्यम्2026` and `#NationalWellbeingConclave`), "Designed and developed by **SAC Team**", IIT Ropar's five official social accounts in the Figma order.
 - **Logos:** the official files, with sources in `static/img/logos/SOURCES.md`. The MMTTP logo is the official horizontal lockup from mmc.ugc.ac.in, shown whole (the Figma's 72 px circle slot is a placeholder; cropping the official artwork would alter it). The IIT Ropar "SVG" is a PNG inside an SVG, so the seals are raster (WebP). The emblem is rendered unaltered from Wikimedia Commons, with सत्यमेव जयते.
 - **Speakers section follows the selected day** (Day 1 frame vs Day 2 frame); without JS both days show. The intro reads "Dignitaries and resource persons for Day 1, Sunday 6 December." (the Figma's "Portraits and short profiles will be added…" sentence is dropped: portraits are in, and no bios exist).
-- **People without a photo** get the design's neutral avatar (silhouette), not initials.
+- **People without a photo** get the design's neutral avatar (silhouette), not initials. Since 26 Nov evening every published person has a photo.
+- **Session 3:** Dean, Student Affairs is **Dr. Puneet Pasricha** (confirmed by Gurnoor, 26 Nov), shown with his photo; ID `puneet-pasricha`.
 - **Countdown** counts whole IST calendar days to 6 Dec; on 6–7 Dec (IST) it reads "Happening now · Day N"; after 7 Dec it disappears. Without JS it shows the date. Day 2 is the default tab on 7 Dec IST.
 - **Hero art** is three external SVGs (wide and mobile crops via `<picture>`, plus the gate pillars) rather than inline SVG: about 90 KB of markup that the browser can now cache, and the server does not compress. They contain no `style=` attributes.
 - **Map links** carry the accessible name "Open in Google Maps: <place> (opens in a new tab)": it names the place and contains the visible text (WCAG label-in-name).
@@ -108,12 +109,10 @@ Kept unless superseded above.
 
 | Item | Where it goes |
 |---|---|
-| Photos for Dr. Sidharth Sood, Dr. Parwinder Singh, Dr. Dhiraj Mahajan, Dr. Surya Kant Sahdeo, Dr. Suryasnata Tripathy (and the Dean, Student Affairs if named) | `imgaes/` + `tools/photo_map.json` |
 | Better-resolution photos (optional): Dr. Akshay Anand, Dr. Ananya Syal, Dr. Mayuri Duggirala, Dr. Jitendra Nagpal, Ms. Geeta Mehrotra (headshot) | same |
 | Short bios, with permission to publish | `speakers.*.bio` |
 | A vector MMTTP logo (optional: the official PNG works) and a true vector IIT Ropar seal (optional) | `static/img/logos/` |
 | Session 4 presenter and the spelling of "Rizwi" | `s4.speakers`, `speakers.syed-ekram-rizwi` |
-| Name of the Dean, Student Affairs (Session 3), or keep the role only | `speakers.dean-student-affairs` |
 | Session 11 psychologist; Session 14 CFIs | `speakers`, session `speakers` |
 | Ms. Geeta Mehrotra's designation / organisation | `speakers.geeta-mehrotra` |
 | Venues / halls for each session | session `venue` |

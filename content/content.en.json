@@ -291,7 +291,7 @@
           "title": "Presentation on IIT Ropar's Wellness Ecosystem",
           "brief": "This presentation will use IIT Ropar's institution-wide approach to student well-being as a practical model of an integrated campus ecosystem. It will outline the governance and organisational arrangements, counselling and support services, referral pathways, the roles of faculty and residential staff, and student-facing initiatives. It will also distinguish the model's transferable design principles from the context-specific choices shaped by IIT Ropar's implementation experience, constraints and subsequent adjustments.",
           "speakers": [
-            "dean-student-affairs"
+            "puneet-pasricha"
           ]
         },
         {
@@ -551,12 +551,12 @@
       "photo": "img/speakers/rajeev-ahuja-352.webp",
       "bio": null
     },
-    "dean-student-affairs": {
-      "name": "Dean, Student Affairs",
-      "designation": null,
+    "puneet-pasricha": {
+      "name": "Dr. Puneet Pasricha",
+      "designation": "Dean, Student Affairs",
       "institution": "IIT Ropar",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/puneet-pasricha-352.webp",
       "bio": null,
       "grid": false
     },
@@ -565,7 +565,7 @@
       "designation": "Nodal Officer",
       "institution": "NWC 2026",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/surya-kant-sahdeo-352.webp",
       "bio": null
     },
     "suryasnata-tripathy": {
@@ -573,7 +573,7 @@
       "designation": "Coordinator",
       "institution": "NWC 2026",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/suryasnata-tripathy-352.webp",
       "bio": null
     },
     "parwinder-singh": {
@@ -581,7 +581,7 @@
       "designation": null,
       "institution": "IIT Ropar",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/parwinder-singh-352.webp",
       "bio": null
     },
     "dhiraj-mahajan": {
@@ -589,7 +589,7 @@
       "designation": null,
       "institution": "IIT Ropar",
       "status": "ex-officio",
-      "photo": null,
+      "photo": "img/speakers/dhiraj-mahajan-352.webp",
       "bio": null
     },
     "pralhad-joshi": {
@@ -741,7 +741,7 @@
       "designation": "Addiction Psychiatry",
       "institution": "New Delhi",
       "status": "confirmed",
-      "photo": null,
+      "photo": "img/speakers/sidharth-sood-352.webp",
       "bio": null
     },
     "mayuri-duggirala": {

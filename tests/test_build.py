@@ -493,15 +493,15 @@ class TestValidators(BuildTestCase):
         self.assertFails("there are no items")
 
     def test_missing_photo_file_fails_and_existing_one_renders(self):
-        self.content["speakers"]["sidharth-sood"]["photo"] = "img/speakers/sidharth-sood-352.webp"
-        self.assertFails("static/img/speakers/sidharth-sood-352.webp does not exist")
+        self.content["speakers"]["sidharth-sood"]["photo"] = "img/speakers/fixture-person-352.webp"
+        self.assertFails("static/img/speakers/fixture-person-352.webp does not exist")
         for size in (128, 352):
-            self.add_static("img/speakers/sidharth-sood-%d.webp" % size, b"RIFF\x00\x00\x00\x00WEBP")
+            self.add_static("img/speakers/fixture-person-%d.webp" % size, b"RIFF\x00\x00\x00\x00WEBP")
         self.assertEqual(self.run_build(), 0, self.log)
         html = self.page()
-        self.assertIn("assets/img/speakers/sidharth-sood-128.webp?v=", html)
+        self.assertIn("assets/img/speakers/fixture-person-128.webp?v=", html)
         self.assertIn('alt="Dr. Sidharth Sood" width="64" height="64"', html)
-        self.assertRegex(html, r'srcset="assets/img/speakers/sidharth-sood-128\.webp\?v=\w+ 128w, assets/img/speakers/sidharth-sood-352\.webp\?v=\w+ 352w"')
+        self.assertRegex(html, r'srcset="assets/img/speakers/fixture-person-128\.webp\?v=\w+ 128w, assets/img/speakers/fixture-person-352\.webp\?v=\w+ 352w"')
 
     def test_empty_values_are_hidden_not_blank(self):
         s = sessions(self.content)
