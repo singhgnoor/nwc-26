@@ -195,7 +195,7 @@
           "moderator": "ananya-syal",
           "speakers": [
             "asha-banu-soletti",
-            "ram-manohar-singh"
+            "tony-thomas"
           ]
         },
         {
@@ -261,7 +261,7 @@
           "brief": "Digital technology is now woven into almost every aspect of student life, from learning to friendship and leisure. While it offers access and connection, excessive and unreflective use is associated with screen dependence, fear of missing out, social comparison, disturbed sleep and reduced academic focus. This panel will examine the impact of social media on youth psychology and the effects of digital overload on sleep and academic performance, and will discuss responsible technology use, digital decluttering and the promotion of offline engagement and healthy digital habits. It brings together clinical, academic and technology-industry perspectives.",
           "moderator": "dhiraj-mahajan",
           "speakers": [
-            "jyoti-mishra",
+            "palak-upadhyay",
             "b-k-bala-kishore",
             "sujata-sriram"
           ]
@@ -517,9 +517,9 @@
       "photo": null,
       "bio": null
     },
-    "ram-manohar-singh": {
-      "name": "Dr. Ram Manohar Singh",
-      "designation": "Associate Professor, Dept. of Humanities and Social Sciences",
+    "tony-thomas": {
+      "name": "Dr. Tony Thomas",
+      "designation": "Assistant Professor, Department of Humanities and Social Sciences",
       "institution": "IIT Roorkee",
       "status": "verbally-confirmed",
       "photo": null,
@@ -552,32 +552,8 @@
     "nancy-sahni": {
       "name": "Dr. Nancy Sahni",
       "designation": null,
-      "institution": "PGIMER Chandigarh, Speaker on Nutrition",
-      "status": "awaiting",
-      "photo": null,
-      "bio": null
-    },
-    "bani-tamber-aeri": {
-      "name": "Prof. Bani Tamber Aeri",
-      "designation": "Professor, Food & Nutrition",
-      "institution": "Institute of Home Economics, University of Delhi",
-      "status": "alternate",
-      "photo": null,
-      "bio": null
-    },
-    "sunita-malhotra": {
-      "name": "Dr. Sunita Malhotra",
-      "designation": "Former Chief Dietician and Head, Dept. of Dietetics",
-      "institution": "PGIMER",
-      "status": "alternate",
-      "photo": null,
-      "bio": null
-    },
-    "poonam-khanna": {
-      "name": "Dr. Poonam Khanna",
-      "designation": "Associate Professor of Nutrition, Dept. of Community Medicine and School of Public Health",
-      "institution": "PGIMER",
-      "status": "alternate",
+      "institution": "PGIMER, Chandigarh (Speaker on Nutrition)",
+      "status": "confirmed",
       "photo": null,
       "bio": null
     },
@@ -613,11 +589,11 @@
       "photo": null,
       "bio": null
     },
-    "jyoti-mishra": {
-      "name": "Dr. Jyoti Mishra",
-      "designation": "Clinical Psychology",
-      "institution": "GMCH-32, Chandigarh",
-      "status": "verbally-confirmed",
+    "palak-upadhyay": {
+      "name": "Dr. Palak Upadhyay",
+      "designation": "Department of Clinical Psychology",
+      "institution": "Dayanand Medical College & Hospital (DMC&H), Ludhiana",
+      "status": "confirmed",
       "photo": null,
       "bio": null
     },
