@@ -993,6 +993,8 @@ main:focus { outline: none; }
 .site-footer__orgs { background: var(--khaddar); border-top: 1px solid var(--hair); }
 .site-footer__orgs-inner { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px 16px; padding-block: 24px; }
 .site-footer__orgs .logo-row { display: contents; }
+.site-footer__orgs .logo { grid-row: auto; } /* drop the header's grid-area rows, which stack the logos on one row here */
+.site-footer__orgs-inner { grid-auto-flow: row dense; } /* lets "Hosted by" sit beside the seal that precedes it */
 .site-footer__by { grid-column: 1 / -1; }
 .site-footer__orgs .logo--mmttp, .site-footer__orgs .logo--moe { grid-column: 1 / -1; justify-self: start; }
 .site-footer__by--host { grid-column: 1; }
