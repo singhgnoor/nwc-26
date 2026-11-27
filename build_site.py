@@ -71,7 +71,7 @@ EMERGENCY_ICONS = ("medical", "phone", "helpdesk")
 SOCIAL_PLATFORMS = ("facebook", "linkedin", "x", "instagram", "youtube")
 WEEKDAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 HONORIFICS = {"dr.", "prof.", "(dr.)", "shri", "sh", "sh.", "smt.", "ms.", "mr.", "mrs."}
-NAV_ORDER = ("about", "programme", "speakers", "journey", "moments", "feedback", "contact")
+NAV_ORDER = ("about", "programme", "speakers", "journey", "moments", "feedback", "organisers", "contact")
 
 PLACEHOLDER_PATTERNS = (
     (re.compile(r"\bTODO\b", re.I), "TODO"),
@@ -173,6 +173,7 @@ UI = {
         "feedback": dict(FOLIO, **{k: TEXT for k in ("title", "intro", "closedTitle", "closedText", "closedButton",
                                                      "openTag", "openTitle", "openButton", "openNote", "qrCaption",
                                                      "qrAlt")}),
+        "organisers": dict(FOLIO, title=TEXT),
         "contact": dict(FOLIO, title=TEXT, intro=OPT_TEXT, onBehalf=TEXT),
         "nearby": {k: TEXT for k in ("label", "swipeHint", "here", "hereNote", "mapLink", "mapAria")},
     },
@@ -207,6 +208,7 @@ SCHEMA = {
     "feedback": {"status": Enum("closed", "open"), "formUrl": OPT_TEXT, "qr": Opt(OPT_TEXT)},
     "contact": {"team": TEXT, "lines": [TEXT], "note": OPT_TEXT, "email": TEXT,
                 "people": [{"name": TEXT, "role": OPT_TEXT, "phone": OPT_TEXT}]},
+    "organisers": [{"name": TEXT, "role": Opt(OPT_TEXT), "photo": Opt(OPT_TEXT)}],
     "nearby": {
         "heading": TEXT, "subline": OPT_TEXT, "footnote": OPT_TEXT,
         "groups": [{"id": Enum(*NEARBY_GROUPS), "label": TEXT, "range": TEXT,
@@ -310,6 +312,9 @@ def validate(content, lang, static_dir):
     for sp in content["speakers"].values():
         for key, default in SPEAKER_DEFAULTS.items():
             sp.setdefault(key, default)
+    for person in content["organisers"]:
+        person.setdefault("role", None)
+        person.setdefault("photo", None)
     content["feedback"].setdefault("qr", None)
     for item in content["photos"]["items"]:
         item.setdefault("label", None)
@@ -341,6 +346,14 @@ def validate(content, lang, static_dir):
             check_asset_path(sp["photo"], "speakers.%s.photo" % sid, static_dir, errors)
             if not PHOTO_SIZE.match(sp["photo"].split("/")[-1]):
                 errors.append("speakers.%s.photo: name the largest export <id>-<size>.webp" % sid)
+
+    for i, person in enumerate(content["organisers"]):
+        if not person["name"].strip():
+            errors.append("organisers[%d].name: must not be empty" % i)
+        if person["photo"]:
+            check_asset_path(person["photo"], "organisers[%d].photo" % i, static_dir, errors)
+            if not PHOTO_SIZE.match(person["photo"].split("/")[-1]):
+                errors.append("organisers[%d].photo: name the largest export <id>-<size>.webp" % i)
 
     def check_ref(sid, where):
         if sid not in speakers:
@@ -679,18 +692,22 @@ class Renderer:
         return sorted(found, key=lambda x: x[1])
 
     def avatar(self, sid, size, cls="avatar", lazy=True):
-        """A round portrait (or the neutral avatar) shown at `size` CSS pixels."""
+        """A speaker's round portrait (or the neutral avatar) shown at `size` CSS pixels."""
         sp = self.c["speakers"][sid]
-        if not sp["photo"]:
+        return self.portrait(sp["name"], sp["photo"], size, cls, lazy)
+
+    def portrait(self, name, photo, size, cls="avatar", lazy=True):
+        """A round portrait (or the neutral avatar) for any person, shown at `size` CSS pixels."""
+        if not photo:
             return '<span class="%s avatar--empty" aria-hidden="true"><svg viewBox="0 0 176 176" focusable="false"><use href="#i-avatar"></use></svg></span>' % cls
-        variants = self.photo_variants(sp["photo"])
+        variants = self.photo_variants(photo)
         pick = next((p for p, s in variants if s and s >= size * 2), variants[-1][0])
         srcset = ", ".join("%s %dw" % (self.asset(p), s) for p, s in variants if s)
         attrs = ' srcset="%s" sizes="%dpx"' % (srcset, size) if srcset else ""
         # every portrait is below the first screen (section 03 starts far down), so all are lazy-loaded
         loading = ' loading="lazy"' if lazy else ""
         return ('<span class="%s"><img src="%s"%s alt="%s" width="%d" height="%d"%s decoding="async"></span>'
-                % (cls, self.asset(pick), attrs, esc(sp["name"]), size, size, loading))
+                % (cls, self.asset(pick), attrs, esc(name), size, size, loading))
 
     def role_line(self, sp):
         return ", ".join(self.text(x) for x in (sp["designation"], sp["institution"]) if x)
@@ -1049,6 +1066,18 @@ class Renderer:
         return self.fill("_feedback.html", folio=self.folio("feedback"), title=self.text(sec["title"]),
                          intro=self.el("p", self.text(sec["intro"]), "feedback__intro"), card=card)
 
+    def organisers(self):
+        people, sec = self.c["organisers"], self.ui["sections"]["organisers"]
+        if not people:
+            return ""
+        cards = "".join(
+            '<li class="organiser">%s<div class="organiser__text"><p class="organiser__name">%s</p>%s</div></li>' % (
+                self.portrait(p["name"], p["photo"], 72, "avatar avatar--72"), self.text(p["name"]),
+                self.el("p", self.text(p["role"]), "organiser__role"))
+            for p in people)
+        return self.fill("_organisers.html", folio=self.folio("organisers"), title=self.text(sec["title"]),
+                         cards=cards)
+
     def contact(self):
         ct, sec = self.c["contact"], self.ui["sections"]["contact"]
         lines = "".join(self.el("p", self.text(line), "contact__line contact__line--%d" % (i + 1))
@@ -1160,7 +1189,7 @@ class Renderer:
     def index(self):
         sections = [("about", self.about()), ("programme", self.programme()), ("speakers", self.speakers()),
                     ("journey", self.journey()), ("moments", self.moments()), ("feedback", self.feedback()),
-                    ("contact", self.contact())]
+                    ("organisers", self.organisers()), ("contact", self.contact())]
         present = {sid for sid, markup in sections if markup}
         nav = [(sid, self.ui["nav"][sid]) for sid in NAV_ORDER if sid in present]
         nearby = self.nearby()

@@ -179,6 +179,39 @@ class TestRealContent(BuildTestCase):
         self.assertNotIn("birthplace", html.lower())
         self.assertIn('<a href="#nearby">Around IIT Ropar</a>', html)
 
+    def test_organising_team(self):
+        self.assertEqual(self.run_build(), 0, self.log)
+        html = self.page()
+        start = html.index('<section id="organisers"')
+        sec = html[start:html.index("</section>", start)]
+        self.assertIn('class="section section--deep organisers"', sec)
+        self.assertIn("07 &nbsp;·&nbsp; Organisers", sec)
+        self.assertIn('<h2 id="organisers-title" class="h1">Organising team</h2>', sec)
+        self.assertNotIn("section-head__aside", sec)  # no intro paragraph
+        names = re.findall(r'<p class="organiser__name">([^<]+)</p>', sec)
+        self.assertEqual(names, ["Dr. Surya Kant Sahdeo", "Dr. Shray Pathak", "Dr. Loitongbam Gyanendro Singh",
+                                 "Dr. Puneet Pasricha", "Prof. Dhiraj K Mahajan", "Dr. Satyam Agarwal",
+                                 "Dr. Parwinder Singh", "Shri Sumnendra Singh", "Dr. Suryasnata Tripathy"])
+        self.assertEqual(re.findall(r'<p class="organiser__role">([^<]+)</p>', sec), ["Nodal Officer", "Coordinator"])
+        # every organiser has a photo, with the person's name as alt text
+        self.assertEqual(len(re.findall(r'<img [^>]*alt="Dr. Surya Kant Sahdeo" width="72" height="72"', sec)), 1)
+        self.assertEqual(sec.count("<img "), 9)
+        self.assertEqual(sec.count("avatar--empty"), 0)
+        self.assertNotIn("<a ", sec)  # cards are not focusable
+        # placed between Feedback and Contact; Contact and Around IIT Ropar swapped backgrounds
+        self.assertLess(html.index('id="feedback"'), start)
+        self.assertLess(start, html.index('id="contact"'))
+        self.assertIn('<section id="contact" class="section contact"', html)
+        self.assertIn('<section id="nearby" class="section section--deep nearby"', html)
+        self.assertIn("08 &nbsp;·&nbsp; Contact</span>", html)
+        self.assertNotIn("Contact &amp; organisers", html)
+        # footer, nav and menu link to it just before Contact
+        self.assertIn('<li><a href="#organisers">Organising team</a></li><li><a href="#contact">Contact</a></li>', html)
+        self.assertIn('<a class="nav__link" href="#organisers">Organisers</a></li>\n<li><a class="nav__link" href="#contact">', html)
+        self.assertRegex(html, r'<a class="menu__link" href="#organisers"><span class="menu__num">07</span>'
+                               r'<span class="menu__label">Organisers</span></a></li>\n<li><a class="menu__link" href="#contact">'
+                               r'<span class="menu__num">08</span>')
+
     def test_socials_in_figma_order(self):
         self.run_build()
         html = self.page()
@@ -213,7 +246,8 @@ class TestRealContent(BuildTestCase):
         self.assertEqual(html.count("<h1"), 1)
         # every section from the spec is present, in order
         order = [html.index('id="%s"' % s) for s in ("hero", "glance", "about", "programme", "speakers",
-                                                      "journey", "moments", "feedback", "contact", "nearby")]
+                                                      "journey", "moments", "feedback", "organisers", "contact",
+                                                      "nearby")]
         self.assertEqual(order, sorted(order))
         self.assertLess(html.index("<header"), order[0])
         self.assertGreater(html.index("<footer"), order[-1])
@@ -434,6 +468,19 @@ class TestValidators(BuildTestCase):
         self.content = copy.deepcopy(REAL_CONTENT)
         self.content["nearby"]["groups"][1]["id"] = "close"
         self.assertFails("is used twice")
+
+    def test_organisers_schema(self):
+        self.content["organisers"][1]["name"] = "  "
+        self.assertFails("organisers[1].name: must not be empty")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["organisers"][1]["photo"] = "img/speakers/nobody-352.webp"
+        self.assertFails("organisers[1].photo: file static/img/speakers/nobody-352.webp does not exist")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        self.content["organisers"][0]["title"] = "Nodal Officer"
+        self.assertFails("organisers[0].title: unknown key")
+        self.content = copy.deepcopy(REAL_CONTENT)
+        del self.content["organisers"][1]["role"], self.content["organisers"][1]["photo"]  # both optional
+        self.assertEqual(self.run_build(check_only=True), 0, self.log)
 
     def test_broken_anchor_fails(self):
         self.content["ui"]["nav"]["about"] = "About"

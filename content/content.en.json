@@ -30,6 +30,7 @@
       "journey": "Journey",
       "moments": "Moments",
       "feedback": "Feedback",
+      "organisers": "Organisers",
       "contact": "Contact"
     },
     "hero": {
@@ -102,9 +103,14 @@
         "qrCaption": "Scan at the venue",
         "qrAlt": "QR code for the feedback form"
       },
-      "contact": {
+      "organisers": {
         "number": "07",
-        "label": "Contact & organisers",
+        "label": "Organisers",
+        "title": "Organising team"
+      },
+      "contact": {
+        "number": "08",
+        "label": "Contact",
         "title": "Who to write to",
         "intro": "For the programme, invitations, travel or your stay, the organising team at IIT Ropar is your first point of contact.",
         "onBehalf": "On behalf of the organising team"
@@ -149,6 +155,7 @@
         "journey": "The journey",
         "moments": "Moments",
         "feedback": "Feedback",
+        "organisers": "Organising team",
         "contact": "Contact",
         "nearby": "Around IIT Ropar"
       },
@@ -842,6 +849,53 @@
       }
     ]
   },
+  "organisers": [
+    {
+      "name": "Dr. Surya Kant Sahdeo",
+      "role": "Nodal Officer",
+      "photo": "img/speakers/surya-kant-sahdeo-352.webp"
+    },
+    {
+      "name": "Dr. Shray Pathak",
+      "role": null,
+      "photo": "img/speakers/shray-pathak-352.webp"
+    },
+    {
+      "name": "Dr. Loitongbam Gyanendro Singh",
+      "role": null,
+      "photo": "img/speakers/loitongbam-gyanendro-singh-352.webp"
+    },
+    {
+      "name": "Dr. Puneet Pasricha",
+      "role": null,
+      "photo": "img/speakers/puneet-pasricha-352.webp"
+    },
+    {
+      "name": "Prof. Dhiraj K Mahajan",
+      "role": null,
+      "photo": "img/speakers/dhiraj-mahajan-352.webp"
+    },
+    {
+      "name": "Dr. Satyam Agarwal",
+      "role": null,
+      "photo": "img/speakers/satyam-agarwal-352.webp"
+    },
+    {
+      "name": "Dr. Parwinder Singh",
+      "role": null,
+      "photo": "img/speakers/parwinder-singh-352.webp"
+    },
+    {
+      "name": "Shri Sumnendra Singh",
+      "role": null,
+      "photo": "img/speakers/sumnendra-singh-348.webp"
+    },
+    {
+      "name": "Dr. Suryasnata Tripathy",
+      "role": "Coordinator",
+      "photo": "img/speakers/suryasnata-tripathy-352.webp"
+    }
+  ],
   "nearby": {
     "heading": "Around IIT Ropar",
     "subline": "For a free hour, an afternoon, or a day after the conclave.",

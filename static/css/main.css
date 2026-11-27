@@ -880,7 +880,34 @@ main:focus { outline: none; }
 }
 
 /* ==========================================================================
-   07 Contact
+   07 Organising team (Figma 207:1942; phones use the 390 frame's horizontal person-card scale)
+   ========================================================================== */
+.avatar--72 { --s: 64px; }
+.organiser-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.organiser {
+  display: flex; align-items: center; gap: 16px; min-width: 0;
+  background: var(--card); border: 1px solid var(--hair); border-radius: var(--radius); padding: 16px 20px;
+}
+.organiser__text { display: flex; flex-direction: column; gap: 4px; flex: 1 1 0; min-width: 0; }
+.organiser__name { font-weight: 600; font-size: 17px; line-height: 24px; overflow-wrap: break-word; }
+.organiser__role { font-size: 16px; line-height: 24px; color: var(--soft); }
+@media (min-width: 600px) {
+  .organiser-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+@media (min-width: 768px) {
+  .avatar--72 { --s: 72px; }
+  .organiser-grid { gap: 20px; }
+  .organiser { gap: 20px; padding: 20px 24px; min-height: 114px; }
+  .organiser__text { gap: 6px; }
+  .organiser__name { font-size: 18px; line-height: 28px; }
+  .organiser__role { line-height: 25px; }
+}
+@media (min-width: 1024px) {
+  .organiser-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+}
+
+/* ==========================================================================
+   08 Contact
    ========================================================================== */
 .contact__panel { background: var(--card); border: 1px solid var(--hair); border-radius: var(--radius); padding: 27px 22px; display: flex; flex-direction: column; gap: 22px; }
 .contact__team { display: flex; flex-direction: column; gap: 6px; }

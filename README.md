@@ -49,6 +49,7 @@ On Windows, use `python` instead of `python3`.
 - **Feedback:** when the Google Form is ready, set `"feedback": {"status": "open", "formUrl": "https://docs.google.com/forms/...", "qr": null}`. To show the QR code at the venue, add the image (e.g. `static/img/feedback-qr.png`) and set `"qr": "img/feedback-qr.png"`; without it the QR box is not shown.
 - **Photos after the event:** set `"photos": {"status": "live", "items": [{"src": "img/moments/1.webp", "alt": "...", "caption": "...", "label": "Day 1 · Inaugural Ceremony"}]}` (1200 × 620 crops look best). The carousel replaces the "Coming soon" card.
 - **Logos:** files live in `static/img/logos/` (sources in `SOURCES.md`); the `logos` list sets order, `alt` and the text lines of the Ministry lockup.
+- **Organising team (section 07):** the `organisers` list, shown in its order. Each person has `name`, an optional `role` (shown under the name) and an optional `photo`. An organiser who is also a speaker reuses the speaker's photo path (`img/speakers/<id>-352.webp`). For a new photo, map the source in `tools/photo_map.json` under the person's name slug without the honorific (e.g. `shray-pathak`) and run `prepare_photos.py --write-content`: it fills in the organiser's `photo`. Without a photo, the neutral avatar is shown. An empty list hides the section and its links.
 - **Around IIT Ropar:** the `nearby` block (groups `close`, `half`, `day`; each place has `name`, `blurb`, `drive`, `note`, `mapsQuery`). Each card links to `https://www.google.com/maps/search/?api=1&query=<mapsQuery>`.
 - **Interface wording** (navigation, section headings and intros, button labels, countdown, carousel, footer labels, type tags, month names) is in `ui`, so a Hindi file can translate it.
 
@@ -82,7 +83,7 @@ Agreed with Gurnoor on 26 Nov unless marked as a default. All are content edits 
 - **Footer:** both hashtags (`#समरस्यम्2026` and `#NationalWellbeingConclave`), "Designed and developed by **SAC Team**", IIT Ropar's five official social accounts in the Figma order.
 - **Logos:** the official files, with sources in `static/img/logos/SOURCES.md`. The MMTTP logo is the official horizontal lockup from mmc.ugc.ac.in, shown whole (the Figma's 72 px circle slot is a placeholder; cropping the official artwork would alter it). The IIT Ropar "SVG" is a PNG inside an SVG, so the seals are raster (WebP). The emblem is rendered unaltered from Wikimedia Commons, with सत्यमेव जयते.
 - **Speakers section follows the selected day** (Day 1 frame vs Day 2 frame); without JS both days show. The intro reads "Dignitaries and resource persons for Day 1, Sunday 6 December." (the Figma's "Portraits and short profiles will be added…" sentence is dropped: portraits are in, and no bios exist).
-- **People without a photo** get the design's neutral avatar (silhouette), not initials. Since 26 Nov evening every published person has a photo.
+- **People without a photo** get the design's neutral avatar (silhouette), not initials. Since 26 Nov evening every published speaker has a photo, and since 28 Nov every organiser does too.
 - **Session 3:** Dean, Student Affairs is **Dr. Puneet Pasricha** (confirmed by Gurnoor, 26 Nov), shown with his photo; ID `puneet-pasricha`.
 - **Spelling "Wellbeing" (27 Nov, Gurnoor):** every "Well-being"/"well-being" on the page is now "Wellbeing"/"wellbeing", without the hyphen, including the event name in `NAME_FULL` and the OG image. The build now rejects "well-being" anywhere in the output. The planning notes (`content-tracker.md`, `project-context.md` and others) still record the earlier 17 Nov hyphen decision.
 - **Countdown** counts whole IST calendar days to 6 Dec; on 6–7 Dec (IST) it reads "Happening now · Day N"; after 7 Dec it disappears. Without JS it shows the date. Day 2 is the default tab on 7 Dec IST.
@@ -90,6 +91,13 @@ Agreed with Gurnoor on 26 Nov unless marked as a default. All are content edits 
 - **Map links** carry the accessible name "Open in Google Maps: <place> (opens in a new tab)": it names the place and contains the visible text (WCAG label-in-name).
 - **Fonts:** Devanagari in Mukta 600/700 (the footer hashtag) uses the Mukta 500 file, saving about 200 KB; restore separate files if a full Hindi page is added.
 - **New interface wording** not in any source (approved 26 Nov): "Happening now · Day 1/2", "View speakers"/"Hide speakers", menu, carousel and "(opens in a new tab)" labels.
+
+## Organising team section (27 Nov 2026)
+
+- **Design:** Figma `207:1942` (Day 1) / `207:3123` (Day 2), which are identical: folio "07 · Organisers", heading "Organising team", no intro. Three columns of 384 × 114 px cards at 1440, 24 px gaps, 72 px avatars, dark sand background. Two columns from 600 px, one below.
+- **Phones:** the mobile frame `33:2` has no organisers section, so below 768 px the cards use the scale of its horizontal Guest of Honour cards: 64 px avatar, 16/20 px padding, 17/24 px name.
+- **Photos (Gurnoor, 27 Nov):** the five organisers who are also speakers (Sahdeo, Pasricha, Mahajan, Parwinder Singh, Tripathy) show their existing speaker photos. The other four photos were added on 28 Nov through `tools/photo_map.json` (Sumnendra Singh's source is 348 px, which is still sharp at 72 px). Photos have the person's name as `alt` (requested). axe flags this as a minor "redundant alt", because the name is printed beside it. The neutral avatar is decorative (`aria-hidden`).
+- **Knock-ons:** Contact is now "08 · Contact" (no "& organisers"). Contact and Around IIT Ropar swapped backgrounds, so Feedback (light), Organisers (dark), Contact (light) and Around IIT Ropar (dark) alternate. "Organisers" is in the nav and mobile menu, and "Organising team" is in the footer, all just before Contact.
 
 ## Decisions taken in this build (17 Nov 2026)
 

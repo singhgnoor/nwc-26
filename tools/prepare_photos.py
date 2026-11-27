@@ -6,8 +6,12 @@ Dev-only: face-centred square crops of the speaker photos, exported as WebP.
     python tools/prepare_photos.py            # crops + tools/out/contact-sheet.png
     python tools/prepare_photos.py --write-content   # also set "photo" in content/content.en.json
 
-Reads tools/photo_map.json (source file in imgaes/ -> speaker ID, optional manual
-crop). The originals in imgaes/ are never modified. For each photo it:
+Reads tools/photo_map.json (source file in imgaes/ -> ID, optional manual crop).
+The ID is a speaker ID, or for an organiser who is not a speaker, their name as
+a slug without the honorific ("Dr. Shray Pathak" -> "shray-pathak").
+--write-content sets the photo of the speaker with that ID and of every
+organiser whose name slug matches or whose photo already points at that ID.
+The originals in imgaes/ are never modified. For each photo it:
   1. applies the EXIF orientation, converts to sRGB, drops all metadata;
   2. finds the face (OpenCV Haar cascade: detection only, no identification) and
      builds a square crop with the face centred, the eyes ~40 % from the top and
@@ -56,6 +60,13 @@ def load(path):
         bg = Image.new("RGBA", im.size, KHADDAR + (255,))
         im = Image.alpha_composite(bg, im)
     return im.convert("RGB")
+
+
+def name_slug(name):
+    """'Dr. Shray Pathak' -> 'shray-pathak' (the honorific is dropped, as in speaker IDs)."""
+    honorifics = {"dr.", "prof.", "(dr.)", "shri", "sh", "sh.", "smt.", "ms.", "mr.", "mrs."}
+    words = [w for w in name.replace(",", " ").split() if w.lower() not in honorifics]
+    return "-".join("".join(ch for ch in w.lower() if ch.isalnum()) for w in words)
 
 
 def faces(im):
@@ -159,7 +170,18 @@ def main():
         with open(CONTENT, encoding="utf-8") as f:
             content = json.load(f)
         for entry, _, sizes, _ in results:
-            content["speakers"][entry["id"]]["photo"] = "img/speakers/%s-%d.webp" % (entry["id"], sizes[-1])
+            sid = entry["id"]
+            photo = "img/speakers/%s-%d.webp" % (sid, sizes[-1])
+            used = False
+            if sid in content["speakers"]:
+                content["speakers"][sid]["photo"] = photo
+                used = True
+            for person in content.get("organisers", []):
+                if name_slug(person["name"]) == sid or (person.get("photo") or "").startswith("img/speakers/%s-" % sid):
+                    person["photo"] = photo
+                    used = True
+            if not used:
+                print("WARNING: %s matches no speaker ID or organiser name; photo not set" % sid)
         with open(CONTENT, "w", encoding="utf-8", newline="\n") as f:
             json.dump(content, f, ensure_ascii=False, indent=2)
             f.write("\n")
