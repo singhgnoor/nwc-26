@@ -103,7 +103,7 @@ class TestRealContent(BuildTestCase):
         for text in ("Assistant Professor in OB and HRM Area, IIM Amritsar",
                      "Professor, Centre for Health and Mental Health, Tata Institute of Social Sciences, Mumbai",
                      "Professor, Department of Neurology, PGIMER, Chandigarh", "TISS, Mumbai",
-                     "PGIMER, Chandigarh (Speaker on Nutrition)",
+                     "Chief Dietician &amp; HOD (Department of dietetics), PGIMER, Chandigarh",
                      "Assistant Professor, Department of Humanities and Social Sciences, IIT Roorkee"):
             self.assertIn(text, html)
         for short in ("TISS Mumbai", "Dept. of Neurology", "PGIMER Chandigarh<"):
@@ -190,7 +190,7 @@ class TestRealContent(BuildTestCase):
         self.assertNotIn("section-head__aside", sec)  # no intro paragraph
         names = re.findall(r'<p class="organiser__name">([^<]+)</p>', sec)
         self.assertEqual(names, ["Dr. Surya Kant Sahdeo", "Dr. Shray Pathak", "Dr. Loitongbam Gyanendro Singh",
-                                 "Dr. Puneet Pasricha", "Prof. Dhiraj K Mahajan", "Dr. Satyam Agarwal",
+                                 "Dr. Puneet Pasricha", "Prof. Dhiraj K. Mahajan", "Dr. Satyam Agarwal",
                                  "Dr. Parwinder Singh", "Shri Sumnendra Singh", "Dr. Suryasnata Tripathy"])
         self.assertEqual(re.findall(r'<p class="organiser__role">([^<]+)</p>', sec), ["Nodal Officer", "Coordinator"])
         # every organiser has a photo, with the person's name as alt text

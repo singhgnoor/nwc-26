@@ -586,15 +586,15 @@
     },
     "parwinder-singh": {
       "name": "Dr. Parwinder Singh",
-      "designation": null,
+      "designation": "Associate Professor (Psychology), Department of Humanities and Social Sciences",
       "institution": "IIT Ropar",
       "status": "ex-officio",
       "photo": "img/speakers/parwinder-singh-352.webp",
       "bio": null
     },
     "dhiraj-mahajan": {
-      "name": "Dr. Dhiraj Mahajan",
-      "designation": null,
+      "name": "Prof. Dhiraj K. Mahajan",
+      "designation": "Professor, Department of Mechanical Engineering",
       "institution": "IIT Ropar",
       "status": "ex-officio",
       "photo": "img/speakers/dhiraj-mahajan-352.webp",
@@ -682,8 +682,8 @@
     },
     "nancy-sahni": {
       "name": "Dr. Nancy Sahni",
-      "designation": null,
-      "institution": "PGIMER, Chandigarh (Speaker on Nutrition)",
+      "designation": "Chief Dietician & HOD (Department of dietetics)",
+      "institution": "PGIMER, Chandigarh",
       "status": "confirmed",
       "photo": "img/speakers/nancy-sahni-352.webp",
       "bio": null
@@ -872,7 +872,7 @@
       "photo": "img/speakers/puneet-pasricha-352.webp"
     },
     {
-      "name": "Prof. Dhiraj K Mahajan",
+      "name": "Prof. Dhiraj K. Mahajan",
       "role": null,
       "photo": "img/speakers/dhiraj-mahajan-352.webp"
     },
