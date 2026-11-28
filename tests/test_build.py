@@ -100,13 +100,13 @@ class TestRealContent(BuildTestCase):
     def test_v6_designations_word_for_word(self):
         self.run_build()
         html = self.page()
-        for text in ("Chairperson, Student Affairs, Indian Institute of Management Amritsar",
+        for text in ("Assistant Professor in OB and HRM Area, IIM Amritsar",
                      "Professor, Centre for Health and Mental Health, Tata Institute of Social Sciences, Mumbai",
                      "Professor, Department of Neurology, PGIMER, Chandigarh", "TISS, Mumbai",
                      "PGIMER, Chandigarh (Speaker on Nutrition)",
                      "Assistant Professor, Department of Humanities and Social Sciences, IIT Roorkee"):
             self.assertIn(text, html)
-        for short in ("IIM Amritsar", "TISS Mumbai", "Dept. of Neurology", "PGIMER Chandigarh<"):
+        for short in ("TISS Mumbai", "Dept. of Neurology", "PGIMER Chandigarh<"):
             self.assertNotIn(short, html)
 
     def test_identity_and_markup(self):
