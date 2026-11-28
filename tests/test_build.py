@@ -87,7 +87,7 @@ class TestRealContent(BuildTestCase):
         self.assertEqual(len(held), 1, self.log)  # nobody else is held back
         for shown in ("Shri Pralhad Joshi", "Ms. Deepti Gaur Mukerjee", "Dr. Tony Thomas", "Dr. Ananya Syal",
                       "Prof. Rajeev Ahuja", "Dr. Jitendra Nagpal", "Speaker and Moderator",
-                      "Ms. Geeta Mehrotra and Team", "Shri Devendra Kumar Sharma", "Dr. Palak Upadhyay",
+                      "Ms. Geeta Mehrotra", "Deputy Director, Expressions India", "Shri Devendra Kumar Sharma", "Dr. Palak Upadhyay",
                       "Dr. Nancy Sahni"):
             self.assertIn(shown, html)
         self.assertNotIn("noindex", html)
@@ -102,7 +102,8 @@ class TestRealContent(BuildTestCase):
         html = self.page()
         for text in ("Assistant Professor in OB and HRM Area, IIM Amritsar",
                      "Professor, Centre for Health and Mental Health, Tata Institute of Social Sciences, Mumbai",
-                     "Professor, Department of Neurology, PGIMER, Chandigarh", "TISS, Mumbai",
+                     "Professor, Department of Neurology, PGIMER, Chandigarh",
+                     "Professor, School of Human Ecology, Tata Institute of Social Sciences (TISS) Mumbai",
                      "Chief Dietician &amp; HOD (Department of dietetics), PGIMER, Chandigarh",
                      "Assistant Professor, Department of Humanities and Social Sciences, IIT Roorkee"):
             self.assertIn(text, html)

@@ -689,9 +689,9 @@
       "bio": null
     },
     "geeta-mehrotra": {
-      "name": "Ms. Geeta Mehrotra and Team",
-      "designation": null,
-      "institution": null,
+      "name": "Ms. Geeta Mehrotra",
+      "designation": "Deputy Director",
+      "institution": "Expressions India",
       "status": "ex-officio",
       "photo": "img/speakers/geeta-mehrotra-200.webp",
       "bio": null
@@ -738,8 +738,8 @@
     },
     "sujata-sriram": {
       "name": "Dr. Sujata Sriram",
-      "designation": null,
-      "institution": "TISS, Mumbai",
+      "designation": "Professor, School of Human Ecology",
+      "institution": "Tata Institute of Social Sciences (TISS) Mumbai",
       "status": "confirmed",
       "photo": "img/speakers/sujata-sriram-352.webp",
       "bio": null
